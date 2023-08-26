@@ -1,0 +1,371 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Post 1",
+      "body": "This is the body of Post 1"
+    },
+    {
+      "id": 2,
+      "title": "Post 2",
+      "body": "This is the body of Post 2"
+    }
+  ],
+  "players": [
+    {
+      "id": "1",
+      "name": "Gaurav Chandwani",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "basePoints": "200",
+      "prevTeams": "Variables, Kings",
+      "photo": "/assets/gauravchandwani_photo.jpg",
+      "isSold": true
+    },
+    {
+      "id": "2",
+      "name": "Suresh Verma",
+      "battingStyle": "Right Hand Bat",
+      "bowlingStyle": "-",
+      "runs": "400",
+      "average": "20.23",
+      "wickets": "-",
+      "economy": "-",
+      "basePoints": "100",
+      "prevTeams": "Kings",
+      "photo": "/assets/Suresh_Varma.jpg",
+      "isSold": false
+    },
+    {
+      "id": "3",
+      "name": "Harshil Patel",
+      "battingStyle": "Right Hand Bat",
+      "bowlingStyle": "Right arm medium",
+      "runs": "1203",
+      "average": "23.23",
+      "wickets": "150",
+      "economy": "6.28",
+      "basePoints": "150",
+      "prevTeams": "Variables",
+      "photo": "/assets/Harshil_Patel.jpg",
+      "isSold": true
+    },
+    {
+      "id": "4",
+      "name": "Viral Patel",
+      "battingStyle": "Right Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "11000",
+      "average": "21.23",
+      "wickets": "1250",
+      "economy": "7.28",
+      "basePoints": "200",
+      "prevTeams": "Kings",
+      "photo": "/assets/Viral_Patel.png"
+    },
+    {
+      "id": 5,
+      "name": "Chirag Vindhani",
+      "battingStyle": "Right Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "4000",
+      "average": "20.23",
+      "wickets": "2000",
+      "economy": "5.28",
+      "prevTeams": "Variables",
+      "photo": "/assets/Chirag_Vindhani.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Janak Shah",
+      "battingStyle": "Right Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "3000",
+      "average": "25.23",
+      "wickets": "1000",
+      "economy": "5.28",
+      "prevTeams": "Kings",
+      "photo": "/assets/Janak_Shah.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "prevTeams": "Variables, Kings",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 8,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 9,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 10,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 11,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 12,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 13,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 14,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 15,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 16,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 17,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 18,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 19,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 20,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 21,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 22,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 23,
+      "name": "Viral Patel",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "photo": "/assets/gauravchandwani_photo.png"
+    },
+    {
+      "id": 24,
+      "name": "Gaurav Chandwani",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "basePoints": "200",
+      "prevTeams": "Variables, Kings",
+      "photo": "/assets/gauravchandwani_photo.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Gaurav Chandwani",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "basePoints": "200",
+      "prevTeams": "Variables, Kings",
+      "photo": "/assets/gauravchandwani_photo.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Gaurav Chandwani",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "basePoints": "200",
+      "prevTeams": "Variables, Kings",
+      "photo": "/assets/gauravchandwani_photo.jpg"
+    },
+    {
+      "id": 27,
+      "name": "Gaurav Chandwani",
+      "battingStyle": "Left Hand Bat",
+      "bowlingStyle": "Slow left arm orthodox",
+      "runs": "5900",
+      "average": "20.23",
+      "wickets": "200",
+      "economy": "5.28",
+      "basePoints": "200",
+      "prevTeams": "Variables, Kings",
+      "photo": "/assets/gauravchandwani_photo.jpg"
+    }
+  ],
+  "teams": {
+    "data": [
+      {
+        "id": 0,
+        "name": "one",
+        "totalKitty": 20000,
+        "availableKitty": 20000,
+        "totalPlayer": 12,
+        "players": []
+      },
+      {
+        "id": 1,
+        "name": "two",
+        "totalKitty": 20000,
+        "availableKitty": 20000,
+        "totalPlayer": 12,
+        "players": []
+      },
+      {
+        "id": 2,
+        "name": "three",
+        "totalKitty": 20000,
+        "availableKitty": 20000,
+        "totalPlayer": 12,
+        "players": []
+      },
+      {
+        "id": 3,
+        "name": "four",
+        "totalKitty": 20000,
+        "availableKitty": 20000,
+        "totalPlayer": 12,
+        "players": []
+      }
+    ]
+  }
+}

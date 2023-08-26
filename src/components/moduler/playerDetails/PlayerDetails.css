@@ -1,0 +1,263 @@
+.player-details {
+  padding: 20px;
+  flex: 1;
+  /* background-color: #f1f1f1; */
+  border-radius: 10px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.player-details-content {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  /* margin: 0 auto; */
+  margin: -50px auto 0;
+  position: relative;
+}
+
+.sold {
+  opacity: 0.5;
+}
+
+.sold_image_container {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.player-photo {
+  /* flex: 0 0 30%; */
+  margin-right: 20px;
+  margin-top: 140px;
+}
+
+.player-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.433);
+}
+
+/* Media query for screens larger than 1400px - MACBOOK pro*/
+@media (min-width: 1201px) {
+  .player-photo {
+    flex: 0 0 40%;
+    margin-right: 30px;
+    margin-top: 140px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .player-photo {
+    flex: 0 0 50%;
+    margin-right: 30px;
+    margin-top: 140px;
+  }
+}
+
+/* For 55-inch 4K Ultra HD (3840x2160) screen with a pixel density of 80 PPI */
+@media (min-width: 3840px) {
+  .player-photo {
+    flex: 0 0 20%;
+    margin-right: 30px;
+    margin-top: 140px;
+  }
+}
+
+/* For 75-inch 8K Ultra HD (7680x4320) screen with a pixel density of 100 PPI */
+@media (min-width: 7680px) {
+  .player-photo {
+    flex: 0 0 20%;
+    margin-right: 30px;
+    margin-top: 140px;
+  }
+}
+
+.player-info {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.player-info h2 {
+  font-size: 55px;
+  font-weight: bold;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.player-stats {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Roboto', monospace;
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.player-stats p {
+  font-size: 23px;
+  margin: 10px 0;
+}
+
+/* Media query for screen sizes between 1201px and 1919px */
+@media (min-width: 1201px) and (max-width: 1919px) {
+  .player-info h2 {
+    font-size: 55px;
+  }
+
+  .player-stats p {
+    font-size: 23px;
+  }
+}
+
+/* Media query for screen sizes between 1201px and 1919px */
+@media (min-width: 1920px) {
+  .player-info h2 {
+    margin-bottom: 11%;
+    font-size: 55px;
+  }
+
+  .player-stats p {
+    margin-bottom: 7%;
+    font-size: 33px;
+  }
+}
+
+/* Element shape for batting and bowling styles */
+.element-shape {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 0;
+  background: linear-gradient(-45deg, transparent 10px, #f1f1f1 10px) right;
+  color: #333;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+@font-face {
+  font-family: 'Roboto Thin';
+}
+
+@font-face {
+  font-family: 'Roboto Semibold';
+}
+
+@font-face {
+  font-family: 'Roboto Regular';
+}
+
+/* CSS for Batting style label */
+.batting-style-label {
+  font-family: 'Roboto Thin';
+}
+
+/* CSS for Batting style value */
+.batting-style-value {
+  font-family: 'Roboto Semibold';
+  font-size: xx-large;
+}
+
+/* CSS for Bowling style label */
+.bowling-style-label {
+  font-family: 'Roboto Thin';
+}
+
+/* CSS for Bowling style value */
+.bowling-style-value {
+  font-family: 'Roboto Semibold';
+  font-size: xx-large;
+}
+
+/* CSS for Runs label */
+.runs-label {
+  font-family: 'Roboto Thin';
+}
+
+/* CSS for Runs style value */
+.runs-value {
+  font-family: 'Roboto Semibold';
+  font-size: xx-large;
+}
+
+/* CSS for Average label */
+.average-label {
+  font-family: 'Roboto Thin';
+}
+
+/* CSS for Average value */
+.average-value {
+  font-family: 'Roboto Semibold';
+  font-size: xx-large;
+}
+
+/* CSS for Wickets label */
+.wickets-label {
+  font-family: 'Roboto Thin';
+}
+
+/* CSS for Wickets value */
+.wickets-value {
+  font-family: 'Roboto Semibold';
+  font-size: xx-large;
+}
+
+/* CSS for Economy label */
+.economy-label {
+  font-family: 'Roboto Thin';
+}
+
+/* CSS for Economy value */
+.economy-value {
+  font-family: 'Roboto Semibold';
+  font-size: xx-large;
+}
+
+/* CSS for Previous Teams label */
+.prev-teams-label {
+  font-family: 'Roboto Thin';
+}
+
+/* CSS for Previous Teams value */
+.prev-teams-value {
+  font-family: 'Roboto Semibold';
+  font-size: xx-large;
+}
+
+.player-circle {
+  position: absolute;
+  top: 80px;
+  right: 0%;
+  z-index: 1;
+}
+
+.circle-label {
+  position: relative;
+  top: 0px; /* Adjust the distance of the label from the circle */
+  left: 30%;
+  transform: translateX(-50%); /* Center the label horizontally */
+  padding: 5px 10px;
+  /* border-radius: 8px; */
+  color: #fff;
+  font-family: 'Roboto Semibold';
+  font-size: x-large;
+}
+
+.player-details-placeholder {
+  position: absolute;
+  top: 800%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  /* font-weight: bold; */
+  font-family: 'Roboto Semibold';
+  color: #00004c;
+  width: 100%;
+  text-align: center;
+}

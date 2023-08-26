@@ -15,7 +15,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +34,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Use space-between to place logos at the ends and text in the middle */
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.logo img {
+  width: auto;
+  height: 50px; /* Adjust the height of the logos as needed */
+}
+
+.logo-left {
+  margin-right: 20px; /* Add margin to separate the left logo from the text */
+}
+
+.logo-right {
+  margin-left: 20px; /* Add margin to separate the right logo from the text */
+}
+
+.logo-right img {
+  height: 80px;
+}
+
+.header-text {
+  flex: 1;
+  text-align: center;
+  font-family: Cervo Neue Semibold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 50px;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Added to move the logos to the left and right corners on larger screens */
+@media (min-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+}
+
+a {
+  color: white;
 }

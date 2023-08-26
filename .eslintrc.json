@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "requireConfigFile": false, // <== ADD THIS
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["react", "react-hooks"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/display-name": 1,
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "react/jsx-one-expression-per-line": "off",
+    "object-curly-newline": "off",
+    "react/jsx-wrap-multilines": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-console": "off",
+    "react/prop-types": "off"
+  }
+}
