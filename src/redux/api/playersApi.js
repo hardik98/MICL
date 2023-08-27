@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-console.log('test', `${process.env}`);
+console.log('test', `${process.env.REACT_APP_PRO_MODE_API}`);
 
 export const playersApi = createApi({
   reducerPath: 'playersApi',
