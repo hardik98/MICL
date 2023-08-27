@@ -1,8 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+console.log('test', `${process.env}`);
+
 export const playersApi = createApi({
   reducerPath: 'playersApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl:
+      process.env.NODE_ENV === 'development'
+        ? process.env.REACT_APP_DEV_MODE_API
+        : process.env.REACT_APP_PRO_MODE,
+  }),
   endpoints: (builder) => ({
     fetchPlayers: builder.query({
       query: () => 'players',
