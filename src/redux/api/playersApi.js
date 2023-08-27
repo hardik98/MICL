@@ -8,7 +8,7 @@ export const playersApi = createApi({
     baseUrl:
       process.env.NODE_ENV === 'development'
         ? process.env.REACT_APP_DEV_MODE_API
-        : process.env.REACT_APP_PRO_MODE,
+        : process.env.REACT_APP_PRO_MODE_API,
   }),
   endpoints: (builder) => ({
     fetchPlayers: builder.query({
