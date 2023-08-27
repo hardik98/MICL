@@ -1,6 +1,7 @@
 {
   "name": "mobiquity_cricket_app",
   "version": "0.1.0",
+  "homepage": "http://hardik98.github.io/MICL",
   "private": true,
   "dependencies": {
     "@babel/eslint-parser": "^7.22.10",
@@ -31,7 +32,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc"
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
