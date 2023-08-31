@@ -38,7 +38,7 @@
       "basePoints": "100",
       "prevTeams": "Kings",
       "photo": "/assets/Suresh_Varma.jpg",
-      "isSold": false
+      "isSold": true
     },
     {
       "id": "3",
@@ -65,7 +65,8 @@
       "economy": "7.28",
       "basePoints": "200",
       "prevTeams": "Kings",
-      "photo": "/assets/Viral_Patel.png"
+      "photo": "/assets/Viral_Patel.png",
+      "isSold": true
     },
     {
       "id": 5,
@@ -77,7 +78,8 @@
       "wickets": "2000",
       "economy": "5.28",
       "prevTeams": "Variables",
-      "photo": "/assets/Chirag_Vindhani.jpg"
+      "photo": "/assets/Chirag_Vindhani.jpg",
+      "isSold": true
     },
     {
       "id": 6,
@@ -89,7 +91,8 @@
       "wickets": "1000",
       "economy": "5.28",
       "prevTeams": "Kings",
-      "photo": "/assets/Janak_Shah.jpg"
+      "photo": "/assets/Janak_Shah.jpg",
+      "isSold": true
     },
     {
       "id": 7,
@@ -101,7 +104,8 @@
       "wickets": "200",
       "economy": "5.28",
       "prevTeams": "Variables, Kings",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": true
     },
     {
       "id": 8,
@@ -112,7 +116,8 @@
       "average": "20.23",
       "wickets": "200",
       "economy": "5.28",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": false
     },
     {
       "id": 9,
@@ -200,7 +205,8 @@
       "average": "20.23",
       "wickets": "200",
       "economy": "5.28",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": false
     },
     {
       "id": 17,
@@ -211,7 +217,8 @@
       "average": "20.23",
       "wickets": "200",
       "economy": "5.28",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": false
     },
     {
       "id": 18,
@@ -266,7 +273,8 @@
       "average": "20.23",
       "wickets": "200",
       "economy": "5.28",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": true
     },
     {
       "id": 23,
@@ -277,7 +285,8 @@
       "average": "20.23",
       "wickets": "200",
       "economy": "5.28",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": true
     },
     {
       "id": 24,
@@ -316,7 +325,8 @@
       "economy": "5.28",
       "basePoints": "200",
       "prevTeams": "Variables, Kings",
-      "photo": "/assets/gauravchandwani_photo.jpg"
+      "photo": "/assets/gauravchandwani_photo.jpg",
+      "isSold": true
     },
     {
       "id": 27,
@@ -329,43 +339,128 @@
       "economy": "5.28",
       "basePoints": "200",
       "prevTeams": "Variables, Kings",
-      "photo": "/assets/gauravchandwani_photo.jpg"
+      "photo": "/assets/gauravchandwani_photo.jpg",
+      "isSold": true
     }
   ],
-  "teams": {
-    "data": [
-      {
-        "id": 0,
-        "name": "one",
-        "totalKitty": 20000,
-        "availableKitty": 20000,
-        "totalPlayer": 12,
-        "players": []
-      },
-      {
-        "id": 1,
-        "name": "two",
-        "totalKitty": 20000,
-        "availableKitty": 20000,
-        "totalPlayer": 12,
-        "players": []
-      },
-      {
-        "id": 2,
-        "name": "three",
-        "totalKitty": 20000,
-        "availableKitty": 20000,
-        "totalPlayer": 12,
-        "players": []
-      },
-      {
-        "id": 3,
-        "name": "four",
-        "totalKitty": 20000,
-        "availableKitty": 20000,
-        "totalPlayer": 12,
-        "players": []
-      }
-    ]
-  }
+  "teams": [
+    {
+      "id": 1,
+      "name": "Mumbai indians",
+      "totalKitty": 1222220,
+      "availableKitty": 1209220,
+      "totalPlayer": 12,
+      "players": [
+        {
+          "id": 23,
+          "name": "Viral Patel",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "photo": "/assets/gauravchandwani_photo.png",
+          "isSold": true
+        },
+        {
+          "id": 7,
+          "name": "Viral Patel",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "prevTeams": "Variables, Kings",
+          "photo": "/assets/gauravchandwani_photo.png",
+          "isSold": true
+        }
+      ],
+      "soldPrice": "1"
+    },
+    {
+      "id": 2,
+      "name": "Sandip",
+      "totalKitty": 20000,
+      "availableKitty": -4000,
+      "totalPlayer": 12,
+      "players": [
+        {
+          "id": "3",
+          "name": "Harshil Patel",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Right arm medium",
+          "runs": "1203",
+          "average": "23.23",
+          "wickets": "150",
+          "economy": "6.28",
+          "basePoints": "150",
+          "prevTeams": "Variables",
+          "photo": "/assets/Harshil_Patel.jpg",
+          "isSold": true
+        },
+        {
+          "id": 6,
+          "name": "Janak Shah",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "3000",
+          "average": "25.23",
+          "wickets": "1000",
+          "economy": "5.28",
+          "prevTeams": "Kings",
+          "photo": "/assets/Janak_Shah.jpg",
+          "isSold": true
+        },
+        {
+          "id": 26,
+          "name": "Gaurav Chandwani",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "basePoints": "200",
+          "prevTeams": "Variables, Kings",
+          "photo": "/assets/gauravchandwani_photo.jpg",
+          "isSold": true
+        }
+      ],
+      "soldPrice": "12"
+    },
+    {
+      "id": 3,
+      "name": "Janak",
+      "totalKitty": 1222220,
+      "availableKitty": 1222220,
+      "totalPlayer": 12,
+      "players": []
+    },
+    {
+      "id": 4,
+      "name": "CSK",
+      "totalKitty": 1222220,
+      "availableKitty": 1210220,
+      "totalPlayer": 12,
+      "players": [
+        {
+          "id": "4",
+          "name": "Viral Patel",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "11000",
+          "average": "21.23",
+          "wickets": "1250",
+          "economy": "7.28",
+          "basePoints": "200",
+          "prevTeams": "Kings",
+          "photo": "/assets/Viral_Patel.png",
+          "isSold": true
+        }
+      ],
+      "soldPrice": "12"
+    }
+  ]
 }

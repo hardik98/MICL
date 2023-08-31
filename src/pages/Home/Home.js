@@ -25,7 +25,10 @@ function Home() {
   // };
 
   return (
-    <div className="home" style={{ maxHeight: 'calc(100vh - 120px)', overflow: 'scroll' }}>
+    <div
+      className="home"
+      style={{ maxHeight: 'calc(100vh - 120px)', overflow: 'scroll', padding: '12px' }}
+    >
       <PlayersList />
     </div>
   );

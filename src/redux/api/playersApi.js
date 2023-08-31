@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-console.log('test', `${process.env.REACT_APP_PRO_MODE_API}`);
-
 export const playersApi = createApi({
   reducerPath: 'playersApi',
   baseQuery: fetchBaseQuery({
@@ -28,12 +26,21 @@ export const playersApi = createApi({
       invalidatesTags: ['players'],
     }),
     createTeams: builder.mutation({
-      query: (teams) => ({
+      query: (newTeam) => ({
         url: '/teams',
         method: 'POST',
-        body: teams,
+        body: newTeam,
       }),
+
       invalidatesTags: ['teams'],
+    }),
+    addSoldPlayer: builder.mutation({
+      query: ({ id, updatedTeam }) => ({
+        url: `teams/${id}`,
+        method: 'PUT',
+        body: updatedTeam,
+      }),
+      invalidatesTags: ['teams', 'players'],
     }),
   }),
 });
@@ -42,6 +49,8 @@ export const {
   useFetchPlayersQuery,
   useLazyFetchPlayersQuery,
   useSoldPlayerMutation,
+  useAddSoldPlayerMutation,
   useFetchTeamsQuery,
+  useLazyFetchTeamsQuery,
   useCreateTeamsMutation,
 } = playersApi;

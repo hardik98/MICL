@@ -11,8 +11,6 @@ function PlayersList() {
   const [players, setPlayers] = useState([]);
   const [selectedPlayerId, setSelectedPlayerId] = useState(null);
 
-  console.log('data', data);
-
   useEffect(() => {
     if (data) {
       setPlayers(data);

@@ -11,7 +11,11 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { useFetchTeamsQuery, useSoldPlayerMutation } from '../../../redux/api/playersApi';
+import {
+  useAddSoldPlayerMutation,
+  useFetchTeamsQuery,
+  useSoldPlayerMutation,
+} from '../../../redux/api/playersApi';
 
 const style = {
   position: 'absolute',
@@ -31,6 +35,7 @@ function PlayerDetails({ selectedPlayer }) {
   const [soldTo, setSoldTo] = useState('');
   const [soldPrice, setSoldPrice] = useState(0);
   const [soldPlayer] = useSoldPlayerMutation();
+  const [addSoldPlayer] = useAddSoldPlayerMutation();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -42,7 +47,23 @@ function PlayerDetails({ selectedPlayer }) {
       updatedPlayer: updatedSelectedPlayer,
     });
     handleClose();
-    // Call api for sold player
+
+    const selectedTeam = teams.find((team) => Number(team.id) === Number(soldTo));
+    const updatedTeam = {
+      ...selectedTeam,
+      players: [...selectedTeam.players, updatedSelectedPlayer],
+      availableKitty: selectedTeam.availableKitty - soldPrice * 1000,
+      soldPrice,
+    };
+
+    await addSoldPlayer({
+      id: Number(soldTo),
+      updatedTeam,
+    });
+    localStorage.setItem('sharedData', JSON.stringify({ message: 'Updated Data' }));
+
+    setSoldTo('');
+    setSoldPrice(0);
   };
 
   return (
@@ -58,13 +79,13 @@ function PlayerDetails({ selectedPlayer }) {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              {teams?.data?.length > 0 ? (
+              {teams?.length > 0 ? (
                 <>
                   <Typography id="modal-modal-title" variant="h6" component="h2">
                     Player: {selectedPlayer?.name}
                   </Typography>
                   <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                    Sold Price:
+                    Sold Price(in thousands):
                   </Typography>
                   <TextField
                     id="soldPrice"
@@ -72,7 +93,6 @@ function PlayerDetails({ selectedPlayer }) {
                     type="number"
                     value={soldPrice}
                     onChange={(e) => {
-                      console.log('E', e);
                       setSoldPrice(e.target.value);
                     }}
                   />
@@ -88,18 +108,14 @@ function PlayerDetails({ selectedPlayer }) {
                       value={soldTo}
                       label="Sold To"
                       onChange={(e) => {
-                        console.log('event', e);
                         setSoldTo(e.target.value);
                       }}
                     >
-                      {teams.data.map((item) => (
+                      {teams.map((item) => (
                         <MenuItem key={item?.id} value={item.id}>
                           {item?.name}
                         </MenuItem>
                       ))}
-                      {/* <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem> */}
                     </Select>
                   </FormControl>
                   <Button

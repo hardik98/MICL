@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Box, TextField, Typography, Grid } from '@mui/material';
-import { useCreateTeamsMutation, useFetchTeamsQuery } from '../../redux/api/playersApi';
+import {
+  useCreateTeamsMutation,
+  useFetchTeamsQuery,
+  useLazyFetchTeamsQuery,
+} from '../../redux/api/playersApi';
 import './Team.css';
 import TeamDetails from '../../components/moduler/teamDetails/TeamDetails';
 
 function Team() {
   const { data, error, isLoading, isFetching } = useFetchTeamsQuery();
+  const [trigger, { data: teamList }] = useLazyFetchTeamsQuery();
   const [createTeams] = useCreateTeamsMutation();
 
   const [teams, setTeams] = useState([]);
-
-  console.log('data', data);
 
   useEffect(() => {
     if (data) {
@@ -18,30 +21,46 @@ function Team() {
     }
   }, [data, isFetching]);
 
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'sharedData') {
+      trigger();
+      localStorage.removeItem('sharedData');
+    }
+  });
+
+  useEffect(() => {
+    console.log('team list ', teamList);
+    if (teamList?.length) {
+      setTeams(teamList);
+    }
+  }, [teamList]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const result = new FormData(event.currentTarget);
     const totalKitty = result.get('totalKitty');
     const totalPlayer = result.get('totalPlayer');
-    const captions = [
-      result.get('caption_1'),
-      result.get('caption_2'),
-      result.get('caption_3'),
-      result.get('caption_4'),
+    const captains = [
+      result.get('captain_1'),
+      result.get('captain_2'),
+      result.get('captain_3'),
+      result.get('captain_4'),
     ];
 
-    const teamDetails = captions.map((caption, index) => ({
-      id: index,
-      name: caption,
+    const teamDetails = captains.map((captain, index) => ({
+      id: index + 1,
+      name: captain,
       totalKitty: Number(totalKitty),
       availableKitty: Number(totalKitty),
       totalPlayer: Number(totalPlayer),
       players: [],
     }));
 
-    console.log('team_details', teamDetails);
+    console.log('teamDetails', teamDetails);
 
-    createTeams({ data: teamDetails });
+    teamDetails.forEach(async (team) => {
+      await createTeams(team);
+    });
   };
 
   if (isLoading) {
@@ -52,11 +71,12 @@ function Team() {
     return <div>Error: {error.message}</div>;
   }
 
+  console.log('teams', teams);
   return (
     <div className="Team" style={{ maxHeight: 'calc(100vh - 120px)', overflow: 'scroll' }}>
-      {teams?.data?.length > 0 ? (
+      {data?.length > 1 ? (
         <Grid container rowSpacing={2} sx={{ padding: '24px', height: '100vh' }}>
-          {teams?.data?.map((team, index) => (
+          {teams?.map((team, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <Grid item xs={6} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
               <TeamDetails teamInfo={team} />
@@ -96,60 +116,60 @@ function Team() {
               </div>
             </div>
             <div>
-              <Typography variant="h5">Please Enter Team Captions Name</Typography>
+              <Typography variant="h5">Please Enter Team Captains Name</Typography>
 
               <div className="center_align">
                 <Typography className="player_name" variant="body">
-                  Caption 1 :
+                  Captain 1 :
                 </Typography>
                 <TextField
                   autoComplete="given-name"
-                  name="caption_1"
+                  name="captain_1"
                   required
-                  id="caption_1"
-                  label="Caption 1"
+                  id="captain_1"
+                  label="Captain 1"
                   type="text"
                 />
               </div>
 
               <div className="center_align">
                 <Typography className="player_name" variant="body">
-                  Caption 2 :
+                  Captain 2 :
                 </Typography>
                 <TextField
                   autoComplete="given-name"
-                  name="caption_2"
+                  name="captain_2"
                   required
-                  id="caption_2"
-                  label="Caption 2"
+                  id="captain_2"
+                  label="Captain 2"
                   type="text"
                 />
               </div>
 
               <div className="center_align">
                 <Typography className="player_name" variant="body">
-                  Caption 3 :
+                  Captain 3 :
                 </Typography>
                 <TextField
                   autoComplete="given-name"
-                  name="caption_3"
+                  name="captain_3"
                   required
-                  id="caption_3"
-                  label="Caption 3"
+                  id="captain_3"
+                  label="Captain 3"
                   type="text"
                 />
               </div>
 
               <div className="center_align">
                 <Typography className="player_name" variant="body">
-                  Caption 4 :
+                  Captain 4 :
                 </Typography>
                 <TextField
                   autoComplete="given-name"
-                  name="caption_4"
+                  name="captain_4"
                   required
-                  id="caption_4"
-                  label="Caption 4"
+                  id="captain_4"
+                  label="Captain 4"
                   type="text"
                 />
               </div>
