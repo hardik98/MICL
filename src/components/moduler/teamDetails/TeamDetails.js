@@ -1,37 +1,116 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+/* eslint-disable */
+import React from 'react';
+import {
+  Grid,
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+  Paper,
+  Card,
+  CardContent,
+  Typography,
+  Avatar,
+} from '@mui/material';
+
+const teamDetailsStyles = {
+  card: {
+    marginTop: '16px',
+    width: '100%',
+  },
+  teamInfoContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: '8px',
+  },
+  teamName: {
+    fontSize: '20px',
+    color: 'black',
+    fontWeight: 'bold',
+  },
+  numberOfPlayers: {
+    fontSize: '16px',
+    color: 'green',
+    marginLeft: '8px', 
+    fontWeight: 'bold',
+  },
+  soldPrice: {
+    fontSize: '16px',
+    color: 'black', 
+    fontWeight: 'bold',
+  },
+  balance: {
+    fontSize: '16px',
+    color: 'red',
+    fontWeight: 'bold',
+  },
+  tableContainer: {
+    border: '1px solid #ccc',
+  },
+  playerRow: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  playerName: {
+    marginLeft: '4px',
+  },
+  playerImage: {
+    width: '40px',
+    height: '40px',
+  },
+  soldPriceCell: {
+    textAlign: 'right',
+    fontSize: '16px',
+    padding: '8px 16px',
+  },
+};
 
 export default function TeamDetails({ teamInfo }) {
   return (
-    <Card sx={{ width: '90%' }}>
+    <Card sx={teamDetailsStyles.card}>
       <CardContent>
-        <Typography gutterBottom variant="h3" component="div">
-          {teamInfo.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Total Balance: {teamInfo.totalKitty}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <div sx={teamDetailsStyles.teamInfoContainer}>
+          <Typography sx={teamDetailsStyles.teamName}>
+            {teamInfo.name}
+          </Typography>
+          <Typography sx={teamDetailsStyles.numberOfPlayers}>
+            {teamInfo.players.length} Players
+          </Typography>
+        </div>
+        <Typography sx={teamDetailsStyles.balance}>
           Available Balance: {teamInfo.availableKitty}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Total Player: {teamInfo.totalPlayer}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Playeres:
-        </Typography>
-        {teamInfo?.players.map((player) => (
-          <div key={player.id}>
-            <Typography variant="body2" color="text.secondary">
-              {player.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Sold Price: {teamInfo?.soldPrice}k
-            </Typography>
-          </div>
-        ))}
+        <TableContainer component={Paper} sx={teamDetailsStyles.tableContainer}>
+          <Table>
+            <TableBody>
+              {teamInfo.players.map((player, index) => (
+                <TableRow key={index}>
+                  <TableCell>
+                    <Box sx={teamDetailsStyles.playerRow}>
+                      <Avatar
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLRfDacAnNupNBLdU9LrPZSo1aOLUB_DCajQ&usqp=CAU"
+                        alt={player.name}
+                        sx={teamDetailsStyles.playerImage}
+                      />
+                      <Typography
+                        variant="body2"
+                        sx={teamDetailsStyles.playerName}
+                      >
+                        {player.name}
+                      </Typography>
+                    </Box>
+                  </TableCell>
+                  <TableCell sx={teamDetailsStyles.soldPriceCell}>
+                    {'100k'}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </CardContent>
     </Card>
   );
