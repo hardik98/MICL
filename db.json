@@ -128,7 +128,8 @@
       "average": "20.23",
       "wickets": "200",
       "economy": "5.28",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": true
     },
     {
       "id": 10,
@@ -383,7 +384,7 @@
       "id": 2,
       "name": "Sandip",
       "totalKitty": 20000,
-      "availableKitty": -4000,
+      "availableKitty": -16000,
       "totalPlayer": 12,
       "players": [
         {
@@ -425,6 +426,18 @@
           "basePoints": "200",
           "prevTeams": "Variables, Kings",
           "photo": "/assets/gauravchandwani_photo.jpg",
+          "isSold": true
+        },
+        {
+          "id": 9,
+          "name": "Viral Patel",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "photo": "/assets/gauravchandwani_photo.png",
           "isSold": true
         }
       ],

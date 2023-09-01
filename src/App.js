@@ -39,6 +39,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/MICL" element={<Home />} />
           <Route path="/team" element={<Team />} />
         </Routes>
       </div>
