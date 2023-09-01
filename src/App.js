@@ -19,7 +19,7 @@ function App() {
               <nav>
                 <ul>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Players</Link>
                   </li>
                   <li>
                     <Link to="/team">Teams</Link>

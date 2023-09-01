@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { Button, Box, TextField, Typography, Grid } from '@mui/material';
 import {
@@ -7,6 +8,12 @@ import {
 } from '../../redux/api/playersApi';
 import './Team.css';
 import TeamDetails from '../../components/moduler/teamDetails/TeamDetails';
+
+const teamDetailsStyles = {
+  teamInfoContainer: {
+    justifyContent: 'space-between',
+  }
+}
 
 function Team() {
   const { data, error, isLoading, isFetching } = useFetchTeamsQuery();
@@ -73,16 +80,15 @@ function Team() {
 
   console.log('teams', teams);
   return (
-    <div className="Team" style={{ maxHeight: 'calc(100vh - 120px)', overflow: 'scroll' }}>
+    <div style={{padding:'16px'}}>
       {data?.length > 1 ? (
-        <Grid container rowSpacing={2} sx={{ padding: '24px', height: '100vh' }}>
-          {teams?.map((team, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Grid item xs={6} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <TeamDetails teamInfo={team} />
-            </Grid>
-          ))}
-        </Grid>
+         <Grid container  sx={teamDetailsStyles.teamInfoContainer}>
+         {teams.map((team, index) => (
+           <Grid item  xl={2} key={index}>
+             <TeamDetails teamInfo={team} />
+           </Grid>
+         ))}
+       </Grid>
       ) : (
         <div>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, padding: '40px' }}>

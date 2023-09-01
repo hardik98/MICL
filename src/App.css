@@ -70,6 +70,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
 }
 
 .header-text h1 {
@@ -91,4 +95,21 @@
 
 a {
   color: white;
+}
+
+li,a{
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+  transition: all 0.3s;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+
+}
+
+ li a:hover {
+  color: #0088a9;
 }
