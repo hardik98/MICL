@@ -31,7 +31,6 @@ function Team() {
   window.addEventListener('storage', (event) => {
     if (event.key === 'sharedData') {
       trigger();
-      localStorage.removeItem('sharedData');
     }
   });
 
@@ -39,6 +38,7 @@ function Team() {
     console.log('team list ', teamList);
     if (teamList?.length) {
       setTeams(teamList);
+      localStorage.removeItem('sharedData');
     }
   }, [teamList]);
 
