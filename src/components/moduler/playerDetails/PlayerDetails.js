@@ -30,40 +30,69 @@ const style = {
 };
 
 function PlayerDetails({ selectedPlayer }) {
+  const existingSelectedTeam = selectedPlayer?.soldTo;
+  const existingSoldPrice = Number(selectedPlayer?.soldPrice);
   const [open, setOpen] = React.useState(false);
   const { data: teams } = useFetchTeamsQuery();
-  const [soldTo, setSoldTo] = useState('');
-  const [soldPrice, setSoldPrice] = useState(0);
+  const [soldTo, setSoldTo] = useState(Number(selectedPlayer?.soldTo) || '');
+  const [soldPrice, setSoldPrice] = useState(Number(selectedPlayer?.soldPrice) || 0);
   const [soldPlayer] = useSoldPlayerMutation();
   const [addSoldPlayer] = useAddSoldPlayerMutation();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  React.useEffect(() => {
+    setSoldPrice(Number(selectedPlayer?.soldPrice || 0));
+    setSoldTo(Number(selectedPlayer?.soldTo) || '');
+  }, [selectedPlayer]);
+
   const handlePlayerSold = async () => {
-    const updatedSelectedPlayer = { ...selectedPlayer, isSold: true };
+    const updatedSelectedPlayer = {
+      ...selectedPlayer,
+      isSold: true,
+      soldPrice: Number(soldPrice),
+      soldTo,
+    };
     await soldPlayer({
       id: selectedPlayer.id,
       updatedPlayer: updatedSelectedPlayer,
     });
-    handleClose();
 
+    if (selectedPlayer?.isSold) {
+      const existingSoldPlayerTeam = teams.find(
+        (team) => Number(team.id) === Number(existingSelectedTeam),
+      );
+
+      const updatedPlayers = existingSoldPlayerTeam.players.filter(
+        (item) => Number(item?.id) !== Number(selectedPlayer?.id),
+      );
+
+      const updatedTeam = {
+        ...existingSoldPlayerTeam,
+        players: updatedPlayers,
+        availableKitty: existingSoldPlayerTeam.availableKitty + existingSoldPrice * 1000,
+      };
+
+      await addSoldPlayer({
+        id: Number(existingSelectedTeam),
+        updatedTeam,
+      });
+    }
     const selectedTeam = teams.find((team) => Number(team.id) === Number(soldTo));
+
     const updatedTeam = {
       ...selectedTeam,
       players: [...selectedTeam.players, updatedSelectedPlayer],
       availableKitty: selectedTeam.availableKitty - soldPrice * 1000,
-      soldPrice,
     };
 
     await addSoldPlayer({
       id: Number(soldTo),
       updatedTeam,
     });
-    localStorage.setItem('sharedData', JSON.stringify({ message: 'Updated Data' }));
 
-    setSoldTo('');
-    setSoldPrice(0);
+    localStorage.setItem('sharedData', JSON.stringify({ message: 'Updated Data' }));
   };
 
   return (
@@ -140,7 +169,7 @@ function PlayerDetails({ selectedPlayer }) {
             </Box>
           </Modal>
 
-          {!selectedPlayer.isSold && (
+          {!selectedPlayer.isSold ? (
             <Button
               type="button"
               variant="outlined"
@@ -155,6 +184,22 @@ function PlayerDetails({ selectedPlayer }) {
               }}
             >
               <Typography> Sold </Typography>
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              variant="contained"
+              onClick={handleOpen}
+              sx={{
+                position: 'absolute',
+                bottom: 0,
+                right: '40px',
+                minWidth: '90px',
+                color: 'white',
+                background: 'green',
+              }}
+            >
+              <Typography> Edit </Typography>
             </Button>
           )}
 

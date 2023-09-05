@@ -12,8 +12,8 @@ import TeamDetails from '../../components/moduler/teamDetails/TeamDetails';
 const teamDetailsStyles = {
   teamInfoContainer: {
     justifyContent: 'space-between',
-  }
-}
+  },
+};
 
 function Team() {
   const { data, error, isLoading, isFetching } = useFetchTeamsQuery();
@@ -35,7 +35,6 @@ function Team() {
   });
 
   useEffect(() => {
-    console.log('team list ', teamList);
     if (teamList?.length) {
       setTeams(teamList);
       localStorage.removeItem('sharedData');
@@ -63,8 +62,6 @@ function Team() {
       players: [],
     }));
 
-    console.log('teamDetails', teamDetails);
-
     teamDetails.forEach(async (team) => {
       await createTeams(team);
     });
@@ -78,17 +75,16 @@ function Team() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log('teams', teams);
   return (
-    <div style={{padding:'16px'}}>
+    <div style={{ padding: '16px' }}>
       {data?.length > 1 ? (
-         <Grid container  sx={teamDetailsStyles.teamInfoContainer}>
-         {teams.map((team, index) => (
-           <Grid item  xl={2} key={index}>
-             <TeamDetails teamInfo={team} />
-           </Grid>
-         ))}
-       </Grid>
+        <Grid container sx={teamDetailsStyles.teamInfoContainer}>
+          {teams.map((team, index) => (
+            <Grid item xl={2} key={index}>
+              <TeamDetails teamInfo={team} />
+            </Grid>
+          ))}
+        </Grid>
       ) : (
         <div>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, padding: '40px' }}>

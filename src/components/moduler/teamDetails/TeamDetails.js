@@ -34,12 +34,12 @@ const teamDetailsStyles = {
   numberOfPlayers: {
     fontSize: '16px',
     color: 'green',
-    marginLeft: '8px', 
+    marginLeft: '8px',
     fontWeight: 'bold',
   },
   soldPrice: {
     fontSize: '16px',
-    color: 'black', 
+    color: 'black',
     fontWeight: 'bold',
   },
   balance: {
@@ -73,9 +73,7 @@ export default function TeamDetails({ teamInfo }) {
     <Card sx={teamDetailsStyles.card}>
       <CardContent>
         <div sx={teamDetailsStyles.teamInfoContainer}>
-          <Typography sx={teamDetailsStyles.teamName}>
-            {teamInfo.name}
-          </Typography>
+          <Typography sx={teamDetailsStyles.teamName}>{teamInfo.name}</Typography>
           <Typography sx={teamDetailsStyles.numberOfPlayers}>
             {teamInfo.players.length} Players
           </Typography>
@@ -95,17 +93,12 @@ export default function TeamDetails({ teamInfo }) {
                         alt={player.name}
                         sx={teamDetailsStyles.playerImage}
                       />
-                      <Typography
-                        variant="body2"
-                        sx={teamDetailsStyles.playerName}
-                      >
+                      <Typography variant="body2" sx={teamDetailsStyles.playerName}>
                         {player.name}
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell sx={teamDetailsStyles.soldPriceCell}>
-                    {'100k'}
-                  </TableCell>
+                  <TableCell sx={teamDetailsStyles.soldPriceCell}>{player.soldPrice}k</TableCell>
                 </TableRow>
               ))}
             </TableBody>
