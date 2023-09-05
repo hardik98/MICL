@@ -228,8 +228,14 @@ function PlayerDetails({ selectedPlayer }) {
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="prev-teams-label">Previous Teams:</span>{' '}
-                    <span className="prev-teams-value">{selectedPlayer.prevTeams}</span>
+                    <span className="prev-teams-label">Base Price:</span>{' '}
+                    <span className="prev-teams-value">{selectedPlayer.basePrice}K</span>
+                  </span>
+                </p>
+                <p>
+                  <span className="element-shape">
+                    <span className="prev-teams-label">Category:</span>{' '}
+                    <span className="prev-teams-value">{selectedPlayer.Category}</span>
                   </span>
                 </p>
               </div>
