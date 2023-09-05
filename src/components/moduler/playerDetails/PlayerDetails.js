@@ -79,6 +79,8 @@ function PlayerDetails({ selectedPlayer }) {
         updatedTeam,
       });
     }
+
+    handleClose();
     const selectedTeam = teams.find((team) => Number(team.id) === Number(soldTo));
 
     const updatedTeam = {
