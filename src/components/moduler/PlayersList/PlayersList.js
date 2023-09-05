@@ -1,6 +1,14 @@
-/* eslint-disable max-len */
+/* eslint-disable  */
 import React, { useEffect, useState } from 'react';
-import { Checkbox, FormControlLabel, TextField, Typography } from '@mui/material';
+import {
+  Checkbox,
+  FormControlLabel,
+  TextField,
+  Typography,
+  Select,
+  Grid,
+  MenuItem,
+} from '@mui/material';
 import { useFetchPlayersQuery, useLazyFetchPlayersQuery } from '../../../redux/api/playersApi';
 import PlayerDetails from '../playerDetails/PlayerDetails';
 
@@ -10,6 +18,7 @@ function PlayersList() {
 
   const [players, setPlayers] = useState([]);
   const [selectedPlayerId, setSelectedPlayerId] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
     if (data) {
@@ -34,6 +43,17 @@ function PlayersList() {
     setSelectedPlayerId(isSelected ? id : null);
   };
 
+  const handleCategoryChange = (event) => {
+    const selectedCategory = event.target.value;
+    setSelectedCategory(selectedCategory);
+    if (selectedCategory === 'All') {
+      setPlayers(data);
+    } else {
+      const filteredData = data.filter((player) => player.Category === selectedCategory);
+      setPlayers(filteredData);
+    }
+  };
+
   const handleInputChange = (value) => {
     if (value !== '') {
       setPlayers(
@@ -54,14 +74,34 @@ function PlayersList() {
 
   return (
     <div>
-      <TextField
-        id="outlined-basic"
-        label="Search Player"
-        variant="outlined"
-        onChange={(e) => {
-          handleInputChange(e.target.value.trim());
-        }}
-      />
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={12} sm={6}>
+          <TextField
+            id="outlined-basic"
+            label="Search Player"
+            variant="outlined"
+            onChange={(e) => {
+              handleInputChange(e.target.value.trim());
+            }}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Select
+            label="Select Category"
+            variant="outlined"
+            fullWidth
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
+            <MenuItem value="All">All</MenuItem>
+            <MenuItem value="A">Category A</MenuItem>
+            <MenuItem value="B">Category B</MenuItem>
+            <MenuItem value="C">Category C</MenuItem>
+            <MenuItem value="D">Category D</MenuItem>
+          </Select>
+        </Grid>
+      </Grid>
       <div style={{ display: 'flex' }}>
         <div
           style={{
