@@ -87,14 +87,14 @@
 .player-info h2 {
   font-size: 55px;
   font-weight: bold;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto sans-serif';
 }
 
 .player-stats {
   background-color: transparent;
   padding: 20px;
   border-radius: 8px;
-  font-family: 'Roboto', monospace;
+  font-family: 'Roboto sans-serif';
   margin-top: -50px;
   display: flex;
   flex-direction: column;

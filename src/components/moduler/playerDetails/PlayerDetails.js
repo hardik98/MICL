@@ -38,6 +38,7 @@ function PlayerDetails({ selectedPlayer }) {
   const [soldPrice, setSoldPrice] = useState(Number(selectedPlayer?.soldPrice) || 0);
   const [soldPlayer] = useSoldPlayerMutation();
   const [addSoldPlayer] = useAddSoldPlayerMutation();
+  const currentSelectedTeam = teams?.find((team) => Number(team?.id) === soldTo);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -150,18 +151,21 @@ function PlayerDetails({ selectedPlayer }) {
                     </Select>
                   </FormControl>
                   <Button
+                    disabled={currentSelectedTeam?.availableKitty < soldPrice * 1000}
                     sx={{
                       marginTop: '20px',
                       display: 'flex',
                       float: 'right',
-                      background: 'blue',
-                      color: 'white',
+                      background: 'aliceblue',
                     }}
                     variant="outlined"
                     onClick={handlePlayerSold}
                   >
                     <Typography>Confirm</Typography>
                   </Button>
+                  {currentSelectedTeam?.availableKitty < soldPrice * 1000 && (
+                    <p style={{ color: 'red' }}> Not Enough Kitty </p>
+                  )}
                 </>
               ) : (
                 <Typography id="modal-modal-title" variant="h6" component="h2">

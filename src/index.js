@@ -12,8 +12,8 @@ import App from './App';
 
 const defaultTheme = createTheme({
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    fontSize: 14,
+    fontFamily: 'Roboto sans-serif',
+    fontSize: 18,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
