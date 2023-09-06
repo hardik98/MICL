@@ -19,6 +19,7 @@ const teamDetailsStyles = {
   card: {
     marginTop: '16px',
     width: '100%',
+    minHeight: '500px',
   },
   teamInfoContainer: {
     display: 'flex',
@@ -69,6 +70,12 @@ const teamDetailsStyles = {
 };
 
 export default function TeamDetails({ teamInfo }) {
+  const formattedAvailableKitty = teamInfo.availableKitty.toLocaleString('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    minimumFractionDigits: 0,
+  });
+
   return (
     <Card sx={teamDetailsStyles.card}>
       <CardContent>
@@ -79,7 +86,7 @@ export default function TeamDetails({ teamInfo }) {
           </Typography>
         </div>
         <Typography sx={teamDetailsStyles.balance}>
-          Available Balance: {teamInfo.availableKitty}
+          Available Kitty: {formattedAvailableKitty}
         </Typography>
         <TableContainer component={Paper} sx={teamDetailsStyles.tableContainer}>
           <Table>

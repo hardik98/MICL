@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import './PlayerDetails.css';
 import {
@@ -236,57 +237,64 @@ function PlayerDetails({ selectedPlayer }) {
               </div>
             )}
             <div className="player-photo">
-              {selectedPlayer.photo && <img src={selectedPlayer.photo} alt={selectedPlayer.name} />}
+              {selectedPlayer.photo ? (
+                <img src={selectedPlayer.photo} alt={selectedPlayer.name} />
+              ) : (
+                <img
+                  src="https://static.vecteezy.com/system/resources/previews/000/439/863/non_2x/vector-users-icon.jpg"
+                  alt="Dummy User"
+                />
+              )}
             </div>
             <div className="player-info">
-              <h2>{selectedPlayer.name}</h2>
+              <h2 className='player-name'>{selectedPlayer.name}</h2>
               <div className="player-stats">
                 <p>
                   <span className="element-shape">
-                    <span className="batting-style-label">Batting Style:</span>{' '}
+                    <span className="batting-details-label">Batting Style:</span>{' '}
                     <span className="batting-style-value">{selectedPlayer.battingStyle}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="bowling-style-label">Bowling Style:</span>{' '}
+                    <span className="batting-details-label">Bowling Style:</span>{' '}
                     <span className="bowling-style-value">{selectedPlayer.bowlingStyle}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="runs-label">Runs:</span>{' '}
-                    <span className="runs-value">{selectedPlayer.runs}</span>
+                    <span className="batting-details-label">Runs:</span>{' '}
+                    <span className="batting-details-value">{selectedPlayer.runs}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="average-label">Average:</span>{' '}
-                    <span className="average-value">{selectedPlayer.average}</span>
+                    <span className="batting-details-label">Average:</span>{' '}
+                    <span className="batting-details-value ">{selectedPlayer.average}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="wickets-label">Wickets:</span>{' '}
-                    <span className="wickets-value">{selectedPlayer.wickets}</span>
+                    <span className="batting-details-label">Wickets:</span>{' '}
+                    <span className="batting-details-value">{selectedPlayer.wickets}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="economy-label">Economy:</span>{' '}
-                    <span className="economy-value">{selectedPlayer.economy}</span>
+                    <span className="batting-details-label">Economy:</span>{' '}
+                    <span className="batting-details-value">{selectedPlayer.economy}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="prev-teams-label">Base Price:</span>{' '}
-                    <span className="prev-teams-value">{selectedPlayer.basePrice}K</span>
+                    <span className="batting-details-label">Base Price:</span>{' '}
+                    <span className="batting-details-value">{selectedPlayer.basePrice}K</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="prev-teams-label">Category:</span>{' '}
-                    <span className="prev-teams-value">{selectedPlayer.Category}</span>
+                    <span className="batting-details-label">Category:</span>{' '}
+                    <span className="batting-details-value">{selectedPlayer.Category}</span>
                   </span>
                 </p>
               </div>
