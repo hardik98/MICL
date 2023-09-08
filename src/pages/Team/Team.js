@@ -51,6 +51,7 @@ function Team() {
       result.get('captain_2'),
       result.get('captain_3'),
       result.get('captain_4'),
+      result.get('captain_5'),
     ];
 
     const teamDetails = captains.map((captain, index) => ({
@@ -172,6 +173,19 @@ function Team() {
                   required
                   id="captain_4"
                   label="Captain 4"
+                  type="text"
+                />
+              </div>
+              <div className="center_align">
+                <Typography className="player_name" variant="body">
+                  Captain 5 :
+                </Typography>
+                <TextField
+                  autoComplete="given-name"
+                  name="captain_5"
+                  required
+                  id="captain_5"
+                  label="Captain 5"
                   type="text"
                 />
               </div>
