@@ -28,7 +28,7 @@ const teamDetailsStyles = {
     marginBottom: '8px',
   },
   teamName: {
-    fontSize: '20px',
+    fontSize: '28px',
     color: 'black',
     fontWeight: 'bold',
   },
@@ -44,12 +44,15 @@ const teamDetailsStyles = {
     fontWeight: 'bold',
   },
   balance: {
-    fontSize: '20px',
+    fontSize: '28px',
     color: 'blue',
     fontWeight: 'bold',
   },
   tableContainer: {
     border: '1px solid #ccc',
+    
+  },
+  tableRow:{
     position: 'relative',
   },
   playerRow: {
@@ -58,14 +61,15 @@ const teamDetailsStyles = {
   },
   playerName: {
     marginLeft: '4px',
+    fontSize:'20px'
   },
   playerImage: {
-    width: '40px',
-    height: '40px',
+    width: '50px',
+    height: '50px',
   },
   soldPriceCell: {
     textAlign: 'right',
-    fontSize: '16px',
+    fontSize: '20px',
     padding: '8px 16px',
   },
   categoryStyle: {
@@ -103,10 +107,11 @@ export default function TeamDetails({ teamInfo }) {
           <Table>
             <TableBody>
               {teamInfo.players.map((player, index) => (
-                <TableRow key={index}>
+                <TableRow key={index} sx={teamDetailsStyles.tableRow}>
                   <TableCell>
                     <Typography
                       variant="body2"
+                      className='test'
                       sx={teamDetailsStyles.categoryStyle}
                     >
                       {player.Category}

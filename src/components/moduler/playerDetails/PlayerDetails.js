@@ -253,13 +253,13 @@ function PlayerDetails({ selectedPlayer }) {
                 <p>
                   <span className="element-shape">
                     <span className="batting-details-label">Batting :</span>{' '}
-                    <span className="batting-style-value">{selectedPlayer.battingStyle}</span>
+                    <span className="batting-details-value">{selectedPlayer.battingStyle}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
                     <span className="batting-details-label">Bowling :</span>{' '}
-                    <span className="bowling-style-value">{selectedPlayer.bowlingStyle}</span>
+                    <span className="batting-details-value">{selectedPlayer.bowlingStyle}</span>
                   </span>
                 </p>
                 <p>
