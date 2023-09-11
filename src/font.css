@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Cervo Neue Thin';
+  src: url('../src/fonts/Cervo-Neue/Typoforge\ Studio\ -\ CervoNeue-ThinNeue.otf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'Cervo Neue Semibold';
+  src: url('../src/fonts/Cervo-Neue/Typoforge\ Studio\ -\ CervoNeue-SemiBoldNeue.otf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'Cervo Neue Regular';
+  src: url('../src/fonts/Cervo-Neue/Typoforge\ Studio\ -\ CervoNeue-RegularNeue.otf')
+    format('truetype');
+}

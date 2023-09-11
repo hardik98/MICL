@@ -84,8 +84,8 @@
 
 .player-info h2 {
   font-size: 55px;
+  font-family: 'Cervo Neue Semibold';
   font-weight: bold;
-  font-family: 'Roboto Semibold';
   padding-right: 20px;
   display: flex;
   justify-content: flex-end;
@@ -95,11 +95,11 @@
   background-color: transparent;
   padding: 20px;
   border-radius: 8px;
-  font-family: 'Roboto sans-serif';
+  font-family: 'Cervo Neue Regular';
   margin-top: -50px;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .player-stats p {
@@ -135,44 +135,30 @@
 
 /* Element shape for batting and bowling styles */
 .element-shape {
-  padding: 5px 25px 5px 50px ;
+  padding: 5px 25px 5px 50px;
   border-radius: 0;
-  background: #515151 ;
+  background: #515151;
   color: rgb(255, 255, 255);
-  border-radius: 50px ;
+  border-radius: 50px;
   font-weight: bold;
   margin-right: 25px;
   width: 100%;
   justify-content: space-between;
-   position: relative;
+  position: relative;
   display: flex;
-}
-
-
-@font-face {
-  font-family: 'Roboto Thin';
-}
-
-@font-face {
-  font-family: 'Roboto Semibold';
-}
-
-@font-face {
-  font-family: 'Roboto Regular';
 }
 
 /* CSS for Batting style label */
 .batting-details-label {
-  font-family: 'Roboto Semibold';
+  font-family: 'Cervo Neue Semibold';
   font-size: 25px;
 }
 
 /* CSS for Batting style value */
 .batting-details-value {
-  font-family: 'Roboto Semibold';
+  font-family: 'Cervo Neue Semibold';
   font-size: 25px;
 }
-
 
 .player-circle {
   position: absolute;
@@ -189,7 +175,7 @@
   padding: 5px 25px;
   /* border-radius: 8px; */
   color: #fff;
-  font-family: 'Roboto Semibold';
+  font-family: 'Cervo Neue Semibold';
   font-size: x-large;
 }
 
@@ -200,7 +186,7 @@
   transform: translate(-50%, -50%);
   font-size: 40px;
   /* font-weight: bold; */
-  font-family: 'Roboto Semibold';
+  font-family: 'Cervo Neue Semibold';
   color: #00004c;
   width: 100%;
   text-align: center;

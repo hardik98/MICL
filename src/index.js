@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import store from './redux/store';
 import App from './App';
+import './font.css';
 
 const defaultTheme = createTheme({
   typography: {
-    fontFamily: 'Roboto sans-serif',
+    fontFamily: 'Cervo Neue Regular',
     fontSize: 18,
     fontWeightLight: 300,
     fontWeightRegular: 400,

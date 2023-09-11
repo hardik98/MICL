@@ -44,7 +44,7 @@ const teamDetailsStyles = {
     fontWeight: 'bold',
   },
   balance: {
-    fontSize: '16px',
+    fontSize: '20px',
     color: 'red',
     fontWeight: 'bold',
   },

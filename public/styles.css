@@ -35,6 +35,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden; /* Hide any potential scrollbars */
+  font-family: Cervo Neue Regular;
 }
 
 .background-image {
