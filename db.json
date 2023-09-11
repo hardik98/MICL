@@ -29,12 +29,11 @@
       "economy": "-",
       "basePoints": "100",
       "prevTeams": "Kings",
-      "photo": "/assets/Suresh_Varma.jpg",
       "basePrice": 1,
       "Category": "A",
       "isSold": true,
       "soldPrice": 2,
-      "soldTo": 3
+      "soldTo": 4
     },
     {
       "id": "3",
@@ -52,7 +51,7 @@
       "Category": "A",
       "isSold": true,
       "soldPrice": 12,
-      "soldTo": 1
+      "soldTo": 2
     },
     {
       "id": "4",
@@ -101,7 +100,10 @@
       "prevTeams": "Kings",
       "photo": "/assets/Janak_Shah.jpg",
       "basePrice": 2,
-      "Category": "B"
+      "Category": "B",
+      "isSold": true,
+      "soldPrice": 1,
+      "soldTo": 1
     },
     {
       "id": 7,
@@ -312,7 +314,10 @@
       "economy": "5.28",
       "photo": "/assets/gauravchandwani_photo.png",
       "basePrice": 4,
-      "Category": "D"
+      "Category": "D",
+      "isSold": true,
+      "soldPrice": 1,
+      "soldTo": 1
     },
     {
       "id": 22,
@@ -355,7 +360,10 @@
       "prevTeams": "Variables, Kings",
       "photo": "/assets/gauravchandwani_photo.jpg",
       "basePrice": 5,
-      "Category": "E"
+      "Category": "E",
+      "isSold": true,
+      "soldPrice": 1,
+      "soldTo": 1
     },
     {
       "id": 25,
@@ -411,7 +419,7 @@
       "id": 1,
       "name": "MI",
       "totalKitty": 30000,
-      "availableKitty": 17000,
+      "availableKitty": 26000,
       "totalPlayer": 10,
       "players": [
         {
@@ -451,24 +459,6 @@
           "soldTo": 1
         },
         {
-          "id": "3",
-          "name": "Harshil Patel",
-          "battingStyle": "Right Hand Bat",
-          "bowlingStyle": "Right arm medium",
-          "runs": "1203",
-          "average": "23.23",
-          "wickets": "150",
-          "economy": "6.28",
-          "basePoints": "150",
-          "prevTeams": "Variables",
-          "photo": "/assets/Harshil_Patel.jpg",
-          "basePrice": 1,
-          "Category": "A",
-          "isSold": true,
-          "soldPrice": 12,
-          "soldTo": 1
-        },
-        {
           "id": 7,
           "name": "Viral Patel",
           "battingStyle": "Left Hand Bat",
@@ -484,6 +474,57 @@
           "isSold": true,
           "soldPrice": 3,
           "soldTo": 1
+        },
+        {
+          "id": 21,
+          "name": "Viral Patel",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "photo": "/assets/gauravchandwani_photo.png",
+          "basePrice": 4,
+          "Category": "D",
+          "isSold": true,
+          "soldPrice": 1,
+          "soldTo": 1
+        },
+        {
+          "id": 24,
+          "name": "Gaurav Chandwani",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "basePoints": "200",
+          "prevTeams": "Variables, Kings",
+          "photo": "/assets/gauravchandwani_photo.jpg",
+          "basePrice": 5,
+          "Category": "E",
+          "isSold": true,
+          "soldPrice": 1,
+          "soldTo": 1
+        },
+        {
+          "id": 6,
+          "name": "Janak Shah",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "3000",
+          "average": "25.23",
+          "wickets": "1000",
+          "economy": "5.28",
+          "prevTeams": "Kings",
+          "photo": "/assets/Janak_Shah.jpg",
+          "basePrice": 2,
+          "Category": "B",
+          "isSold": true,
+          "soldPrice": 1,
+          "soldTo": 1
         }
       ]
     },
@@ -491,7 +532,7 @@
       "id": 2,
       "name": "CSK",
       "totalKitty": 30000,
-      "availableKitty": 30000,
+      "availableKitty": 18000,
       "totalPlayer": 10,
       "players": [
         {
@@ -525,6 +566,24 @@
           "isSold": true,
           "soldPrice": 1,
           "soldTo": 2
+        },
+        {
+          "id": "3",
+          "name": "Harshil Patel",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Right arm medium",
+          "runs": "1203",
+          "average": "23.23",
+          "wickets": "150",
+          "economy": "6.28",
+          "basePoints": "150",
+          "prevTeams": "Variables",
+          "photo": "/assets/Harshil_Patel.jpg",
+          "basePrice": 1,
+          "Category": "A",
+          "isSold": true,
+          "soldPrice": 12,
+          "soldTo": 2
         }
       ]
     },
@@ -532,27 +591,9 @@
       "id": 3,
       "name": "KK",
       "totalKitty": 30000,
-      "availableKitty": 26000,
+      "availableKitty": 28000,
       "totalPlayer": 10,
       "players": [
-        {
-          "id": "2",
-          "name": "Suresh Verma",
-          "battingStyle": "Right Hand Bat",
-          "bowlingStyle": "-",
-          "runs": "400",
-          "average": "20.23",
-          "wickets": "-",
-          "economy": "-",
-          "basePoints": "100",
-          "prevTeams": "Kings",
-          "photo": "/assets/Suresh_Varma.jpg",
-          "basePrice": 1,
-          "Category": "A",
-          "isSold": true,
-          "soldPrice": 2,
-          "soldTo": 3
-        },
         {
           "id": 5,
           "name": "Chirag Vindhani",
@@ -576,7 +617,7 @@
       "id": 4,
       "name": "DD",
       "totalKitty": 30000,
-      "availableKitty": 30000,
+      "availableKitty": 28000,
       "totalPlayer": 10,
       "players": [
         {
@@ -591,6 +632,24 @@
           "photo": "/assets/gauravchandwani_photo.png",
           "basePrice": 3,
           "Category": "C",
+          "isSold": true,
+          "soldPrice": 2,
+          "soldTo": 4
+        },
+        {
+          "id": "2",
+          "name": "Suresh Verma",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "-",
+          "runs": "400",
+          "average": "20.23",
+          "wickets": "-",
+          "economy": "-",
+          "basePoints": "100",
+          "prevTeams": "Kings",
+          "photo": "/assets/Suresh_Varma.jpg",
+          "basePrice": 1,
+          "Category": "A",
           "isSold": true,
           "soldPrice": 2,
           "soldTo": 4

@@ -75,7 +75,7 @@ const teamDetailsStyles = {
   categoryStyle: {
     position: 'absolute',
     top: '4px',
-    right: '15px',
+    right: '128px',
     fontSize: '12px',
     color: 'white',
     backgroundColor: 'green',
@@ -84,6 +84,26 @@ const teamDetailsStyles = {
   },
 };
 
+const categoryStyles = {
+  A: {
+    backgroundColor: '#D05716',
+  },
+  B: {
+    backgroundColor: '#E9712F',
+  },
+  C: {
+    backgroundColor: '#EE905D',
+  },
+  D: {
+    backgroundColor: '#F3B08B',
+  },
+  E: {
+    backgroundColor: '#F8D0BA',
+  },
+};
+
+const categoryPriorityOrder = ['A', 'B', 'C', 'D', 'E'];
+
 export default function TeamDetails({ teamInfo }) {
   const formattedAvailableKitty = teamInfo.availableKitty.toLocaleString('en-IN', {
     style: 'currency',
@@ -91,12 +111,22 @@ export default function TeamDetails({ teamInfo }) {
     minimumFractionDigits: 0,
   });
 
+  const groupedPlayers = {};
+  teamInfo.players.forEach((player) => {
+    if (!groupedPlayers[player.Category]) {
+      groupedPlayers[player.Category] = [];
+    }
+    groupedPlayers[player.Category].push(player);
+  });
+
+  const sortedCategories = categoryPriorityOrder.filter((category) => groupedPlayers[category]);
+
   return (
     <Card sx={teamDetailsStyles.card}>
       <CardContent>
         <div sx={teamDetailsStyles.teamInfoContainer}>
           <Typography sx={teamDetailsStyles.teamName}>
-            {`${teamInfo.name} (${teamInfo.players.length} Players)`}
+            {`${teamInfo.name} (${teamInfo.players.length})`}
           </Typography>
         </div>
         <Typography sx={teamDetailsStyles.balance}>
@@ -106,29 +136,45 @@ export default function TeamDetails({ teamInfo }) {
         <TableContainer component={Paper} sx={teamDetailsStyles.tableContainer}>
           <Table>
             <TableBody>
-              {teamInfo.players.map((player, index) => (
-                <TableRow key={index} sx={teamDetailsStyles.tableRow}>
-                  <TableCell>
-                    <Typography
-                      variant="body2"
-                      className='test'
-                      sx={teamDetailsStyles.categoryStyle}
-                    >
-                      {player.Category}
-                    </Typography>
-                    <Box sx={teamDetailsStyles.playerRow}>
-                      <Avatar
-                        src={player.photo}
-                        alt={player.name}
-                        sx={teamDetailsStyles.playerImage}
-                      />
-                      <Typography variant="body2" sx={teamDetailsStyles.playerName}>
-                        {player.name}
+              {sortedCategories.map((category) => (
+                <React.Fragment key={category}>
+                  <TableRow sx={{ ...teamDetailsStyles.tableRow, ...(categoryStyles[category] || {}) }}>
+                    <TableCell colSpan={2}>
+                      <Typography
+                        variant="body2"
+                        className='test'
+                        sx={{
+                          ...teamDetailsStyles.categoryStyle,
+                          backgroundColor: categoryStyles[category]?.backgroundColor || 'inherit',
+                          color: categoryStyles[category]?.color || 'inherit',
+                          fontWeight: 'bold',
+                          textAlign: 'left',
+                        }}
+                      >
+                        Category {category} ({groupedPlayers[category].length} Players)
                       </Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell sx={teamDetailsStyles.soldPriceCell}>{player.soldPrice}k</TableCell>
-                </TableRow>
+                    </TableCell>
+                  </TableRow>
+                  {groupedPlayers[category].map((player, playerIndex) => (
+                    <TableRow key={playerIndex}>
+                      <TableCell>
+                        <Box sx={teamDetailsStyles.playerRow}>
+                          <Avatar
+                            src={player.photo}
+                            alt={player.name}
+                            sx={teamDetailsStyles.playerImage}
+                          />
+                          <Typography variant="body2" sx={{ ...teamDetailsStyles.playerName, fontWeight: 'bold' }}>
+                            {player.name}
+                          </Typography>
+                        </Box>
+                      </TableCell>
+                      <TableCell sx={{ ...teamDetailsStyles.soldPriceCell, textAlign: 'right' }}>
+                        {player.soldPrice}k
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </React.Fragment>
               ))}
             </TableBody>
           </Table>
