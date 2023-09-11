@@ -45,7 +45,7 @@ const teamDetailsStyles = {
   },
   balance: {
     fontSize: '28px',
-    color: 'blue',
+    color: '#497ee8',
     fontWeight: 'bold',
   },
   tableContainer: {
@@ -76,7 +76,7 @@ const teamDetailsStyles = {
     position: 'absolute',
     top: '4px',
     right: '128px',
-    fontSize: '12px',
+    fontSize: '14px',
     color: 'white',
     backgroundColor: 'green',
     borderRadius: '4px',
@@ -86,19 +86,21 @@ const teamDetailsStyles = {
 
 const categoryStyles = {
   A: {
-    backgroundColor: '#D05716',
+    backgroundColor: '#0c6d74',
+    color: '#fff'
   },
   B: {
-    backgroundColor: '#E9712F',
+    backgroundColor: '#1199a2',
+    color: '#fff'
   },
   C: {
-    backgroundColor: '#EE905D',
+    backgroundColor: '#2fdee9',
   },
   D: {
-    backgroundColor: '#F3B08B',
+    backgroundColor: '#5de5ee',
   },
   E: {
-    backgroundColor: '#F8D0BA',
+    backgroundColor: '#baf4f8',
   },
 };
 
@@ -151,7 +153,7 @@ export default function TeamDetails({ teamInfo }) {
                           textAlign: 'left',
                         }}
                       >
-                        Category {category} ({groupedPlayers[category].length} Players)
+                        Category {category} ({groupedPlayers[category].length})
                       </Typography>
                     </TableCell>
                   </TableRow>

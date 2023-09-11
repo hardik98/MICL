@@ -139,7 +139,6 @@
 /* Element shape for batting and bowling styles */
 .element-shape {
   padding: 5px 25px 5px 50px;
-  border-radius: 0;
   background:white;
   color: black;
   border-radius: 50px;
