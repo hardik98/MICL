@@ -188,9 +188,10 @@ function PlayerDetails({ selectedPlayer }) {
                 minWidth: '90px',
                 color: 'white',
                 background: 'green',
+                textTransform: 'none'
               }}
             >
-              <Typography> Sold </Typography>
+              <Typography> Mark as Sold </Typography>
             </Button>
           ) : (
             <Button
@@ -247,17 +248,17 @@ function PlayerDetails({ selectedPlayer }) {
               )}
             </div>
             <div className="player-info">
-              <h2 className='player-name'>{selectedPlayer.name}</h2>
+              <h2 className="player-name">{selectedPlayer.name}</h2>
               <div className="player-stats">
                 <p>
                   <span className="element-shape">
-                    <span className="batting-details-label">Batting Style:</span>{' '}
+                    <span className="batting-details-label">Batting :</span>{' '}
                     <span className="batting-style-value">{selectedPlayer.battingStyle}</span>
                   </span>
                 </p>
                 <p>
                   <span className="element-shape">
-                    <span className="batting-details-label">Bowling Style:</span>{' '}
+                    <span className="batting-details-label">Bowling :</span>{' '}
                     <span className="bowling-style-value">{selectedPlayer.bowlingStyle}</span>
                   </span>
                 </p>
@@ -285,18 +286,20 @@ function PlayerDetails({ selectedPlayer }) {
                     <span className="batting-details-value">{selectedPlayer.economy}</span>
                   </span>
                 </p>
-                <p>
-                  <span className="element-shape">
-                    <span className="batting-details-label">Base Price:</span>{' '}
-                    <span className="batting-details-value">{selectedPlayer.basePrice}K</span>
-                  </span>
-                </p>
-                <p>
-                  <span className="element-shape">
-                    <span className="batting-details-label">Category:</span>{' '}
-                    <span className="batting-details-value">{selectedPlayer.Category}</span>
-                  </span>
-                </p>
+                <div className="element-shape2-container">
+                  <div className="element-shape2-box">
+                    <p>
+                      <span className="batting-details-label2">Base Price</span>{' '}
+                      <span className="batting-details-value2">{selectedPlayer.basePrice}K</span>
+                    </p>
+                  </div>
+                  <div className="element-shape2-box">
+                    <p>
+                      <span className="batting-details-label2">Category</span>{' '}
+                      <span className="batting-details-value2">{selectedPlayer.Category}</span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

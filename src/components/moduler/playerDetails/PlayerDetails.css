@@ -148,6 +148,58 @@
   display: flex;
 }
 
+
+.element-shape2-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.element-shape2-box {
+  flex: 1;
+  background: #515151;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  padding: 10px;
+  border-top-left-radius: 35px ;
+  border-bottom-right-radius: 35px ;
+
+  display: flex;
+}
+.element-shape2-box:not(:last-child) {
+  margin-right: 10px;
+}
+
+.element-shape2-container p {
+  margin: 0;
+  justify-content: flex-start;
+  
+}
+
+ .batting-details-label2 {
+  font-size: 45px; 
+  justify-content: flex-start;
+  display: flex;
+}
+.batting-details-value2{
+  font-size: 45px;
+  justify-content: flex-start;
+display: flex;
+}
+
+@font-face {
+  font-family: 'Roboto Thin';
+}
+
+@font-face {
+  font-family: 'Roboto Semibold';
+}
+
+@font-face {
+  font-family: 'Roboto Regular';
+}
+
 /* CSS for Batting style label */
 .batting-details-label {
   font-family: 'Cervo Neue Semibold';

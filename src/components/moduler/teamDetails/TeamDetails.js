@@ -45,11 +45,12 @@ const teamDetailsStyles = {
   },
   balance: {
     fontSize: '20px',
-    color: 'red',
+    color: 'blue',
     fontWeight: 'bold',
   },
   tableContainer: {
     border: '1px solid #ccc',
+    position: 'relative',
   },
   playerRow: {
     display: 'flex',
@@ -67,6 +68,16 @@ const teamDetailsStyles = {
     fontSize: '16px',
     padding: '8px 16px',
   },
+  categoryStyle: {
+    position: 'absolute',
+    top: '4px',
+    right: '15px',
+    fontSize: '12px',
+    color: 'white',
+    backgroundColor: 'green',
+    borderRadius: '4px',
+    padding: '2px 6px',
+  },
 };
 
 export default function TeamDetails({ teamInfo }) {
@@ -80,23 +91,29 @@ export default function TeamDetails({ teamInfo }) {
     <Card sx={teamDetailsStyles.card}>
       <CardContent>
         <div sx={teamDetailsStyles.teamInfoContainer}>
-          <Typography sx={teamDetailsStyles.teamName}>{teamInfo.name}</Typography>
-          <Typography sx={teamDetailsStyles.numberOfPlayers}>
-            {teamInfo.players.length} Players
+          <Typography sx={teamDetailsStyles.teamName}>
+            {`${teamInfo.name} (${teamInfo.players.length} Players)`}
           </Typography>
         </div>
         <Typography sx={teamDetailsStyles.balance}>
           Available Kitty: {formattedAvailableKitty}
         </Typography>
+        <hr className="hrStyle" />
         <TableContainer component={Paper} sx={teamDetailsStyles.tableContainer}>
           <Table>
             <TableBody>
               {teamInfo.players.map((player, index) => (
                 <TableRow key={index}>
                   <TableCell>
+                    <Typography
+                      variant="body2"
+                      sx={teamDetailsStyles.categoryStyle}
+                    >
+                      {player.Category}
+                    </Typography>
                     <Box sx={teamDetailsStyles.playerRow}>
                       <Avatar
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLRfDacAnNupNBLdU9LrPZSo1aOLUB_DCajQ&usqp=CAU"
+                        src={player.photo}
                         alt={player.name}
                         sx={teamDetailsStyles.playerImage}
                       />
