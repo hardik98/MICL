@@ -123,12 +123,13 @@
 /* Media query for screen sizes between 1201px and 1919px */
 @media (min-width: 1920px) {
   .player-info h2 {
-    margin-bottom: 11%;
+    margin-bottom: 8%;
     font-size: 55px;
+    justify-content: center;
   }
 
   .player-stats p {
-    margin-bottom: 7%;
+    margin-bottom: 1%;
     font-size: 33px;
   }
 }
@@ -203,13 +204,13 @@ display: flex;
 /* CSS for Batting style label */
 .batting-details-label {
   font-family: 'Cervo Neue Semibold';
-  font-size: 25px;
+  font-size: 35px;
 }
 
 /* CSS for Batting style value */
 .batting-details-value {
   font-family: 'Cervo Neue Semibold';
-  font-size: 25px;
+  font-size: 35px;
 }
 
 .player-circle {

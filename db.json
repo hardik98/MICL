@@ -1,16 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "Post 1",
-      "body": "This is the body of Post 1"
-    },
-    {
-      "id": 2,
-      "title": "Post 2",
-      "body": "This is the body of Post 2"
-    }
-  ],
   "players": [
     {
       "id": "1",
@@ -46,7 +34,7 @@
       "Category": "A",
       "isSold": true,
       "soldPrice": 2,
-      "soldTo": 2
+      "soldTo": 3
     },
     {
       "id": "3",
@@ -63,8 +51,8 @@
       "basePrice": 1,
       "Category": "A",
       "isSold": true,
-      "soldPrice": 1,
-      "soldTo": 3
+      "soldPrice": 12,
+      "soldTo": 1
     },
     {
       "id": "4",
@@ -80,7 +68,9 @@
       "photo": "/assets/Viral_Patel.png",
       "basePrice": 1,
       "Category": "A",
-      "isSold": true
+      "isSold": true,
+      "soldPrice": 0,
+      "soldTo": 1
     },
     {
       "id": 5,
@@ -95,7 +85,9 @@
       "photo": "/assets/Chirag_Vindhani.jpg",
       "basePrice": 1,
       "Category": "A",
-      "isSold": true
+      "isSold": true,
+      "soldPrice": 2,
+      "soldTo": 3
     },
     {
       "id": 6,
@@ -109,10 +101,7 @@
       "prevTeams": "Kings",
       "photo": "/assets/Janak_Shah.jpg",
       "basePrice": 2,
-      "Category": "B",
-      "isSold": true,
-      "soldPrice": 3,
-      "soldTo": 4
+      "Category": "B"
     },
     {
       "id": 7,
@@ -127,7 +116,9 @@
       "photo": "/assets/gauravchandwani_photo.png",
       "basePrice": 2,
       "Category": "B",
-      "isSold": true
+      "isSold": true,
+      "soldPrice": 0,
+      "soldTo": 1
     },
     {
       "id": 8,
@@ -140,8 +131,7 @@
       "economy": "5.28",
       "photo": "/assets/gauravchandwani_photo.png",
       "basePrice": 3,
-      "Category": "C",
-      "isSold": true
+      "Category": "C"
     },
     {
       "id": 9,
@@ -154,8 +144,7 @@
       "economy": "5.28",
       "photo": "/assets/gauravchandwani_photo.png",
       "basePrice": 3,
-      "Category": "C",
-      "isSold": true
+      "Category": "C"
     },
     {
       "id": 10,
@@ -170,8 +159,8 @@
       "basePrice": 3,
       "Category": "C",
       "isSold": true,
-      "soldPrice": 3,
-      "soldTo": 5
+      "soldPrice": 0,
+      "soldTo": 4
     },
     {
       "id": 11,
@@ -184,7 +173,10 @@
       "economy": "5.28",
       "basePrice": 3,
       "Category": "C",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "soldPrice": 0,
+      "soldTo": 2,
+      "isSold": true
     },
     {
       "id": 12,
@@ -211,7 +203,10 @@
       "economy": "5.28",
       "basePrice": 4,
       "Category": "D",
-      "photo": "/assets/gauravchandwani_photo.png"
+      "photo": "/assets/gauravchandwani_photo.png",
+      "isSold": true,
+      "soldPrice": 0,
+      "soldTo": 2
     },
     {
       "id": 14,
@@ -415,8 +410,8 @@
     {
       "id": 1,
       "name": "MI",
-      "totalKitty": 100000,
-      "availableKitty": 99000,
+      "totalKitty": 30000,
+      "availableKitty": 17000,
       "totalPlayer": 10,
       "players": [
         {
@@ -436,14 +431,108 @@
           "isSold": true,
           "soldPrice": 1,
           "soldTo": 1
+        },
+        {
+          "id": "4",
+          "name": "Viral Patel",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "11000",
+          "average": "21.23",
+          "wickets": "1250",
+          "economy": "7.28",
+          "basePoints": "200",
+          "prevTeams": "Kings",
+          "photo": "/assets/Viral_Patel.png",
+          "basePrice": 1,
+          "Category": "A",
+          "isSold": true,
+          "soldPrice": 0,
+          "soldTo": 1
+        },
+        {
+          "id": "3",
+          "name": "Harshil Patel",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Right arm medium",
+          "runs": "1203",
+          "average": "23.23",
+          "wickets": "150",
+          "economy": "6.28",
+          "basePoints": "150",
+          "prevTeams": "Variables",
+          "photo": "/assets/Harshil_Patel.jpg",
+          "basePrice": 1,
+          "Category": "A",
+          "isSold": true,
+          "soldPrice": 12,
+          "soldTo": 1
+        },
+        {
+          "id": 7,
+          "name": "Viral Patel",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "prevTeams": "Variables, Kings",
+          "photo": "/assets/gauravchandwani_photo.png",
+          "basePrice": 2,
+          "Category": "B",
+          "isSold": true,
+          "soldPrice": 3,
+          "soldTo": 1
         }
       ]
     },
     {
       "id": 2,
       "name": "CSK",
-      "totalKitty": 100000,
-      "availableKitty": 98000,
+      "totalKitty": 30000,
+      "availableKitty": 30000,
+      "totalPlayer": 10,
+      "players": [
+        {
+          "id": 11,
+          "name": "Viral Patel",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "basePrice": 3,
+          "Category": "C",
+          "photo": "/assets/gauravchandwani_photo.png",
+          "soldPrice": 4,
+          "soldTo": 2,
+          "isSold": true
+        },
+        {
+          "id": 13,
+          "name": "Viral Patel",
+          "battingStyle": "Left Hand Bat",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "5900",
+          "average": "20.23",
+          "wickets": "200",
+          "economy": "5.28",
+          "basePrice": 4,
+          "Category": "D",
+          "photo": "/assets/gauravchandwani_photo.png",
+          "isSold": true,
+          "soldPrice": 1,
+          "soldTo": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "KK",
+      "totalKitty": 30000,
+      "availableKitty": 26000,
       "totalPlayer": 10,
       "players": [
         {
@@ -462,68 +551,32 @@
           "Category": "A",
           "isSold": true,
           "soldPrice": 2,
-          "soldTo": 2
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "RR",
-      "totalKitty": 100000,
-      "availableKitty": 99000,
-      "totalPlayer": 10,
-      "players": [
+          "soldTo": 3
+        },
         {
-          "id": "3",
-          "name": "Harshil Patel",
+          "id": 5,
+          "name": "Chirag Vindhani",
           "battingStyle": "Right Hand Bat",
-          "bowlingStyle": "Right arm medium",
-          "runs": "1203",
-          "average": "23.23",
-          "wickets": "150",
-          "economy": "6.28",
-          "basePoints": "150",
+          "bowlingStyle": "Slow left arm orthodox",
+          "runs": "4000",
+          "average": "20.23",
+          "wickets": "2000",
+          "economy": "5.28",
           "prevTeams": "Variables",
-          "photo": "/assets/Harshil_Patel.jpg",
+          "photo": "/assets/Chirag_Vindhani.jpg",
           "basePrice": 1,
           "Category": "A",
           "isSold": true,
-          "soldPrice": 1,
+          "soldPrice": 2,
           "soldTo": 3
         }
       ]
     },
     {
       "id": 4,
-      "name": "GT",
-      "totalKitty": 100000,
-      "availableKitty": 97000,
-      "totalPlayer": 10,
-      "players": [
-        {
-          "id": 6,
-          "name": "Janak Shah",
-          "battingStyle": "Right Hand Bat",
-          "bowlingStyle": "Slow left arm orthodox",
-          "runs": "3000",
-          "average": "25.23",
-          "wickets": "1000",
-          "economy": "5.28",
-          "prevTeams": "Kings",
-          "photo": "/assets/Janak_Shah.jpg",
-          "basePrice": 2,
-          "Category": "B",
-          "isSold": true,
-          "soldPrice": 3,
-          "soldTo": 4
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "KKR",
-      "totalKitty": 100000,
-      "availableKitty": 97000,
+      "name": "DD",
+      "totalKitty": 30000,
+      "availableKitty": 30000,
       "totalPlayer": 10,
       "players": [
         {
@@ -539,10 +592,18 @@
           "basePrice": 3,
           "Category": "C",
           "isSold": true,
-          "soldPrice": 3,
-          "soldTo": 5
+          "soldPrice": 2,
+          "soldTo": 4
         }
       ]
+    },
+    {
+      "id": 5,
+      "name": "CC",
+      "totalKitty": 30000,
+      "availableKitty": 30000,
+      "totalPlayer": 10,
+      "players": []
     }
   ]
 }
