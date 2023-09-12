@@ -14,6 +14,7 @@ import {
   Typography,
   Avatar,
 } from '@mui/material';
+import reservedKitty from '../../../utils';
 
 const teamDetailsStyles = {
   card: {
@@ -48,11 +49,21 @@ const teamDetailsStyles = {
     color: '#497ee8',
     fontWeight: 'bold',
   },
+  reservedKitty: {
+    fontSize: '20px',
+
+    color: '497ee8',
+    fontWeight: 'bold',
+  },
+  reservedKittyExceed: {
+    fontSize: '20px',
+    color: 'red',
+    fontWeight: 'bold',
+  },
   tableContainer: {
     border: '1px solid #ccc',
-    
   },
-  tableRow:{
+  tableRow: {
     position: 'relative',
   },
   playerRow: {
@@ -61,7 +72,7 @@ const teamDetailsStyles = {
   },
   playerName: {
     marginLeft: '4px',
-    fontSize:'20px'
+    fontSize: '20px',
   },
   playerImage: {
     width: '50px',
@@ -87,11 +98,11 @@ const teamDetailsStyles = {
 const categoryStyles = {
   A: {
     backgroundColor: '#0c6d74',
-    color: '#fff'
+    color: '#fff',
   },
   B: {
     backgroundColor: '#1199a2',
-    color: '#fff'
+    color: '#fff',
   },
   C: {
     backgroundColor: '#2fdee9',
@@ -107,6 +118,11 @@ const categoryStyles = {
 const categoryPriorityOrder = ['A', 'B', 'C', 'D', 'E'];
 
 export default function TeamDetails({ teamInfo }) {
+  const categoryAplayers = teamInfo?.players.filter((player) => player.Category === 'A').length;
+  const categoryBplayers = teamInfo?.players.filter((player) => player.Category === 'B').length;
+  const categoryCplayers = teamInfo?.players.filter((player) => player.Category === 'C').length;
+  const categoryDplayers = teamInfo?.players.filter((player) => player.Category === 'D').length;
+
   const formattedAvailableKitty = teamInfo.availableKitty.toLocaleString('en-IN', {
     style: 'currency',
     currency: 'INR',
@@ -114,6 +130,7 @@ export default function TeamDetails({ teamInfo }) {
   });
 
   const groupedPlayers = {};
+
   teamInfo.players.forEach((player) => {
     if (!groupedPlayers[player.Category]) {
       groupedPlayers[player.Category] = [];
@@ -122,6 +139,20 @@ export default function TeamDetails({ teamInfo }) {
   });
 
   const sortedCategories = categoryPriorityOrder.filter((category) => groupedPlayers[category]);
+  const getReservedKitty = () => {
+    let totalReservedKitty = 0;
+    reservedKitty.forEach((item) => {
+      totalReservedKitty = totalReservedKitty + item.baseKitty * item.totalPlayer;
+    });
+
+    //  Note: Need to refactor this
+    totalReservedKitty = totalReservedKitty - categoryAplayers * reservedKitty[0].baseKitty;
+    totalReservedKitty = totalReservedKitty - categoryBplayers * reservedKitty[1].baseKitty;
+    totalReservedKitty = totalReservedKitty - categoryCplayers * reservedKitty[2].baseKitty;
+    totalReservedKitty = totalReservedKitty - categoryDplayers * reservedKitty[3].baseKitty;
+
+    return totalReservedKitty;
+  };
 
   return (
     <Card sx={teamDetailsStyles.card}>
@@ -134,17 +165,33 @@ export default function TeamDetails({ teamInfo }) {
         <Typography sx={teamDetailsStyles.balance}>
           Available Kitty: {formattedAvailableKitty}
         </Typography>
+        <Typography
+          sx={
+            teamInfo.availableKitty < getReservedKitty()
+              ? teamDetailsStyles.reservedKittyExceed
+              : teamDetailsStyles.reservedKitty
+          }
+        >
+          Reserved Kitty:
+          {getReservedKitty().toLocaleString('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            minimumFractionDigits: 0,
+          })}
+        </Typography>
         <hr className="hrStyle" />
         <TableContainer component={Paper} sx={teamDetailsStyles.tableContainer}>
           <Table>
             <TableBody>
               {sortedCategories.map((category) => (
                 <React.Fragment key={category}>
-                  <TableRow sx={{ ...teamDetailsStyles.tableRow, ...(categoryStyles[category] || {}) }}>
+                  <TableRow
+                    sx={{ ...teamDetailsStyles.tableRow, ...(categoryStyles[category] || {}) }}
+                  >
                     <TableCell colSpan={2}>
                       <Typography
                         variant="body2"
-                        className='test'
+                        className="test"
                         sx={{
                           ...teamDetailsStyles.categoryStyle,
                           backgroundColor: categoryStyles[category]?.backgroundColor || 'inherit',
@@ -166,7 +213,10 @@ export default function TeamDetails({ teamInfo }) {
                             alt={player.name}
                             sx={teamDetailsStyles.playerImage}
                           />
-                          <Typography variant="body2" sx={{ ...teamDetailsStyles.playerName, fontWeight: 'bold' }}>
+                          <Typography
+                            variant="body2"
+                            sx={{ ...teamDetailsStyles.playerName, fontWeight: 'bold' }}
+                          >
                             {player.name}
                           </Typography>
                         </Box>
