@@ -167,7 +167,7 @@ export default function TeamDetails({ teamInfo }) {
         </Typography>
         <Typography
           sx={
-            teamInfo.availableKitty < getReservedKitty()
+            teamInfo.availableKitty <= getReservedKitty()
               ? teamDetailsStyles.reservedKittyExceed
               : teamDetailsStyles.reservedKitty
           }
