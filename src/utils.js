@@ -1,7 +1,7 @@
 const reservedKitty = [
   {
     totalPlayer: 3,
-    baseKitty: 3000,
+    baseKitty: 4000,
     category: 'A',
   },
   {
@@ -11,12 +11,12 @@ const reservedKitty = [
   },
   {
     totalPlayer: 4,
-    baseKitty: 4000,
+    baseKitty: 2000,
     category: 'C',
   },
   {
     totalPlayer: 4,
-    baseKitty: 4000,
+    baseKitty: 1000,
     category: 'D',
   },
 ];
