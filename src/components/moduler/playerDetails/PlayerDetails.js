@@ -184,11 +184,11 @@ function PlayerDetails({ selectedPlayer }) {
               sx={{
                 position: 'absolute',
                 bottom: 0,
-                right: '40px',
+                right: '250px',
                 minWidth: '90px',
                 color: 'white',
                 background: 'green',
-                textTransform: 'none'
+                textTransform: 'none',
               }}
             >
               <Typography> Mark as Sold </Typography>
@@ -201,7 +201,7 @@ function PlayerDetails({ selectedPlayer }) {
               sx={{
                 position: 'absolute',
                 bottom: 0,
-                right: '40px',
+                right: '270px',
                 minWidth: '90px',
                 color: 'white',
                 background: 'green',
@@ -248,8 +248,12 @@ function PlayerDetails({ selectedPlayer }) {
               )}
             </div>
             <div className="player-info">
-              <h2 className="player-name">{selectedPlayer.name}</h2>
               <div className="player-stats">
+                <p>
+                  <span >
+                    <h2 className="player-name">{selectedPlayer.name}</h2>
+                  </span>
+                </p>
                 <p>
                   <span className="element-shape">
                     <span className="batting-details-label">Batting :</span>{' '}
