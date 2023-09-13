@@ -26,7 +26,9 @@
       "photo": "profile_pic_Jayesh Thadani.jpg",
       "basePrice": 1,
       "Category": "A",
-      "isSold": false
+      "isSold": true,
+      "soldPrice": 1,
+      "soldTo": 1
     },
     {
       "id": 3,
@@ -208,7 +210,9 @@
       "photo": "pic_Rohit Joshi.jpeg",
       "basePrice": 1,
       "Category": "C",
-      "isSold": false
+      "isSold": true,
+      "soldPrice": 2,
+      "soldTo": 2
     },
     {
       "id": 16,
@@ -698,7 +702,9 @@
       "photo": "1692783121352_Prince Patel.jpeg",
       "basePrice": 1,
       "Category": "A",
-      "isSold": false
+      "isSold": true,
+      "soldPrice": 3,
+      "soldTo": 2
     },
     {
       "id": 51,
@@ -824,7 +830,9 @@
       "photo": "IMG_20230825_122913_Sandip Chavda.jpg",
       "basePrice": 1,
       "Category": "C",
-      "isSold": false
+      "isSold": true,
+      "soldPrice": 4,
+      "soldTo": 3
     },
     {
       "id": 60,
@@ -978,7 +986,9 @@
       "photo": "IMG_9424 copy_Krunal Shah.jpg",
       "basePrice": 1,
       "Category": "B",
-      "isSold": false
+      "isSold": true,
+      "soldPrice": 1,
+      "soldTo": 2
     },
     {
       "id": 71,
@@ -1000,25 +1010,108 @@
       "id": 1,
       "name": "Milan Patel",
       "totalKitty": 100000,
-      "availableKitty": 100000,
+      "availableKitty": 99000,
       "totalPlayer": 14,
-      "players": []
+      "players": [
+        {
+          "id": 2,
+          "name": "Jayesh Thadani",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Right arm fast",
+          "runs": 6419,
+          "average": 19.45,
+          "wickets": 127,
+          "economy": 8.49,
+          "photo": "profile_pic_Jayesh Thadani.jpg",
+          "basePrice": 1,
+          "Category": "A",
+          "isSold": true,
+          "soldPrice": 1,
+          "soldTo": 1
+        }
+      ]
     },
     {
       "id": 2,
       "name": "Sanjay Ahuja",
       "totalKitty": 100000,
-      "availableKitty": 100000,
+      "availableKitty": 94000,
       "totalPlayer": 14,
-      "players": []
+      "players": [
+        {
+          "id": 15,
+          "name": "Rohit Joshi",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Right arm medium",
+          "runs": 18,
+          "average": 6,
+          "wickets": 5,
+          "economy": 8,
+          "photo": "pic_Rohit Joshi.jpeg",
+          "basePrice": 1,
+          "Category": "C",
+          "isSold": true,
+          "soldPrice": 2,
+          "soldTo": 2
+        },
+        {
+          "id": 50,
+          "name": "Prince Patel",
+          "battingStyle": "Right Hand Bat",
+          "bowlingStyle": "Right arm medium",
+          "runs": 377,
+          "average": 31.42,
+          "wickets": 12,
+          "economy": 9.16,
+          "photo": "1692783121352_Prince Patel.jpeg",
+          "basePrice": 1,
+          "Category": "A",
+          "isSold": true,
+          "soldPrice": 3,
+          "soldTo": 2
+        },
+        {
+          "id": 70,
+          "name": "Krunal Shah",
+          "battingStyle": "Unknown",
+          "bowlingStyle": "Unknown",
+          "runs": 0,
+          "average": 0,
+          "wickets": 0,
+          "economy": 0,
+          "photo": "IMG_9424 copy_Krunal Shah.jpg",
+          "basePrice": 1,
+          "Category": "B",
+          "isSold": true,
+          "soldPrice": 1,
+          "soldTo": 2
+        }
+      ]
     },
     {
       "id": 3,
       "name": "Sharvil",
       "totalKitty": 100000,
-      "availableKitty": 100000,
+      "availableKitty": 96000,
       "totalPlayer": 14,
-      "players": []
+      "players": [
+        {
+          "id": 59,
+          "name": "Sandip Chavda",
+          "battingStyle": "Unknown",
+          "bowlingStyle": "Unknown",
+          "runs": 0,
+          "average": 0,
+          "wickets": 0,
+          "economy": 0,
+          "photo": "IMG_20230825_122913_Sandip Chavda.jpg",
+          "basePrice": 1,
+          "Category": "C",
+          "isSold": true,
+          "soldPrice": 4,
+          "soldTo": 3
+        }
+      ]
     },
     {
       "id": 4,

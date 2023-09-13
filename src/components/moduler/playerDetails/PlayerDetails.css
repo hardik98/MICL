@@ -31,14 +31,14 @@
 }
 
 .player-photo {
-  /* flex: 0 0 30%; */
   margin-right: 20px;
   margin-top: 140px;
+  
 }
 
 .player-photo img {
-  width: 100%;
-  height: auto;
+  height: 450px;
+  width: 450px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.433);
