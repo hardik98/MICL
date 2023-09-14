@@ -12,7 +12,7 @@
       "photo": "IMG_4436_Niketan Patel.jpeg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": true,
+      "isSold": false,
       "soldPrice": 0,
       "soldTo": ""
     },
