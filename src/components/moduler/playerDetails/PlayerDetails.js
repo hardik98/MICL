@@ -152,7 +152,7 @@ function PlayerDetails({ selectedPlayer }) {
                     </Select>
                   </FormControl>
                   <Button
-                    disabled={currentSelectedTeam?.availableKitty < soldPrice * 1000}
+                    disabled={soldPrice === 0 || soldTo === ''}
                     sx={{
                       marginTop: '20px',
                       display: 'flex',
@@ -250,7 +250,7 @@ function PlayerDetails({ selectedPlayer }) {
             <div className="player-info">
               <div className="player-stats">
                 <p>
-                  <span >
+                  <span>
                     <h2 className="player-name">{selectedPlayer.name}</h2>
                   </span>
                 </p>
@@ -294,7 +294,9 @@ function PlayerDetails({ selectedPlayer }) {
                   <div className="element-shape2-box">
                     <p>
                       <span className="batting-details-label2">Base Price</span>{' '}
-                      <span className="batting-details-value2">{selectedPlayer.basePrice}K</span>
+                      <span className="batting-details-value2">
+                        {selectedPlayer.basePrice !== 'NA' ? `${selectedPlayer.basePrice}K` : 'NA'}
+                      </span>
                     </p>
                   </div>
                   <div className="element-shape2-box">
