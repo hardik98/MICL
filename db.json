@@ -29,20 +29,6 @@
       "isSold": false
     },
     {
-      "id": 3,
-      "name": "Dharmadeep Jadeja",
-      "battingStyle": "Right Hand Bat",
-      "bowlingStyle": "Right arm medium",
-      "runs": 146,
-      "average": 9.73,
-      "wickets": 25,
-      "economy": 6.97,
-      "photo": "IMG_1366 (1)_Dharmadeep Jadeja.jpg",
-      "basePrice": "NA",
-      "Category": "NA",
-      "isSold": false
-    },
-    {
       "id": 4,
       "name": "Piyushkumar Dholariya",
       "battingStyle": "Right Hand Bat",
@@ -127,20 +113,6 @@
       "isSold": false
     },
     {
-      "id": 10,
-      "name": "Sanjay Ahuja",
-      "battingStyle": "Right Hand Bat",
-      "bowlingStyle": "Right arm fast",
-      "runs": 2534,
-      "average": 11.31,
-      "wickets": 5,
-      "economy": 6.1,
-      "photo": "Sanjay_Sanjay Ahuja.png",
-      "basePrice": "NA",
-      "Category": "NA",
-      "isSold": false
-    },
-    {
       "id": 11,
       "name": "Shubham Yadav",
       "battingStyle": "Unknown",
@@ -180,20 +152,6 @@
       "photo": "chetan 1 photo_Chetan Patel.jpeg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
-    },
-    {
-      "id": 14,
-      "name": "Ankit Saxena",
-      "battingStyle": "Right Hand Bat",
-      "bowlingStyle": "Right arm medium",
-      "runs": 1693,
-      "average": 14.23,
-      "wickets": 39,
-      "economy": 10.08,
-      "photo": "Screenshot 2023-08-21 at 1.47.21 PM_Ankit Saxena.png",
-      "basePrice": "NA",
-      "Category": "NA",
       "isSold": false
     },
     {
@@ -460,20 +418,6 @@
       "photo": "IMG_4583_Bilalahmad Ghanchi.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
-    },
-    {
-      "id": 34,
-      "name": "Sharvil Tankshali",
-      "battingStyle": "Right Hand Bat",
-      "bowlingStyle": "Right-arm Leg Break",
-      "runs": 780,
-      "average": 15.6,
-      "wickets": 47,
-      "economy": 9.41,
-      "photo": "Sharvil_Tankshali_photo_Sharvil Tankshali.JPG",
-      "basePrice": "NA",
-      "Category": "NA",
       "isSold": false
     },
     {
@@ -936,20 +880,6 @@
       "photo": "image (1)_Nazim Pathan.png",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
-    },
-    {
-      "id": 68,
-      "name": "Milan Patel",
-      "battingStyle": "Right Hand Bat",
-      "bowlingStyle": "Right arm medium",
-      "runs": 191,
-      "average": 14.69,
-      "wickets": 14,
-      "economy": 7.61,
-      "photo": "1000082815_Milan Patel.jpg",
-      "basePrice": "NA",
-      "Category": "NA",
       "isSold": false
     },
     {
