@@ -66,15 +66,21 @@ function PlayerDetails({ selectedPlayer }) {
         (team) => Number(team.id) === Number(existingSelectedTeam),
       );
 
+      console.log('existingSoldPlayerTeam', existingSoldPlayerTeam);
+
       const updatedPlayers = existingSoldPlayerTeam.players.filter(
         (item) => Number(item?.id) !== Number(selectedPlayer?.id),
       );
+
+      console.log('updatedPlayers', updatedPlayers);
 
       const updatedTeam = {
         ...existingSoldPlayerTeam,
         players: updatedPlayers,
         availableKitty: existingSoldPlayerTeam.availableKitty + existingSoldPrice * 1000,
       };
+
+      console.log('updatedTeam', updatedTeam);
 
       await addSoldPlayer({
         id: Number(existingSelectedTeam),
@@ -85,10 +91,23 @@ function PlayerDetails({ selectedPlayer }) {
     handleClose();
     const selectedTeam = teams.find((team) => Number(team.id) === Number(soldTo));
 
+    const isPlayerExist = selectedTeam.players?.find(
+      (player) => Number(player.id) === Number(selectedPlayer.id),
+    );
+    console.log('is Plyer', isPlayerExist);
+
     const updatedTeam = {
       ...selectedTeam,
-      players: [...selectedTeam.players, updatedSelectedPlayer],
-      availableKitty: selectedTeam.availableKitty - soldPrice * 1000,
+      players: !isPlayerExist
+        ? [...selectedTeam.players, updatedSelectedPlayer]
+        : [
+            ...selectedTeam.players?.map((player) => {
+              return player.id === selectedPlayer.id ? updatedSelectedPlayer : player;
+            }),
+          ],
+      availableKitty: !isPlayerExist
+        ? selectedTeam.availableKitty - soldPrice * 1000
+        : selectedTeam.availableKitty + existingSoldPrice * 1000 - soldPrice * 1000,
     };
 
     await addSoldPlayer({
