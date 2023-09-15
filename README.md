@@ -1,4 +1,4 @@
-This is internal Project for Cricket Player Auction created with create react app. For Backend I am using Json server to mimic api calls.
+This is internal Project for Cricket Player Auction. This Project is Created with create react app. For Backend I am using Json server to mimic api calls.
 
 1.  Clone the Repo
 2.  npm install and npm start (It will run on port 3000)
