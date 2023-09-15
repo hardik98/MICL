@@ -930,7 +930,7 @@
       "id": 1,
       "name": "Milan Patel",
       "totalKitty": 100000,
-      "availableKitty": 97000,
+      "availableKitty": 100000,
       "totalPlayer": 14,
       "players": []
     },
@@ -962,7 +962,7 @@
       "id": 5,
       "name": "Terminators (DD)",
       "totalKitty": 100000,
-      "availableKitty": 98000,
+      "availableKitty": 100000,
       "totalPlayer": 14,
       "players": []
     }

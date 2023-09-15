@@ -171,7 +171,7 @@ function PlayerDetails({ selectedPlayer }) {
                     </Select>
                   </FormControl>
                   <Button
-                    disabled={soldPrice === 0 || soldTo === ''}
+                    disabled={soldPrice === 0 || soldTo === ''|| currentSelectedTeam?.availableKitty < soldPrice * 1000}
                     sx={{
                       marginTop: '20px',
                       display: 'flex',
