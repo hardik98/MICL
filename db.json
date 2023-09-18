@@ -928,7 +928,7 @@
   "teams": [
     {
       "id": 1,
-      "name": "Milan Patel",
+      "name": "Masters (Milan)",
       "totalKitty": 100000,
       "availableKitty": 100000,
       "totalPlayer": 14,
@@ -936,7 +936,7 @@
     },
     {
       "id": 2,
-      "name": "Sanjay Ahuja",
+      "name": "Dominators (Sanjay)",
       "totalKitty": 100000,
       "availableKitty": 100000,
       "totalPlayer": 14,
@@ -944,7 +944,7 @@
     },
     {
       "id": 3,
-      "name": "Sharvil Tankshali",
+      "name": "Indians (Sharvil)",
       "totalKitty": 100000,
       "availableKitty": 100000,
       "totalPlayer": 14,
