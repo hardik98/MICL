@@ -66,21 +66,15 @@ function PlayerDetails({ selectedPlayer }) {
         (team) => Number(team.id) === Number(existingSelectedTeam),
       );
 
-      console.log('existingSoldPlayerTeam', existingSoldPlayerTeam);
-
       const updatedPlayers = existingSoldPlayerTeam.players.filter(
         (item) => Number(item?.id) !== Number(selectedPlayer?.id),
       );
-
-      console.log('updatedPlayers', updatedPlayers);
 
       const updatedTeam = {
         ...existingSoldPlayerTeam,
         players: updatedPlayers,
         availableKitty: existingSoldPlayerTeam.availableKitty + existingSoldPrice * 1000,
       };
-
-      console.log('updatedTeam', updatedTeam);
 
       await addSoldPlayer({
         id: Number(existingSelectedTeam),
@@ -94,7 +88,6 @@ function PlayerDetails({ selectedPlayer }) {
     const isPlayerExist = selectedTeam.players?.find(
       (player) => Number(player.id) === Number(selectedPlayer.id),
     );
-    console.log('is Plyer', isPlayerExist);
 
     const updatedTeam = {
       ...selectedTeam,
@@ -171,7 +164,13 @@ function PlayerDetails({ selectedPlayer }) {
                     </Select>
                   </FormControl>
                   <Button
-                    disabled={soldPrice === 0 || soldTo === ''|| currentSelectedTeam?.availableKitty < soldPrice * 1000}
+                    disabled={
+                      soldPrice === 0 ||
+                      soldTo === '' ||
+                      currentSelectedTeam?.availableKitty +
+                        (selectedPlayer?.soldPrice || 0) * 1000 <
+                        soldPrice * 1000
+                    }
                     sx={{
                       marginTop: '20px',
                       display: 'flex',
@@ -183,9 +182,8 @@ function PlayerDetails({ selectedPlayer }) {
                   >
                     <Typography>Confirm</Typography>
                   </Button>
-                  {currentSelectedTeam?.availableKitty < soldPrice * 1000 && (
-                    <p style={{ color: 'red' }}> Not Enough Kitty </p>
-                  )}
+                  {currentSelectedTeam?.availableKitty + (selectedPlayer?.soldPrice || 0) * 1000 <
+                    soldPrice * 1000 && <p style={{ color: 'red' }}> Not Enough Kitty </p>}
                 </>
               ) : (
                 <Typography id="modal-modal-title" variant="h6" component="h2">
