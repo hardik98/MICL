@@ -115,3 +115,7 @@ li,a{
  li a:hover {
   color: #0088a9;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
