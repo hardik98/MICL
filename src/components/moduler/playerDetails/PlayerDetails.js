@@ -17,6 +17,7 @@ import {
   useFetchTeamsQuery,
   useSoldPlayerMutation,
 } from '../../../redux/api/playersApi';
+import reservedKitty from '../../../utils';
 
 const style = {
   position: 'absolute',
@@ -111,6 +112,34 @@ function PlayerDetails({ selectedPlayer }) {
     localStorage.setItem('sharedData', JSON.stringify({ message: 'Updated Data' }));
   };
 
+  const getReservedKitty = () => {
+    const categoryAplayers = currentSelectedTeam?.players.filter(
+      (player) => player.Category === 'A',
+    ).length;
+    const categoryBplayers = currentSelectedTeam?.players.filter(
+      (player) => player.Category === 'B',
+    ).length;
+    const categoryCplayers = currentSelectedTeam?.players.filter(
+      (player) => player.Category === 'C',
+    ).length;
+    const categoryDplayers = currentSelectedTeam?.players.filter(
+      (player) => player.Category === 'D',
+    ).length;
+
+    let totalReservedKitty = 0;
+    reservedKitty.forEach((item) => {
+      totalReservedKitty = totalReservedKitty + item.baseKitty * item.totalPlayer;
+    });
+
+    //  Note: Need to refactor this
+    totalReservedKitty = totalReservedKitty - categoryAplayers * reservedKitty[0].baseKitty;
+    totalReservedKitty = totalReservedKitty - categoryBplayers * reservedKitty[1].baseKitty;
+    totalReservedKitty = totalReservedKitty - categoryCplayers * reservedKitty[2].baseKitty;
+    totalReservedKitty = totalReservedKitty - categoryDplayers * reservedKitty[3].baseKitty;
+
+    return totalReservedKitty;
+  };
+
   return (
     <div className="player-details">
       {!selectedPlayer ? (
@@ -167,7 +196,9 @@ function PlayerDetails({ selectedPlayer }) {
                     disabled={
                       soldPrice === 0 ||
                       soldTo === '' ||
-                      currentSelectedTeam?.availableKitty +
+                      currentSelectedTeam?.availableKitty -
+                        getReservedKitty() +
+                        (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
                         (selectedPlayer?.soldPrice || 0) * 1000 <
                         soldPrice * 1000
                     }
@@ -182,7 +213,10 @@ function PlayerDetails({ selectedPlayer }) {
                   >
                     <Typography>Confirm</Typography>
                   </Button>
-                  {currentSelectedTeam?.availableKitty + (selectedPlayer?.soldPrice || 0) * 1000 <
+                  {currentSelectedTeam?.availableKitty -
+                    getReservedKitty() +
+                    (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
+                    (selectedPlayer?.soldPrice || 0) * 1000 <
                     soldPrice * 1000 && <p style={{ color: 'red' }}> Not Enough Kitty </p>}
                 </>
               ) : (
