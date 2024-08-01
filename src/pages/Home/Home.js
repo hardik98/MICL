@@ -1,8 +1,11 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import PlayersList from '../../components/moduler/PlayersList/PlayersList';
 // import { useSoldPlayerMutation } from '../../redux/api/playersApi';
 
 function Home() {
+  const location = useLocation();
+  const { path } = location.state || {};
   // const handleClick = async () => {
   //   await soldPlayer({
   //     id: '2',
@@ -29,7 +32,7 @@ function Home() {
       className="home"
       style={{ maxHeight: 'calc(100vh - 120px)', overflow: 'scroll', padding: '12px' }}
     >
-      <PlayersList />
+      <PlayersList path={path} />
     </div>
   );
 }

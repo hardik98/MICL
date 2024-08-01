@@ -42,6 +42,14 @@ export const playersApi = createApi({
       }),
       invalidatesTags: ['teams', 'players'],
     }),
+    unsoldPlayer: builder.mutation({
+      query: ({ id, updatedPlayer }) => ({
+        url: `players/${id}`,
+        method: 'PUT',
+        body: updatedPlayer,
+      }),
+      invalidatesTags: ['players'],
+    }),
   }),
 });
 
@@ -53,4 +61,5 @@ export const {
   useFetchTeamsQuery,
   useLazyFetchTeamsQuery,
   useCreateTeamsMutation,
+  useUnsoldPlayerMutation,
 } = playersApi;

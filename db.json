@@ -12,7 +12,8 @@
       "photo": "IMG_4436_Niketan Patel.jpeg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 2,
@@ -26,7 +27,8 @@
       "photo": "profile_pic_Jayesh Thadani.jpg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 4,
@@ -40,7 +42,8 @@
       "photo": "IMG_20200803_172257_398_Piyushkumar Dholariy.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 5,
@@ -54,7 +57,8 @@
       "photo": "IMG_3242_Aman Prajapati.jpg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 6,
@@ -68,7 +72,8 @@
       "photo": "Screenshot 2023-08-21 at 1.08.47 PM_Dharmesh Pithava.png",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 7,
@@ -82,7 +87,8 @@
       "photo": "IMG_3914_Nisarg Gohil.jpeg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 8,
@@ -96,7 +102,8 @@
       "photo": "Kashyap_Kashyap Pancholi.jpeg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 9,
@@ -110,7 +117,8 @@
       "photo": "11_Mahesh Kavathiya.jpeg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 11,
@@ -124,7 +132,8 @@
       "photo": "IMG_6943 (1)_Shubham Yadav.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 12,
@@ -138,7 +147,8 @@
       "photo": "12AF80C5-EB5B-4DE7-8312-1FA7523160EF_Milan Raval.jpeg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 13,
@@ -152,7 +162,8 @@
       "photo": "chetan 1 photo_Chetan Patel.jpeg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 15,
@@ -166,7 +177,8 @@
       "photo": "pic_Rohit Joshi.jpeg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 16,
@@ -180,7 +192,8 @@
       "photo": "VE012027_Janak Shah.JPG",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 17,
@@ -194,7 +207,8 @@
       "photo": "IMG_1811_Chirag Vindhani.jpg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 18,
@@ -208,7 +222,8 @@
       "photo": "IMG_20211105_110030~2_Darshan Kunjadiya.jpg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 19,
@@ -222,7 +237,8 @@
       "photo": "pic_Mohit Trivedi.jpeg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 20,
@@ -236,7 +252,8 @@
       "photo": "WhatsApp Image 2023-08-21 at 3.59.43 PM_Jatin Kansagara.jpeg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 21,
@@ -250,7 +267,8 @@
       "photo": "gauravchandwani_photo_Gaurav Chandwani.jpeg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 22,
@@ -264,7 +282,8 @@
       "photo": "Passport Image_Devesh Doshi.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 23,
@@ -278,7 +297,8 @@
       "photo": "1692618778620_Gaurav Shekhadiya.jpg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 24,
@@ -292,7 +312,8 @@
       "photo": "photo_Dhaval Joshi.png",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 25,
@@ -306,7 +327,8 @@
       "photo": "1619977545923_Bhushan Mande.jpg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 26,
@@ -320,7 +342,8 @@
       "photo": "WhatsApp Image 2023-08-21 at 19.20.37_Pratikkumar Patel.jpeg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 27,
@@ -334,7 +357,8 @@
       "photo": "TTBJNK0LQ-U01BHTEG0KC-2666e81de484-512_Darshan Patel.jpeg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 28,
@@ -348,7 +372,8 @@
       "photo": "41689D97-49A5-4D4E-B8F2-C88627EB2274 (1)_Affazal Padhersi.jpg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 29,
@@ -362,7 +387,8 @@
       "photo": "IMG-20220104-WA0017_Sunny Tomar.jpg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 30,
@@ -376,7 +402,8 @@
       "photo": "profile_Pankaj Kotwani.png",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 31,
@@ -390,7 +417,8 @@
       "photo": "Rahul Shah Photo_Rahul k Shah.JPG",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 32,
@@ -404,7 +432,8 @@
       "photo": "miclprofile_Viral Patel.jpeg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 33,
@@ -418,7 +447,8 @@
       "photo": "IMG_4583_Bilalahmad Ghanchi.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 35,
@@ -432,7 +462,8 @@
       "photo": "Pratik_Cricket_Pratik Kukadia.JPEG",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 36,
@@ -446,7 +477,8 @@
       "photo": "Hiren Gajra_Hiren Gajra.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 37,
@@ -460,7 +492,8 @@
       "photo": "jpeg-optimizer_kaival_Kaival Shah.jpg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 38,
@@ -474,7 +507,8 @@
       "photo": "IMG_20230509_142414676_Omkar Tambe.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": true
     },
     {
       "id": 39,
@@ -488,7 +522,8 @@
       "photo": "IMG_1252_Saurabh Kiri.jpeg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 40,
@@ -502,7 +537,8 @@
       "photo": "IMG_2893 copy-PP_Krutarth Dave.JPG",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 41,
@@ -516,7 +552,8 @@
       "photo": "IMG_20230708_193400_795_Pasam sravanth Kumar.jpg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 42,
@@ -530,7 +567,8 @@
       "photo": "23-08-23_10-07-20-687_Gaurav Pandey.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 43,
@@ -544,7 +582,8 @@
       "photo": "Jignesh_Jignesh Jain.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 44,
@@ -558,7 +597,8 @@
       "photo": "IMG_45590_Chiragkumar Thakar.jpeg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 45,
@@ -572,7 +612,8 @@
       "photo": "Bhargav_Shah_Bhargav Shah.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 46,
@@ -586,7 +627,8 @@
       "photo": "ppsp_Rishabh Singh.jpeg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 47,
@@ -600,7 +642,8 @@
       "photo": "IMG_6965 (1)_Anish Jain.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 48,
@@ -614,7 +657,8 @@
       "photo": "20221124_222916_resized_1__Krant Darshi.jpeg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 49,
@@ -628,7 +672,8 @@
       "photo": "TTBJNK0LQ-U01BWGF53QR-2bbb3e387fd9-512_Suresh Varma.png",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 50,
@@ -642,7 +687,8 @@
       "photo": "1692783121352_Prince Patel.jpeg",
       "basePrice": 4,
       "Category": "A",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 51,
@@ -656,7 +702,8 @@
       "photo": "img_20180706_221229_Divyang Pathak.jpg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 52,
@@ -670,7 +717,8 @@
       "photo": "IMG_0471_Mohammedsohel Tai.jpeg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 53,
@@ -684,7 +732,8 @@
       "photo": "Harshil Patel_Harshil Patel.jpg",
       "basePrice": 3,
       "Category": "B",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 54,
@@ -698,7 +747,8 @@
       "photo": "IMG_1329_Sarthak Shah.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 55,
@@ -712,7 +762,8 @@
       "photo": "Naitikkumar Patel_PORTRAIT_Naitikkumar Patel.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 56,
@@ -726,7 +777,8 @@
       "photo": "IMG_20230606_142933_410_Pritkumar Thumar.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 57,
@@ -740,7 +792,8 @@
       "photo": "20230303_144305_Keyur Brahmbhatt.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 58,
@@ -754,7 +807,8 @@
       "photo": "FB_IMG_1692954102628_Ajay Chavda.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 59,
@@ -768,7 +822,8 @@
       "photo": "IMG_20230825_122913_Sandip Chavda.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 60,
@@ -782,7 +837,8 @@
       "photo": "Screenshot_2023-08-25-17-43-08-13_92460851df6_Nimish Kacha.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 61,
@@ -796,7 +852,8 @@
       "photo": "Shubham_gupta_Shubham Gupta.jpg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 62,
@@ -810,7 +867,8 @@
       "photo": "Robin Kapil_Robin Kapil.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 63,
@@ -824,7 +882,8 @@
       "photo": "20211117_182314_Rudra Pathak.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 64,
@@ -838,7 +897,8 @@
       "photo": "IMG_20181111_112305 (2)_Mitul Verma.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": true
     },
     {
       "id": 65,
@@ -852,7 +912,8 @@
       "photo": "TTBJNK0LQ-U01PGLEH4G3-7628e8be00f4-512_Diken Shah.jpeg",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 66,
@@ -866,7 +927,8 @@
       "photo": "Pankaj Paregi_Pankaj Paregi.png",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 67,
@@ -880,7 +942,8 @@
       "photo": "image (1)_Nazim Pathan.png",
       "basePrice": 1,
       "Category": "D",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 69,
@@ -894,7 +957,8 @@
       "photo": "Ketan_Ketan Patel.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 70,
@@ -908,7 +972,8 @@
       "photo": "IMG_9424 copy_Krunal Shah.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     },
     {
       "id": 71,
@@ -922,7 +987,8 @@
       "photo": "profile_pic_Satish Raghuwanshi.jpg",
       "basePrice": 2,
       "Category": "C",
-      "isSold": false
+      "isSold": false,
+      "isUnsold": false
     }
   ],
   "teams": [

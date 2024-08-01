@@ -20,4 +20,24 @@ const reservedKitty = [
     category: 'D',
   },
 ];
+
+const pickedIds = new Set();
+
+function getRandomUniquePlayerId(players) {
+  if (pickedIds.size === players.length) {
+    pickedIds.clear();
+    // throw new Error('All IDs have been picked');
+  }
+
+  let randomId;
+  do {
+    const randomIndex = Math.floor(Math.random() * players.length);
+    randomId = players[randomIndex].id;
+  } while (pickedIds.has(randomId));
+
+  pickedIds.add(randomId);
+  return randomId;
+}
+
 export default reservedKitty;
+export { getRandomUniquePlayerId };

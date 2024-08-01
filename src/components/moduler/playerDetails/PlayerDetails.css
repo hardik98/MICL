@@ -33,7 +33,6 @@
 .player-photo {
   margin-right: 20px;
   margin-top: 140px;
-  
 }
 
 .player-photo img {
@@ -141,7 +140,7 @@
 /* Element shape for batting and bowling styles */
 .element-shape {
   padding: 5px 25px 5px 50px;
-  background:white;
+  background: white;
   color: black;
   border-radius: 50px;
   font-weight: bold;
@@ -151,7 +150,6 @@
   position: relative;
   display: flex;
 }
-
 
 .element-shape2-container {
   display: flex;
@@ -177,18 +175,17 @@
 .element-shape2-container p {
   margin: 0;
   justify-content: center;
-  
 }
 
- .batting-details-label2 {
-  font-size: 45px; 
+.batting-details-label2 {
+  font-size: 45px;
   justify-content: center;
   display: flex;
 }
-.batting-details-value2{
+.batting-details-value2 {
   font-size: 45px;
   justify-content: center;
-display: flex;
+  display: flex;
 }
 
 @font-face {
@@ -245,4 +242,8 @@ display: flex;
   color: #00004c;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
