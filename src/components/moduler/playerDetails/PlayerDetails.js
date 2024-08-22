@@ -320,81 +320,6 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
           {soldModal()}
           {unsoldModal()}
 
-          {!selectedPlayer.isSold ? (
-            <Button
-              type="button"
-              variant="outlined"
-              onClick={handleOpen}
-              sx={{
-                position: 'absolute',
-                bottom: 0,
-                right: '350px',
-                minWidth: '90px',
-                color: 'white',
-                background: 'green',
-                textTransform: 'none',
-                fontSize: '1.28rem',
-                zIndex: 1,
-              }}
-            >
-              Mark as Sold
-            </Button>
-          ) : (
-            <Button
-              type="button"
-              variant="contained"
-              onClick={handleOpen}
-              sx={{
-                position: 'absolute',
-                bottom: 0,
-                right: '350px',
-                minWidth: '90px',
-                color: 'white',
-                background: 'green',
-                fontSize: '1.28rem',
-                zIndex: 1,
-              }}
-            >
-              Edit
-            </Button>
-          )}
-          <Button
-            type="button"
-            variant="outlined"
-            onClick={selectedPlayer.isSold ? handleNextPlayer : handleSkip}
-            sx={{
-              position: 'absolute',
-              bottom: 0,
-              right: '230px',
-              minWidth: '90px',
-              color: 'black',
-              background: 'white',
-              textTransform: 'none',
-              fontSize: '1.28rem',
-              zIndex: 1,
-            }}
-          >
-            {selectedPlayer.isSold ? 'Next' : 'Unsold'}
-          </Button>
-          {/* Circle with text at top right corner */}
-          {/* <div className="player-circle">
-            <div className="circle-label">Base Points</div>
-            <svg width="60" height="60">
-              <circle cx="30" cy="30" r="30" fill="#00004C" />
-              <text
-                x="50%"
-                y="50%"
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fontSize="18"
-                fontWeight="bold"
-                fill="#fff"
-              >
-                {selectedPlayer.basePoints}
-              </text>
-            </svg>
-          </div> */}
-
           {/* Player details */}
           <div className="player-details-content">
             {selectedPlayer.isSold && (
@@ -415,9 +340,7 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
             <div className="player-info">
               <div className="player-stats">
                 <p>
-                  <span>
-                    <h2 className="player-name">{selectedPlayer.name}</h2>
-                  </span>
+                  <span className="player-name">{selectedPlayer.name}</span>
                 </p>
                 <p>
                   <span className="element-shape">
@@ -470,6 +393,71 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                       <span className="batting-details-value2">{selectedPlayer.Category}</span>
                     </p>
                   </div>
+                </div>
+                <div className="element-shape2-container">
+                  {!selectedPlayer.isSold ? (
+                    <Button
+                      type="button"
+                      variant="outlined"
+                      onClick={handleOpen}
+                      sx={{
+                        bottom: '-40px',
+                        minWidth: '90px',
+                        color: 'white',
+                        background: 'green',
+                        textTransform: 'none',
+                        fontSize: '1.28rem',
+                        zIndex: 1,
+                        flex: 1,
+                        display: 'flex',
+                        marginLeft: 10,
+                        marginRight: 8,
+                      }}
+                    >
+                      Mark as Sold
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      variant="contained"
+                      onClick={handleOpen}
+                      sx={{
+                        bottom: '-40px',
+                        minWidth: '90px',
+                        color: 'white',
+                        background: 'green',
+                        fontSize: '1.28rem',
+                        zIndex: 1,
+                        flex: 1,
+                        display: 'flex',
+                        marginLeft: 10,
+                        marginRight: 10,
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  )}
+
+                  <Button
+                    type="button"
+                    variant="outlined"
+                    onClick={selectedPlayer.isSold ? handleNextPlayer : handleSkip}
+                    sx={{
+                      bottom: '-40px',
+                      minWidth: '90px',
+                      color: 'black',
+                      background: 'white',
+                      textTransform: 'none',
+                      fontSize: '1.28rem',
+                      zIndex: 1,
+                      flex: 1,
+                      display: 'flex',
+                      marginLeft: 8,
+                      marginRight: 10,
+                    }}
+                  >
+                    {selectedPlayer.isSold ? 'Next' : 'Unsold'}
+                  </Button>
                 </div>
               </div>
             </div>
