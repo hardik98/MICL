@@ -38,7 +38,7 @@ const DrawerMenu = memo(
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'baseline',
-          width: '15vw',
+          width: '10vw',
           maxHeight: '76vh',
           overflow: 'scroll',
         }}

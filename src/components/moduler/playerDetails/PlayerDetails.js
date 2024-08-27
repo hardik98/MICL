@@ -74,6 +74,7 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
     const updatedSelectedPlayer = {
       ...selectedPlayer,
       isSold: true,
+      isUnsold: false,
       soldPrice: Number(soldPrice),
       soldTo,
     };
@@ -132,19 +133,23 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
     localStorage.setItem('sharedData', JSON.stringify({ message: 'Updated Data' }));
   };
 
+  const categoryPlayers = useCallback(
+    (category) => {
+      return currentSelectedTeam?.players.filter((player) => player.Category === category).length;
+    },
+    [currentSelectedTeam],
+  );
+
+  const getTotalPlayerForCategory = (category) => {
+    const item = reservedKitty.find((item) => item.category === category);
+    return item ? item.totalPlayer : 0; // Returns 0 if no match is found
+  };
+
   const getReservedKitty = () => {
-    const categoryAplayers = currentSelectedTeam?.players.filter(
-      (player) => player.Category === 'A',
-    ).length;
-    const categoryBplayers = currentSelectedTeam?.players.filter(
-      (player) => player.Category === 'B',
-    ).length;
-    const categoryCplayers = currentSelectedTeam?.players.filter(
-      (player) => player.Category === 'C',
-    ).length;
-    const categoryDplayers = currentSelectedTeam?.players.filter(
-      (player) => player.Category === 'D',
-    ).length;
+    const categoryAplayers = categoryPlayers('A');
+    const categoryBplayers = categoryPlayers('B');
+    const categoryCplayers = categoryPlayers('C');
+    const categoryDplayers = categoryPlayers('D');
 
     let totalReservedKitty = 0;
     reservedKitty.forEach((item) => {
@@ -217,7 +222,11 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                       getReservedKitty() +
                       (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
                       (selectedPlayer?.soldPrice || 0) * 1000 <
-                      soldPrice * 1000
+                      soldPrice * 1000 ||
+                    !(
+                      categoryPlayers(selectedPlayer?.Category) <
+                      getTotalPlayerForCategory(selectedPlayer?.Category)
+                    )
                   }
                   sx={{
                     marginTop: '20px',
