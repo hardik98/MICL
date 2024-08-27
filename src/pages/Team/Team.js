@@ -12,6 +12,7 @@ import TeamDetails from '../../components/moduler/teamDetails/TeamDetails';
 const teamDetailsStyles = {
   teamInfoContainer: {
     justifyContent: 'space-between',
+    gap: '16px',
   },
 };
 
@@ -76,16 +77,19 @@ function Team() {
     return <div>Error: {error.message}</div>;
   }
 
+  const gridClass =
+    teams.length === 5 ? 'team-grid-5' : teams.length > 5 ? 'team-grid-more-than-5' : '';
+
   return (
     <div style={{ padding: '16px' }}>
-      {data?.length > 1 ? (
-        <Grid container sx={teamDetailsStyles.teamInfoContainer}>
+      {teams.length ? (
+        <div className={`team-grid ${gridClass}`}>
           {teams.map((team, index) => (
-            <Grid item xl={2} key={index}>
+            <div className="team-item" key={index}>
               <TeamDetails teamInfo={team} />
-            </Grid>
+            </div>
           ))}
-        </Grid>
+        </div>
       ) : (
         <div>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, padding: '40px' }}>
