@@ -8,3 +8,31 @@
 .player_name {
   margin-right: 30px;
 }
+
+.team-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  width: 100%;
+}
+
+.team-item {
+  /* Ensure items don't exceed their grid cell */
+  min-width: 150px;
+  /* flex-grow: 1; */
+}
+
+.team-grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.team-grid-more-than-5 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Flexibility for different screen sizes */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  }
+}

@@ -72,9 +72,9 @@ function Root() {
                   onMouseLeave: handleMouseLeaveMenu,
                 }}
               >
-                <MenuItem onClick={() => handleMenuItemClick('pending')}>Pending</MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick('sold')}>Sold</MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick('unsold')}>UnSold</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('Pending')}>Pending</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('Sold')}>Sold</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('Unsold')}>UnSold</MenuItem>
               </Menu>
             </div>
             <nav>

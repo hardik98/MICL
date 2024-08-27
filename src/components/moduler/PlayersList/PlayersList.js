@@ -1,17 +1,13 @@
 /* eslint-disable  */
-import {
-  Checkbox,
-  FormControlLabel,
-  Grid,
-  MenuItem,
-  Select,
-  TextField,
-  Typography,
-} from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { MenuItem, Select } from '@mui/material';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useFetchPlayersQuery, useLazyFetchPlayersQuery } from '../../../redux/api/playersApi';
 import { getRandomUniquePlayerId } from '../../../utils';
+import DrawerMenu from '../drawer/DrawerMenu';
 import PlayerDetails from '../playerDetails/PlayerDetails';
+
+const drawerWidthOpen = 268;
+const drawerWidthClosed = 30;
 
 function PlayersList({ path }) {
   const { data, error, isLoading, isFetching } = useFetchPlayersQuery();
@@ -20,25 +16,47 @@ function PlayersList({ path }) {
   const [players, setPlayers] = useState([]);
   const [selectedPlayerId, setSelectedPlayerId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
+
+  const filteredPlayers = useCallback(
+    (playerData, value, category) => {
+      let filtered = playerData;
+      // setSelectedPlayerId(null);
+      switch (path) {
+        case 'Pending':
+          filtered = filtered.filter((player) => !player.isSold && !player.isUnsold);
+          break;
+        case 'Sold':
+          filtered = filtered.filter((player) => player.isSold);
+          break;
+        case 'Unsold':
+          filtered = filtered.filter((player) => player.isUnsold);
+          break;
+        default:
+          filtered = filtered.filter((player) => !player.isSold && !player.isUnsold);
+          break;
+      }
+
+      // Apply filtering based on search input
+      if (value) {
+        filtered = filtered.filter((player) =>
+          player.name.toLowerCase().includes(value.toLowerCase()),
+        );
+      }
+
+      // Apply filtering based on category
+      if (category !== 'All') {
+        filtered = filtered.filter((player) => player.Category === category);
+      }
+      setPlayers(filtered);
+    },
+    [path, selectedCategory],
+  );
 
   useEffect(() => {
     if (data) {
-      let players;
-      switch (path) {
-        case 'pending':
-          players = data.filter((player) => !player.isSold && !player.isUnsold);
-          break;
-        case 'sold':
-          players = data.filter((player) => player.isSold);
-          break;
-        case 'unsold':
-          players = data.filter((player) => player.isUnsold);
-          break;
-        default:
-          players = data.filter((player) => !player.isSold && !player.isUnsold);
-          break;
-      }
-      setPlayers(players);
+      filteredPlayers(data, searchInput, selectedCategory);
     }
   }, [data, isFetching, path]);
 
@@ -56,7 +74,7 @@ function PlayersList({ path }) {
   }, [playerList]);
 
   const handleNextPlayer = () => {
-    setSelectedPlayerId(getRandomUniquePlayerId(players));
+    setSelectedPlayerId(getRandomUniquePlayerId(players) ?? null);
   };
 
   const handleChange = (id, isSelected) => {
@@ -64,24 +82,14 @@ function PlayersList({ path }) {
   };
 
   const handleCategoryChange = (event) => {
-    const selectedCategory = event.target.value;
-    setSelectedCategory(selectedCategory);
-    if (selectedCategory === 'All') {
-      setPlayers(data);
-    } else {
-      const filteredData = data.filter((player) => player.Category === selectedCategory);
-      setPlayers(filteredData);
-    }
+    const category = event.target.value;
+    setSelectedCategory(category);
+    filteredPlayers(data, searchInput, category); // }
   };
 
   const handleInputChange = (value) => {
-    if (value !== '') {
-      setPlayers(
-        players.filter((player) => player.name.toLowerCase().includes(value.toLowerCase())),
-      );
-    } else {
-      setPlayers(data);
-    }
+    setSearchInput(value);
+    filteredPlayers(data, value, selectedCategory);
   };
 
   if (isLoading) {
@@ -93,68 +101,164 @@ function PlayersList({ path }) {
   }
 
   return (
-    <div>
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="outlined-basic"
-            label="Search Player"
-            variant="outlined"
-            onChange={(e) => {
-              handleInputChange(e.target.value.trim());
-            }}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Select
-            label="Select Category"
-            variant="outlined"
-            fullWidth
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-          >
-            <MenuItem value="All">All</MenuItem>
-            <MenuItem value="A">Category A</MenuItem>
-            <MenuItem value="B">Category B</MenuItem>
-            <MenuItem value="C">Category C</MenuItem>
-            <MenuItem value="D">Category D</MenuItem>
-          </Select>
-        </Grid>
-      </Grid>
-      <div style={{ display: 'flex' }}>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'baseline',
-            width: '30vw',
-            maxHeight: '76vh',
-            overflow: 'scroll',
+    <div style={{ display: 'flex', minHeight: '450px' }}>
+      <DrawerMenu
+        players={players}
+        selectedPlayerId={selectedPlayerId}
+        handleChange={handleChange}
+        handleInputChange={handleInputChange}
+        setDrawerOpen={setDrawerOpen}
+        path={path}
+      />
+      <div
+        style={{
+          flexGrow: 1,
+          transition: 'margin-left 0.3s',
+          marginLeft: drawerOpen ? `${drawerWidthOpen}px` : `${drawerWidthClosed}px`,
+        }}
+      >
+        <Select
+          label="Select Category"
+          variant="outlined"
+          fullWidth
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+          MenuProps={{
+            PaperProps: {
+              sx: {
+                bgcolor: '#333', // Background color for the entire dropdown menu
+                '& .MuiList-root': {
+                  padding: 0,
+                },
+              },
+            },
+          }}
+          sx={{
+            width: '45%',
+            backgroundColor: '#333', // Background color
+            color: '#fff', // Text color
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: '#fff',
+              },
+              '&:hover fieldset': {
+                borderColor: '#fff',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: '#fff',
+              },
+              '&.Mui-focused:hover fieldset': {
+                borderColor: '#fff',
+              },
+            },
+            '& .MuiSelect-root': {
+              color: '#fff',
+            },
+            '& .MuiSelect-icon': {
+              color: '#fff',
+            },
           }}
         >
-          {players.map((player) => (
-            <div key={player.id}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={selectedPlayerId === player.id}
-                    onChange={(e, isChecked) => handleChange(player.id, isChecked)}
-                    inputProps={{ 'aria-label': 'controlled' }}
-                  />
-                }
-                label={<Typography variant="h5">{player.name}</Typography>}
-              />
-            </div>
-          ))}
-        </div>
-        <div style={{ width: '70vw' }}>
-          {/* <Profile selectedPlayer={data.find((player) => player.id === selectedPlayerId)} /> */}
-          <PlayerDetails
-            selectedPlayer={data.find((player) => player.id === selectedPlayerId)}
-            handleNextPlayer={handleNextPlayer}
-          />
-        </div>
+          <MenuItem
+            value="All"
+            sx={{
+              backgroundColor: '#333',
+              color: '#fff',
+              '&.Mui-selected': {
+                backgroundColor: '#4d4d4d',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#4d4d4d',
+                },
+              },
+              '&:hover': {
+                backgroundColor: '#4d4d4d',
+              },
+            }}
+          >
+            All
+          </MenuItem>
+          <MenuItem
+            value="A"
+            sx={{
+              backgroundColor: '#333',
+              color: '#fff',
+              '&.Mui-selected': {
+                backgroundColor: '#4d4d4d',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#4d4d4d',
+                },
+              },
+              '&:hover': {
+                backgroundColor: '#4d4d4d',
+              },
+            }}
+          >
+            Category A
+          </MenuItem>
+          <MenuItem
+            value="B"
+            sx={{
+              backgroundColor: '#333',
+              color: '#fff',
+              '&.Mui-selected': {
+                backgroundColor: '#4d4d4d',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#4d4d4d',
+                },
+              },
+              '&:hover': {
+                backgroundColor: '#4d4d4d',
+              },
+            }}
+          >
+            Category B
+          </MenuItem>
+          <MenuItem
+            value="C"
+            sx={{
+              backgroundColor: '#333',
+              color: '#fff',
+              '&.Mui-selected': {
+                backgroundColor: '#4d4d4d',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#4d4d4d',
+                },
+              },
+              '&:hover': {
+                backgroundColor: '#4d4d4d',
+              },
+            }}
+          >
+            Category C
+          </MenuItem>
+          <MenuItem
+            value="D"
+            sx={{
+              backgroundColor: '#333',
+              color: '#fff',
+              '&.Mui-selected': {
+                backgroundColor: '#4d4d4d',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#4d4d4d',
+                },
+              },
+              '&:hover': {
+                backgroundColor: '#4d4d4d',
+              },
+            }}
+          >
+            Category D
+          </MenuItem>
+        </Select>
+        <PlayerDetails
+          selectedPlayer={data.find((player) => player.id === selectedPlayerId)}
+          handleNextPlayer={handleNextPlayer}
+        />
       </div>
     </div>
   );

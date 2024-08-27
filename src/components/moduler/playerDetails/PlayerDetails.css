@@ -14,7 +14,7 @@
   align-items: flex-start;
   max-width: 1200px;
   width: 100%;
-  margin: -50px auto 0;
+  margin: -20px auto 0;
   position: relative;
 }
 
@@ -48,7 +48,7 @@
   .player-photo {
     flex: 0 0 40%;
     margin-right: 25px;
-    margin-top: 140px;
+    margin-top: 220px;
   }
 }
 
@@ -56,7 +56,7 @@
   .player-photo {
     flex: 0 0 50%;
     margin-right: 25px;
-    margin-top: 140px;
+    margin-top: 220px;
   }
 }
 
@@ -65,7 +65,7 @@
   .player-photo {
     flex: 0 0 20%;
     margin-right: 25px;
-    margin-top: 140px;
+    margin-top: 220px;
   }
 }
 
@@ -74,7 +74,7 @@
   .player-photo {
     flex: 0 0 20%;
     margin-right: 25px;
-    margin-top: 140px;
+    margin-top: 220px;
   }
 }
 
@@ -83,7 +83,7 @@
   margin-bottom: 25px;
 }
 
-.player-info h2 {
+.player-name {
   font-size: 55px;
   font-family: 'Cervo Neue Semibold';
   font-weight: bold;
@@ -99,7 +99,7 @@
   padding: 20px;
   border-radius: 8px;
   font-family: 'Cervo Neue Regular';
-  margin-top: -50px;
+  /* margin-top: -20px; */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -156,6 +156,7 @@
   justify-content: space-between;
   margin-top: 20px;
   width: 90%;
+  align-self: center;
 }
 
 .element-shape2-box {
@@ -165,7 +166,6 @@
   font-weight: bold;
   padding: 10px;
   border-radius: 50%;
-
   display: flex;
 }
 .element-shape2-box:not(:last-child) {
@@ -246,4 +246,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.button-container {
+  justify-content: space-between;
 }
