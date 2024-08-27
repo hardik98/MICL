@@ -1,18 +1,19 @@
 /* eslint-disable  */
-import React, { useEffect, useState } from 'react';
 import {
   Checkbox,
   FormControlLabel,
-  TextField,
-  Typography,
-  Select,
   Grid,
   MenuItem,
+  Select,
+  TextField,
+  Typography,
 } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { useFetchPlayersQuery, useLazyFetchPlayersQuery } from '../../../redux/api/playersApi';
+import { getRandomUniquePlayerId } from '../../../utils';
 import PlayerDetails from '../playerDetails/PlayerDetails';
 
-function PlayersList() {
+function PlayersList({ path }) {
   const { data, error, isLoading, isFetching } = useFetchPlayersQuery();
   const [trigger, { data: playerList }] = useLazyFetchPlayersQuery();
 
@@ -22,9 +23,24 @@ function PlayersList() {
 
   useEffect(() => {
     if (data) {
-      setPlayers(data);
+      let players;
+      switch (path) {
+        case 'pending':
+          players = data.filter((player) => !player.isSold && !player.isUnsold);
+          break;
+        case 'sold':
+          players = data.filter((player) => player.isSold);
+          break;
+        case 'unsold':
+          players = data.filter((player) => player.isUnsold);
+          break;
+        default:
+          players = data.filter((player) => !player.isSold && !player.isUnsold);
+          break;
+      }
+      setPlayers(players);
     }
-  }, [data, isFetching]);
+  }, [data, isFetching, path]);
 
   window.addEventListener('storage', (event) => {
     if (event.key === 'sharedData') {
@@ -38,6 +54,10 @@ function PlayersList() {
       setPlayers(playerList);
     }
   }, [playerList]);
+
+  const handleNextPlayer = () => {
+    setSelectedPlayerId(getRandomUniquePlayerId(players));
+  };
 
   const handleChange = (id, isSelected) => {
     setSelectedPlayerId(isSelected ? id : null);
@@ -130,7 +150,10 @@ function PlayersList() {
         </div>
         <div style={{ width: '70vw' }}>
           {/* <Profile selectedPlayer={data.find((player) => player.id === selectedPlayerId)} /> */}
-          <PlayerDetails selectedPlayer={data.find((player) => player.id === selectedPlayerId)} />
+          <PlayerDetails
+            selectedPlayer={data.find((player) => player.id === selectedPlayerId)}
+            handleNextPlayer={handleNextPlayer}
+          />
         </div>
       </div>
     </div>

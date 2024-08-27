@@ -49,11 +49,16 @@
 
 .logo img {
   width: auto;
-  height: 50px; /* Adjust the height of the logos as needed */
+  height: 40px; 
 }
 
 .logo-left {
+  height: 40px;
   margin-right: 20px; /* Add margin to separate the left logo from the text */
+}
+
+.logo-left img {
+  filter: brightness(5);
 }
 
 .logo-right {
@@ -99,7 +104,8 @@ a {
   color: white;
 }
 
-li,a{
+li,
+a {
   text-decoration: none;
   list-style: none;
   display: inline-block;
@@ -109,13 +115,40 @@ li,a{
   font-weight: bold;
   font-size: 1.5rem;
   letter-spacing: 1px;
-
 }
 
- li a:hover {
+li a:hover {
   color: #0088a9;
 }
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.btnPlayers {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  font-family: 'Cervo Neue Regular';
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  transition: color 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.activeBtnPlayers {
+  background: none;
+  border: none;
+  color: #0088a9;
+  font-size: 24px;
+  font-family: 'Cervo Neue Regular';
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  transition: color 0.3s;
+  cursor: pointer;
+  text-decoration: none;
 }

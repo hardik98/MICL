@@ -1,6 +1,4 @@
 /* eslint-disable */
-import React, { useState } from 'react';
-import './PlayerDetails.css';
 import {
   Box,
   Button,
@@ -12,12 +10,15 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import React, { useCallback, useState } from 'react';
 import {
   useAddSoldPlayerMutation,
   useFetchTeamsQuery,
   useSoldPlayerMutation,
+  useUnsoldPlayerMutation,
 } from '../../../redux/api/playersApi';
 import reservedKitty from '../../../utils';
+import './PlayerDetails.css';
 
 const style = {
   position: 'absolute',
@@ -31,24 +32,43 @@ const style = {
   p: 4,
 };
 
-function PlayerDetails({ selectedPlayer }) {
+function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
   const existingSelectedTeam = selectedPlayer?.soldTo;
   const existingSoldPrice = Number(selectedPlayer?.soldPrice);
   const [open, setOpen] = React.useState(false);
+  const [nextModal, setNextModal] = useState(false);
   const { data: teams } = useFetchTeamsQuery();
   const [soldTo, setSoldTo] = useState(Number(selectedPlayer?.soldTo) || '');
   const [soldPrice, setSoldPrice] = useState(Number(selectedPlayer?.soldPrice) || 0);
   const [soldPlayer] = useSoldPlayerMutation();
   const [addSoldPlayer] = useAddSoldPlayerMutation();
+  const [unsoldPlayer] = useUnsoldPlayerMutation();
   const currentSelectedTeam = teams?.find((team) => Number(team?.id) === soldTo);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleSkip = () => setNextModal(true);
+  const handleNextModalClose = () => setNextModal(false);
 
   React.useEffect(() => {
     setSoldPrice(Number(selectedPlayer?.soldPrice || 0));
     setSoldTo(Number(selectedPlayer?.soldTo) || '');
   }, [selectedPlayer]);
+
+  const handlePlayerUnSold = async () => {
+    const updatedSelectedPlayer = {
+      ...selectedPlayer,
+      isUnsold: true,
+    };
+
+    await unsoldPlayer({
+      id: selectedPlayer.id,
+      updatedPlayer: updatedSelectedPlayer,
+    });
+
+    handleNextModalClose();
+    handleNextPlayer();
+  };
 
   const handlePlayerSold = async () => {
     const updatedSelectedPlayer = {
@@ -140,92 +160,165 @@ function PlayerDetails({ selectedPlayer }) {
     return totalReservedKitty;
   };
 
+  const soldModal = useCallback(() => {
+    return (
+      <>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            {teams?.length > 0 ? (
+              <>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Player: {selectedPlayer?.name}
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
+                  Sold Price(in thousands):
+                </Typography>
+                <TextField
+                  id="soldPrice"
+                  label="Sold Price"
+                  type="number"
+                  value={soldPrice}
+                  onChange={(e) => {
+                    setSoldPrice(e.target.value);
+                  }}
+                />
+
+                <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
+                  Sold To:
+                </Typography>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Sold to</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={soldTo}
+                    label="Sold To"
+                    onChange={(e) => {
+                      setSoldTo(e.target.value);
+                    }}
+                  >
+                    {teams.map((item) => (
+                      <MenuItem key={item?.id} value={item.id}>
+                        {item?.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                <Button
+                  disabled={
+                    soldPrice === 0 ||
+                    soldTo === '' ||
+                    currentSelectedTeam?.availableKitty -
+                      getReservedKitty() +
+                      (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
+                      (selectedPlayer?.soldPrice || 0) * 1000 <
+                      soldPrice * 1000
+                  }
+                  sx={{
+                    marginTop: '20px',
+                    display: 'flex',
+                    float: 'right',
+                    background: 'aliceblue',
+                    fontSize: '1.28rem',
+                  }}
+                  variant="outlined"
+                  onClick={handlePlayerSold}
+                >
+                  Confirm
+                </Button>
+                {currentSelectedTeam?.availableKitty -
+                  getReservedKitty() +
+                  (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
+                  (selectedPlayer?.soldPrice || 0) * 1000 <
+                  soldPrice * 1000 && <p style={{ color: 'red' }}> Not Enough Kitty </p>}
+              </>
+            ) : (
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Unable to sold this player as Team Is not created yet. Please Create Team first.
+              </Typography>
+            )}
+          </Box>
+        </Modal>
+      </>
+    );
+  }, [open, selectedPlayer, soldPrice, soldTo]);
+
+  const unsoldModal = useCallback(() => {
+    return (
+      <>
+        <Modal
+          open={nextModal}
+          onClose={handleNextModalClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {selectedPlayer?.name} is unsold for now. We will bring him back later.
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
+              Are you sure?
+            </Typography>
+            <Button
+              variant="outlined"
+              onClick={handlePlayerUnSold}
+              sx={{
+                marginTop: '20px',
+                display: 'flex',
+                float: 'left',
+                background: 'aliceblue',
+                fontSize: '1.28rem',
+              }}
+            >
+              Yes, Go to next player
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={handleNextModalClose}
+              sx={{
+                marginTop: '20px',
+                display: 'flex',
+                float: 'right',
+                background: 'aliceblue',
+                fontSize: '1.28rem',
+              }}
+            >
+              No
+            </Button>
+          </Box>
+        </Modal>
+      </>
+    );
+  }, [nextModal]);
+
   return (
     <div className="player-details">
       {!selectedPlayer ? (
-        <div className="player-details-placeholder">Select player to view the player profile</div>
+        <div className="player-details-placeholder">
+          Select player to view the player profile
+          <Button
+            sx={{
+              marginTop: '20px',
+              display: 'flex',
+              float: 'right',
+              background: 'aliceblue',
+              fontSize: '1.28rem',
+            }}
+            variant="outlined"
+            onClick={handleNextPlayer}
+          >
+            Start
+          </Button>
+        </div>
       ) : (
         <>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              {teams?.length > 0 ? (
-                <>
-                  <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Player: {selectedPlayer?.name}
-                  </Typography>
-                  <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                    Sold Price(in thousands):
-                  </Typography>
-                  <TextField
-                    id="soldPrice"
-                    label="Sold Price"
-                    type="number"
-                    value={soldPrice}
-                    onChange={(e) => {
-                      setSoldPrice(e.target.value);
-                    }}
-                  />
-
-                  <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                    Sold To:
-                  </Typography>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Sold to</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={soldTo}
-                      label="Sold To"
-                      onChange={(e) => {
-                        setSoldTo(e.target.value);
-                      }}
-                    >
-                      {teams.map((item) => (
-                        <MenuItem key={item?.id} value={item.id}>
-                          {item?.name}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                  <Button
-                    disabled={
-                      soldPrice === 0 ||
-                      soldTo === '' ||
-                      currentSelectedTeam?.availableKitty -
-                        getReservedKitty() +
-                        (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
-                        (selectedPlayer?.soldPrice || 0) * 1000 <
-                        soldPrice * 1000
-                    }
-                    sx={{
-                      marginTop: '20px',
-                      display: 'flex',
-                      float: 'right',
-                      background: 'aliceblue',
-                    }}
-                    variant="outlined"
-                    onClick={handlePlayerSold}
-                  >
-                    <Typography>Confirm</Typography>
-                  </Button>
-                  {currentSelectedTeam?.availableKitty -
-                    getReservedKitty() +
-                    (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
-                    (selectedPlayer?.soldPrice || 0) * 1000 <
-                    soldPrice * 1000 && <p style={{ color: 'red' }}> Not Enough Kitty </p>}
-                </>
-              ) : (
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                  Unable to sold this player as Team Is not created yet. Please Create Team first.
-                </Typography>
-              )}
-            </Box>
-          </Modal>
+          {soldModal()}
+          {unsoldModal()}
 
           {!selectedPlayer.isSold ? (
             <Button
@@ -235,14 +328,16 @@ function PlayerDetails({ selectedPlayer }) {
               sx={{
                 position: 'absolute',
                 bottom: 0,
-                right: '250px',
+                right: '350px',
                 minWidth: '90px',
                 color: 'white',
                 background: 'green',
                 textTransform: 'none',
+                fontSize: '1.28rem',
+                zIndex: 1,
               }}
             >
-              <Typography> Mark as Sold </Typography>
+              Mark as Sold
             </Button>
           ) : (
             <Button
@@ -252,16 +347,35 @@ function PlayerDetails({ selectedPlayer }) {
               sx={{
                 position: 'absolute',
                 bottom: 0,
-                right: '270px',
+                right: '350px',
                 minWidth: '90px',
                 color: 'white',
                 background: 'green',
+                fontSize: '1.28rem',
+                zIndex: 1,
               }}
             >
-              <Typography> Edit </Typography>
+              Edit
             </Button>
           )}
-
+          <Button
+            type="button"
+            variant="outlined"
+            onClick={selectedPlayer.isSold ? handleNextPlayer : handleSkip}
+            sx={{
+              position: 'absolute',
+              bottom: 0,
+              right: '230px',
+              minWidth: '90px',
+              color: 'black',
+              background: 'white',
+              textTransform: 'none',
+              fontSize: '1.28rem',
+              zIndex: 1,
+            }}
+          >
+            {selectedPlayer.isSold ? 'Next' : 'Unsold'}
+          </Button>
           {/* Circle with text at top right corner */}
           {/* <div className="player-circle">
             <div className="circle-label">Base Points</div>
