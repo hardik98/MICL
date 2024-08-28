@@ -49,12 +49,12 @@
 
 .logo img {
   width: auto;
-  height: 40px; 
+  height: 40px;
 }
 
 .logo-left {
   height: 40px;
-  margin-right: 20px; /* Add margin to separate the left logo from the text */
+  margin-right: 40px; /* Add margin to separate the left logo from the text */
 }
 
 .logo-left img {
@@ -63,10 +63,13 @@
 
 .logo-right {
   margin-left: 20px; /* Add margin to separate the right logo from the text */
+  display: flex;
 }
 
 .logo-right img {
-  height: 80px;
+  height: 76px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .header-text {
@@ -151,4 +154,8 @@ li a:hover {
   transition: color 0.3s;
   cursor: pointer;
   text-decoration: none;
+}
+
+nav ul li {
+  padding-left: 0px; /* Adjust this value to reduce the left padding */
 }

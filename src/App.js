@@ -88,7 +88,7 @@ function Root() {
               <Typography variant="h4">Welcome to the HICL Auction</Typography>
             </div>
             <div className="logo logo-right">
-              <img src={`${process.env.PUBLIC_URL}/assets/MCL_logo.png`} alt="Second Logo" />
+              <img src={`${process.env.PUBLIC_URL}/assets/HICL_logo.png`} alt="Second Logo" />
             </div>
           </Toolbar>
         </AppBar>
