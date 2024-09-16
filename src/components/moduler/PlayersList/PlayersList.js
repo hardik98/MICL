@@ -84,7 +84,7 @@ function PlayersList({ path }) {
   const handleCategoryChange = (event) => {
     const category = event.target.value;
     setSelectedCategory(category);
-    filteredPlayers(data, searchInput, category); // }
+    filteredPlayers(data, searchInput, category);
   };
 
   const handleInputChange = (value) => {
@@ -177,6 +177,25 @@ function PlayersList({ path }) {
             }}
           >
             All
+          </MenuItem>
+          <MenuItem
+            value="AP"
+            sx={{
+              backgroundColor: '#333',
+              color: '#fff',
+              '&.Mui-selected': {
+                backgroundColor: '#4d4d4d',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#4d4d4d',
+                },
+              },
+              '&:hover': {
+                backgroundColor: '#4d4d4d',
+              },
+            }}
+          >
+            Category A+
           </MenuItem>
           <MenuItem
             value="A"

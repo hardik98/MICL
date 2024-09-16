@@ -16,7 +16,14 @@ const drawerWidthClosed = 34;
 
 // eslint-disable-next-line arrow-body-style
 const DrawerMenu = memo(
-  ({ players, selectedPlayerId, handleChange, handleInputChange, setDrawerOpen, path }) => {
+  ({
+    players,
+    selectedPlayerId,
+    handleChange,
+    handleInputChange,
+    setDrawerOpen,
+    path = 'Pending',
+  }) => {
     const theme = useTheme();
     const [open, setOpen] = useState(false);
 

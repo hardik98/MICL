@@ -1,20 +1,19 @@
 /* eslint-disable */
-import React from 'react';
 import {
-  Grid,
+  Avatar,
   Box,
+  Card,
+  CardContent,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
-  Paper,
-  Card,
-  CardContent,
   Typography,
-  Avatar,
 } from '@mui/material';
-import reservedKitty from '../../../utils';
+import React from 'react';
+import { getReservedKitty } from '../../../utils';
 
 const teamDetailsStyles = {
   card: {
@@ -96,6 +95,10 @@ const teamDetailsStyles = {
 };
 
 const categoryStyles = {
+  AP: {
+    backgroundColor: '#0c6d74',
+    color: '#fff',
+  },
   A: {
     backgroundColor: '#0c6d74',
     color: '#fff',
@@ -115,14 +118,9 @@ const categoryStyles = {
   },
 };
 
-const categoryPriorityOrder = ['A', 'B', 'C', 'D', 'E'];
+const categoryPriorityOrder = ['AP', 'A', 'B', 'C', 'D', 'E'];
 
 export default function TeamDetails({ teamInfo }) {
-  const categoryAplayers = teamInfo?.players.filter((player) => player.Category === 'A').length;
-  const categoryBplayers = teamInfo?.players.filter((player) => player.Category === 'B').length;
-  const categoryCplayers = teamInfo?.players.filter((player) => player.Category === 'C').length;
-  const categoryDplayers = teamInfo?.players.filter((player) => player.Category === 'D').length;
-
   const formattedAvailableKitty = teamInfo.availableKitty.toLocaleString('en-IN', {
     style: 'currency',
     currency: 'INR',
@@ -139,20 +137,6 @@ export default function TeamDetails({ teamInfo }) {
   });
 
   const sortedCategories = categoryPriorityOrder.filter((category) => groupedPlayers[category]);
-  const getReservedKitty = () => {
-    let totalReservedKitty = 0;
-    reservedKitty.forEach((item) => {
-      totalReservedKitty = totalReservedKitty + item.baseKitty * item.totalPlayer;
-    });
-
-    //  Note: Need to refactor this
-    totalReservedKitty = totalReservedKitty - categoryAplayers * reservedKitty[0].baseKitty;
-    totalReservedKitty = totalReservedKitty - categoryBplayers * reservedKitty[1].baseKitty;
-    totalReservedKitty = totalReservedKitty - categoryCplayers * reservedKitty[2].baseKitty;
-    totalReservedKitty = totalReservedKitty - categoryDplayers * reservedKitty[3].baseKitty;
-
-    return totalReservedKitty;
-  };
 
   return (
     <Card sx={teamDetailsStyles.card}>
@@ -167,13 +151,13 @@ export default function TeamDetails({ teamInfo }) {
         </Typography>
         <Typography
           sx={
-            teamInfo.availableKitty <= getReservedKitty()
+            teamInfo.availableKitty <= getReservedKitty(teamInfo)
               ? teamDetailsStyles.reservedKittyExceed
               : teamDetailsStyles.reservedKitty
           }
         >
           Reserved Kitty:
-          {getReservedKitty().toLocaleString('en-IN', {
+          {getReservedKitty(teamInfo).toLocaleString('en-IN', {
             style: 'currency',
             currency: 'INR',
             minimumFractionDigits: 0,
@@ -200,7 +184,8 @@ export default function TeamDetails({ teamInfo }) {
                           textAlign: 'left',
                         }}
                       >
-                        Category {category} ({groupedPlayers[category].length})
+                        Category {category === 'AP' ? 'A+' : category} (
+                        {groupedPlayers[category].length})
                       </Typography>
                     </TableCell>
                   </TableRow>

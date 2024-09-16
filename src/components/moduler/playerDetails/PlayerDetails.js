@@ -10,14 +10,14 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
   useAddSoldPlayerMutation,
   useFetchTeamsQuery,
   useSoldPlayerMutation,
   useUnsoldPlayerMutation,
 } from '../../../redux/api/playersApi';
-import reservedKitty from '../../../utils';
+import reservedKitty, { getReservedKitty } from '../../../utils';
 import './PlayerDetails.css';
 
 const style = {
@@ -43,13 +43,17 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
   const [soldPlayer] = useSoldPlayerMutation();
   const [addSoldPlayer] = useAddSoldPlayerMutation();
   const [unsoldPlayer] = useUnsoldPlayerMutation();
-  const currentSelectedTeam = teams?.find((team) => Number(team?.id) === soldTo);
+  const currentSelectedTeam = useMemo(
+    () => teams?.find((team) => Number(team?.id) === soldTo),
+    [teams, soldTo],
+  );
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleSkip = () => setNextModal(true);
   const handleNextModalClose = () => setNextModal(false);
 
+  console.log('selected team', currentSelectedTeam);
   React.useEffect(() => {
     setSoldPrice(Number(selectedPlayer?.soldPrice || 0));
     setSoldTo(Number(selectedPlayer?.soldTo) || '');
@@ -145,26 +149,6 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
     return item ? item.totalPlayer : 0; // Returns 0 if no match is found
   };
 
-  const getReservedKitty = () => {
-    const categoryAplayers = categoryPlayers('A');
-    const categoryBplayers = categoryPlayers('B');
-    const categoryCplayers = categoryPlayers('C');
-    const categoryDplayers = categoryPlayers('D');
-
-    let totalReservedKitty = 0;
-    reservedKitty.forEach((item) => {
-      totalReservedKitty = totalReservedKitty + item.baseKitty * item.totalPlayer;
-    });
-
-    //  Note: Need to refactor this
-    totalReservedKitty = totalReservedKitty - categoryAplayers * reservedKitty[0].baseKitty;
-    totalReservedKitty = totalReservedKitty - categoryBplayers * reservedKitty[1].baseKitty;
-    totalReservedKitty = totalReservedKitty - categoryCplayers * reservedKitty[2].baseKitty;
-    totalReservedKitty = totalReservedKitty - categoryDplayers * reservedKitty[3].baseKitty;
-
-    return totalReservedKitty;
-  };
-
   const soldModal = useCallback(() => {
     return (
       <>
@@ -219,7 +203,7 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                     soldPrice === 0 ||
                     soldTo === '' ||
                     currentSelectedTeam?.availableKitty -
-                      getReservedKitty() +
+                      getReservedKitty(currentSelectedTeam) +
                       (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
                       (selectedPlayer?.soldPrice || 0) * 1000 <
                       soldPrice * 1000 ||
@@ -241,14 +225,21 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                   Confirm
                 </Button>
                 {currentSelectedTeam?.availableKitty -
-                  getReservedKitty() +
+                  getReservedKitty(currentSelectedTeam) +
                   (!existingSelectedTeam ? selectedPlayer?.basePrice * 1000 : 0) +
                   (selectedPlayer?.soldPrice || 0) * 1000 <
                   soldPrice * 1000 && <p style={{ color: 'red' }}> Not Enough Kitty </p>}
+
+                {soldPrice > 0 &&
+                  !!currentSelectedTeam &&
+                  categoryPlayers(selectedPlayer?.Category) >=
+                    getTotalPlayerForCategory(selectedPlayer?.Category) && (
+                    <p style={{ color: 'red' }}> Max players exceeds in category.</p>
+                  )}
               </>
             ) : (
               <Typography id="modal-modal-title" variant="h6" component="h2">
-                Unable to sold this player as Team Is not created yet. Please Create Team first.
+                Unable to sell this player as team is not created yet. Please create team first.
               </Typography>
             )}
           </Box>
