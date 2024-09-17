@@ -5,3 +5,8 @@ This is internal Project for Cricket Player Auction. This Project is Created wit
 3.  On other terminal hit following command to run json server on port 5000
 
         npx json-server --watch db.json --port 5000
+
+Note:
+If you are getting CORS error then run below command
+
+        node server.js
