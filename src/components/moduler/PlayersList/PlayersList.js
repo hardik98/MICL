@@ -2,7 +2,7 @@
 import { MenuItem, Select } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useFetchPlayersQuery, useLazyFetchPlayersQuery } from '../../../redux/api/playersApi';
-import { getRandomUniquePlayerId } from '../../../utils';
+import { getRandomUniquePlayerId, resetPickedIds } from '../../../utils';
 import DrawerMenu from '../drawer/DrawerMenu';
 import PlayerDetails from '../playerDetails/PlayerDetails';
 
@@ -59,6 +59,10 @@ function PlayersList({ path }) {
       filteredPlayers(data, searchInput, selectedCategory);
     }
   }, [data, isFetching, path]);
+
+  useEffect(() => {
+    resetPickedIds();
+  }, [path]);
 
   window.addEventListener('storage', (event) => {
     if (event.key === 'sharedData') {

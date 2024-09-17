@@ -53,7 +53,6 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
   const handleSkip = () => setNextModal(true);
   const handleNextModalClose = () => setNextModal(false);
 
-  console.log('selected team', currentSelectedTeam);
   React.useEffect(() => {
     setSoldPrice(Number(selectedPlayer?.soldPrice || 0));
     setSoldTo(Number(selectedPlayer?.soldTo) || '');

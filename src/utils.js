@@ -28,6 +28,10 @@ const reservedKitty = [
 
 const pickedIds = new Set();
 
+function resetPickedIds() {
+  pickedIds.clear();
+}
+
 function getRandomUniquePlayerId(players) {
   if (pickedIds.size === players.length) {
     pickedIds.clear();
@@ -70,4 +74,4 @@ function getReservedKitty(selectedTeam) {
 }
 
 export default reservedKitty;
-export { getRandomUniquePlayerId, getReservedKitty };
+export { getRandomUniquePlayerId, getReservedKitty, resetPickedIds };
