@@ -78,7 +78,7 @@ function PlayersList({ path }) {
   }, [playerList]);
 
   const handleNextPlayer = () => {
-    setSelectedPlayerId(getRandomUniquePlayerId(players) ?? null);
+    setSelectedPlayerId(players.length === 1 ? null : getRandomUniquePlayerId(players));
   };
 
   const handleChange = (id, isSelected) => {
