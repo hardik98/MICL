@@ -5,7 +5,7 @@ const reservedKitty = [
     category: 'AP',
   },
   {
-    totalPlayer: 3,
+    totalPlayer: 2,
     baseKitty: 4000,
     category: 'A',
   },
@@ -20,7 +20,7 @@ const reservedKitty = [
     category: 'C',
   },
   {
-    totalPlayer: 4,
+    totalPlayer: 3,
     baseKitty: 1000,
     category: 'D',
   },
