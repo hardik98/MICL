@@ -73,5 +73,10 @@ function getReservedKitty(selectedTeam) {
   return totalReservedKitty;
 }
 
+// Utility function for conditional class names
+function cn(...inputs) {
+  return inputs.filter(Boolean).join(' ');
+}
+
 export default reservedKitty;
-export { getRandomUniquePlayerId, getReservedKitty, resetPickedIds };
+export { getRandomUniquePlayerId, getReservedKitty, resetPickedIds, cn };

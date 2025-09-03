@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom cricket-themed styles */
+@layer base {
+  body {
+    @apply bg-stadium-gradient min-h-screen;
+  }
+}
+
+@layer components {
+  .cricket-card {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-xl;
+  }
+  
+  .cricket-button {
+    @apply bg-cricket-green hover:bg-cricket-darkgreen text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
+  }
+  
+  .cricket-input {
+    @apply bg-white/10 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/70 focus:border-cricket-lightgreen focus:ring-2 focus:ring-cricket-lightgreen/50 transition-all duration-300;
+  }
+  
+  .stadium-lights {
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-cricket-gold/5 to-transparent pointer-events-none;
+  }
+}

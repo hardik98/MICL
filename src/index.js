@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import store from './redux/store';
 import App from './App';
 import './font.css';
+import './index.css';
 
 const defaultTheme = createTheme({
   typography: {

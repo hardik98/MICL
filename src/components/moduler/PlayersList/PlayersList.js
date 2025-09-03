@@ -1,8 +1,9 @@
 /* eslint-disable  */
-import { MenuItem, Select } from '@mui/material';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
+import { Filter, Search, Trophy, DollarSign, Target, Users } from 'lucide-react';
 import { useFetchPlayersQuery, useLazyFetchPlayersQuery } from '../../../redux/api/playersApi';
-import { getRandomUniquePlayerId, resetPickedIds } from '../../../utils';
+import { getRandomUniquePlayerId, resetPickedIds, cn } from '../../../lib/utils';
 import DrawerMenu from '../drawer/DrawerMenu';
 import PlayerDetails from '../playerDetails/PlayerDetails';
 
@@ -105,7 +106,7 @@ function PlayersList({ path }) {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '450px' }}>
+    <div className="flex min-h-screen">
       <DrawerMenu
         players={players}
         selectedPlayerId={selectedPlayerId}
@@ -115,173 +116,37 @@ function PlayersList({ path }) {
         path={path}
       />
       <div
-        style={{
-          flexGrow: 1,
-          transition: 'margin-left 0.3s',
-          marginLeft: drawerOpen ? `${drawerWidthOpen}px` : `${drawerWidthClosed}px`,
-        }}
+        className={cn(
+          "flex-1 transition-all duration-300 ease-in-out",
+          drawerOpen ? "ml-64" : "ml-8"
+        )}
       >
-        <Select
-          label="Select Category"
-          variant="outlined"
-          fullWidth
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-          MenuProps={{
-            PaperProps: {
-              sx: {
-                bgcolor: '#333', // Background color for the entire dropdown menu
-                '& .MuiList-root': {
-                  padding: 0,
-                },
-              },
-            },
-          }}
-          sx={{
-            width: '45%',
-            backgroundColor: '#333', // Background color
-            color: '#fff', // Text color
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: '#fff',
-              },
-              '&:hover fieldset': {
-                borderColor: '#fff',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: '#fff',
-              },
-              '&.Mui-focused:hover fieldset': {
-                borderColor: '#fff',
-              },
-            },
-            '& .MuiSelect-root': {
-              color: '#fff',
-            },
-            '& .MuiSelect-icon': {
-              color: '#fff',
-            },
-          }}
-        >
-          <MenuItem
-            value="All"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
+        {/* Compact Category Filter */}
+        <div className="flex items-center justify-between mb-4 p-2 bg-white/5 rounded-lg">
+          <div className="flex items-center space-x-2">
+            <Filter className="h-4 w-4 text-cricket-gold" />
+            <span className="text-sm font-medium text-white/80">Category:</span>
+          </div>
+          <select
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+            className="bg-white/5 border border-white/20 rounded-lg px-3 py-1.5 text-sm text-white focus:border-cricket-lightgreen focus:ring-1 focus:ring-cricket-lightgreen/50 focus:outline-none transition-all duration-200 cursor-pointer"
           >
-            All
-          </MenuItem>
-          <MenuItem
-            value="AP"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category A+
-          </MenuItem>
-          <MenuItem
-            value="A"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category A
-          </MenuItem>
-          <MenuItem
-            value="B"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category B
-          </MenuItem>
-          <MenuItem
-            value="C"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category C
-          </MenuItem>
-          <MenuItem
-            value="D"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category D
-          </MenuItem>
-        </Select>
-        <PlayerDetails
-          selectedPlayer={data.find((player) => player.id === selectedPlayerId)}
-          handleNextPlayer={handleNextPlayer}
-        />
+            <option value="All">All Players</option>
+            <option value="AP">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+        </div>
+
+        <div className="mt 4">
+          <PlayerDetails
+            selectedPlayer={data?.find((player) => player.id === selectedPlayerId)}
+            handleNextPlayer={handleNextPlayer}
+          />
+        </div>
       </div>
     </div>
   );
