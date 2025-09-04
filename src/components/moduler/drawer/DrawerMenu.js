@@ -36,10 +36,10 @@ const DrawerMenu = memo(
         <motion.div
           initial={{ x: -300 }}
           animate={{ x: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className={cn(
-            "fixed left-0 top-20 h-[calc(100vh-5rem)] bg-cricket-stadium/95 backdrop-blur-md border-r border-white/20 shadow-2xl transition-all duration-300 z-40",
-            open ? "w-80" : "w-16"
+            'fixed left-0 top-20 h-[calc(100vh-5rem)] bg-cricket-stadium/95 backdrop-blur-md border-r border-white/20 shadow-2xl transition-all duration-300 z-40',
+            open ? 'w-80' : 'w-16',
           )}
         >
           {/* Toggle Button */}
@@ -49,10 +49,7 @@ const DrawerMenu = memo(
             onClick={open ? handleDrawerClose : handleDrawerOpen}
             className="absolute -right-4 top-16 bg-cricket-green hover:bg-cricket-darkgreen text-white rounded-full p-2 shadow-lg transition-all duration-300 z-50"
           >
-            <motion.div
-              animate={{ rotate: open ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
+            <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }}>
               <ChevronRight className="h-5 w-5" />
             </motion.div>
           </motion.button>
@@ -67,6 +64,7 @@ const DrawerMenu = memo(
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                   className="flex-1"
+                  style={{ overflow: 'scroll' }}
                 >
                   {/* Header */}
                   <div className="flex items-center space-x-3 mb-6">
@@ -94,15 +92,19 @@ const DrawerMenu = memo(
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
                         className={cn(
-                          "flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all duration-300 hover:bg-white/10",
-                          selectedPlayerId === player.id && "bg-cricket-green/30 border border-cricket-lightgreen"
+                          'flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all duration-300 hover:bg-white/10',
+                          selectedPlayerId === player.id &&
+                            'bg-cricket-green/30 border border-cricket-lightgreen',
                         )}
                         onClick={() => handleChange(player.id, selectedPlayerId !== player.id)}
                       >
-                        <div className={cn(
-                          "w-4 h-4 rounded border-2 border-white/50 flex items-center justify-center transition-all duration-300",
-                          selectedPlayerId === player.id && "bg-cricket-lightgreen border-cricket-lightgreen"
-                        )}>
+                        <div
+                          className={cn(
+                            'w-4 h-4 rounded border-2 border-white/50 flex items-center justify-center transition-all duration-300',
+                            selectedPlayerId === player.id &&
+                              'bg-cricket-lightgreen border-cricket-lightgreen',
+                          )}
+                        >
                           {selectedPlayerId === player.id && (
                             <motion.div
                               initial={{ scale: 0 }}

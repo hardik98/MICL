@@ -28,7 +28,7 @@ function TeamDetail() {
     );
   }
 
-  const team = teams?.find(t => t.id === parseInt(teamId));
+  const team = teams?.find((t) => t.id === parseInt(teamId));
 
   if (!team) {
     return (
@@ -54,56 +54,56 @@ function TeamDetail() {
       <div className="absolute inset-0 pointer-events-none">
         {/* Stadium Lights */}
         <motion.div
-          animate={{ 
+          animate={{
             opacity: [0.2, 0.6, 0.2],
-            scale: [1, 1.1, 1]
+            scale: [1, 1.1, 1],
           }}
-          transition={{ 
+          transition={{
             duration: 5,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
           className="absolute top-20 left-20 w-16 h-16 bg-cricket-gold/15 rounded-full blur-xl"
         />
         <motion.div
-          animate={{ 
+          animate={{
             opacity: [0.3, 0.7, 0.3],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
-          transition={{ 
+          transition={{
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.5
+            ease: 'easeInOut',
+            delay: 1.5,
           }}
           className="absolute top-32 right-32 w-12 h-12 bg-cricket-lightgreen/15 rounded-full blur-xl"
         />
-        
+
         {/* Floating Cricket Elements */}
         <motion.div
-          animate={{ 
+          animate={{
             y: [-8, 8, -8],
-            rotate: [0, 3, 0]
+            rotate: [0, 3, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
           className="absolute top-1/3 right-1/5 text-cricket-gold/8 text-4xl"
         >
           🏏
         </motion.div>
         <motion.div
-          animate={{ 
+          animate={{
             y: [8, -8, 8],
-            rotate: [0, -2, 0]
+            rotate: [0, -2, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
+            ease: 'easeInOut',
+            delay: 2,
           }}
           className="absolute bottom-1/4 left-1/6 text-cricket-lightgreen/8 text-3xl"
         >
@@ -185,16 +185,27 @@ function TeamDetail() {
                     </div>
                     <div className="bg-white/5 border border-white/20 rounded-lg p-3 text-center">
                       <p className="text-white/70 text-sm">Players Bought</p>
-                      <p className="text-cricket-lightgreen text-xl font-bold">{team.players.length}</p>
+                      <p className="text-cricket-lightgreen text-xl font-bold">
+                        {team.players.length}
+                      </p>
                     </div>
                     <div className="bg-white/5 border border-white/20 rounded-lg p-3 text-center">
                       <p className="text-white/70 text-sm">Remaining Slots</p>
-                      <p className="text-orange-400 text-xl font-bold">{team.totalPlayer - team.players.length}</p>
+                      <p className="text-orange-400 text-xl font-bold">
+                        {team.totalPlayer - team.players.length}
+                      </p>
                     </div>
                     <div className="bg-white/5 border border-white/20 rounded-lg p-3 text-center">
                       <p className="text-white/70 text-sm">Avg. Price</p>
                       <p className="text-white text-xl font-bold">
-                        ₹{team.players.length > 0 ? Math.round(team.players.reduce((sum, p) => sum + parseInt(p.soldPrice), 0) / team.players.length) : 0}K
+                        ₹
+                        {team.players.length > 0
+                          ? Math.round(
+                              team.players.reduce((sum, p) => sum + parseInt(p.soldPrice), 0) /
+                                team.players.length,
+                            )
+                          : 0}
+                        K
                       </p>
                     </div>
                   </div>
@@ -244,8 +255,8 @@ function TeamDetail() {
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-4">
                                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-cricket-gold/50">
-                                    <img 
-                                      src={`${process.env.PUBLIC_URL}/assets/${encodeURIComponent(player.photo)}`} 
+                                    <img
+                                      src={`${process.env.PUBLIC_URL}/assets/player_photos/${player.photo}`}
                                       alt={player.name}
                                       className="w-full h-full object-cover"
                                       onError={(e) => {
@@ -253,22 +264,32 @@ function TeamDetail() {
                                         e.target.nextSibling.style.display = 'flex';
                                       }}
                                     />
-                                    <div className="w-full h-full bg-gradient-to-br from-cricket-green to-cricket-lightgreen flex items-center justify-center" style={{display: 'none'}}>
+                                    <div
+                                      className="w-full h-full bg-gradient-to-br from-cricket-green to-cricket-lightgreen flex items-center justify-center"
+                                      style={{ display: 'none' }}
+                                    >
                                       <Users className="h-6 w-6 text-white" />
                                     </div>
                                   </div>
                                   <div>
-                                    <h4 className="text-white font-semibold text-lg">{player.name}</h4>
-                                    <p className="text-white/70 text-sm">{player.battingStyle} • {player.bowlingStyle}</p>
+                                    <h4 className="text-white font-semibold text-lg">
+                                      {player.name}
+                                    </h4>
+                                    <p className="text-white/70 text-sm">
+                                      {player.battingStyle} • {player.bowlingStyle}
+                                    </p>
                                   </div>
                                 </div>
                                 <div className="text-right">
                                   <div className="flex items-center space-x-2 mb-1">
                                     <DollarSign className="h-4 w-4 text-cricket-gold" />
-                                    <span className="text-cricket-gold font-bold text-lg">₹{player.soldPrice}K</span>
+                                    <span className="text-cricket-gold font-bold text-lg">
+                                      ₹{player.soldPrice}K
+                                    </span>
                                   </div>
                                   <div className="text-white/70 text-sm">
-                                    Base: ₹{player.basePrice !== 'NA' ? `${player.basePrice}K` : 'NA'}
+                                    Base: ₹
+                                    {player.basePrice !== 'NA' ? `${player.basePrice}K` : 'NA'}
                                   </div>
                                 </div>
                               </div>

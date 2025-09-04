@@ -1,4 +1,4 @@
-const reservedKitty = [
+export const reservedKitty = [
   {
     totalPlayer: 1,
     baseKitty: 5000,
@@ -74,9 +74,8 @@ function getReservedKitty(selectedTeam) {
 }
 
 // Utility function for conditional class names
-function cn(...inputs) {
+export function cn(...inputs) {
   return inputs.filter(Boolean).join(' ');
 }
 
-export default reservedKitty;
-export { getRandomUniquePlayerId, getReservedKitty, resetPickedIds, cn };
+export { getRandomUniquePlayerId, getReservedKitty, resetPickedIds };

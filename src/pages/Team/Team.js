@@ -28,21 +28,11 @@ function Team() {
     }
   }, [data, isFetching]);
 
-  useEffect(() => {
-    const handleStorageChange = (event) => {
-      if (event.key === 'sharedData') {
-        trigger();
-        localStorage.removeItem('sharedData');
-      }
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    
-    // Clean up the event listener when component unmounts
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, [trigger]);
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'sharedData') {
+      trigger();
+    }
+  });
 
   useEffect(() => {
     if (teamList?.length) {
@@ -83,7 +73,7 @@ function Team() {
       <div className="min-h-screen bg-gradient-to-br from-cricket-stadium via-cricket-pitch to-cricket-stadium flex items-center justify-center">
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           className="w-12 h-12 border-4 border-cricket-gold border-t-transparent rounded-full"
         />
       </div>
@@ -100,15 +90,15 @@ function Team() {
     );
   }
 
-  const gridClass = teams.length === 5 ? 'team-grid-5' : teams.length > 5 ? 'team-grid-more-than-5' : '';
+  const gridClass =
+    teams.length === 5 ? 'team-grid-5' : teams.length > 5 ? 'team-grid-more-than-5' : '';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cricket-stadium via-cricket-pitch to-cricket-stadium p-4">
       <div className="w-full mx-auto max-h-screen overflow-y-auto">
-
         {teams.length ? (
           /* Teams Grid */
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -158,7 +148,7 @@ function Team() {
                         autoFocus
                       />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <label className="flex items-center space-x-2 text-white font-medium">
                         <Users className="h-4 w-4 text-cricket-gold" />
@@ -179,13 +169,11 @@ function Team() {
                       <Target className="h-5 w-5 text-cricket-gold" />
                       <span>Team Captains</span>
                     </h3>
-                    
+
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {[1, 2, 3, 4, 5].map((num) => (
                         <div key={num} className="space-y-2">
-                          <label className="text-white/80 text-sm font-medium">
-                            Captain {num}
-                          </label>
+                          <label className="text-white/80 text-sm font-medium">Captain {num}</label>
                           <Input
                             name={`captain_${num}`}
                             placeholder={`Enter captain ${num} name...`}
@@ -195,10 +183,10 @@ function Team() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="flex justify-center pt-6">
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="flex items-center space-x-2 bg-cricket-lightgreen hover:bg-cricket-lightgreen/80 px-8 py-3 text-lg"
                     >
                       <Plus className="h-5 w-5" />

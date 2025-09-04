@@ -1,9 +1,10 @@
 /* eslint-disable  */
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Filter, Search, Trophy, DollarSign, Target, Users } from 'lucide-react';
+import { Filter, Search, Trophy, DollarSign, Target, Users, Flame } from 'lucide-react';
 import { useFetchPlayersQuery, useLazyFetchPlayersQuery } from '../../../redux/api/playersApi';
-import { getRandomUniquePlayerId, resetPickedIds, cn } from '../../../lib/utils';
+import { getRandomUniquePlayerId, resetPickedIds } from '../../../lib/utils';
+import { cn } from '../../../lib/utils';
 import DrawerMenu from '../drawer/DrawerMenu';
 import PlayerDetails from '../playerDetails/PlayerDetails';
 
@@ -117,36 +118,74 @@ function PlayersList({ path }) {
       />
       <div
         className={cn(
-          "flex-1 transition-all duration-300 ease-in-out",
-          drawerOpen ? "ml-64" : "ml-8"
+          'flex-1 transition-all duration-300 ease-in-out',
+          drawerOpen ? 'ml-64' : 'ml-8',
         )}
       >
-        {/* Compact Category Filter */}
-        <div className="flex items-center justify-between mb-4 p-2 bg-white/5 rounded-lg">
-          <div className="flex items-center space-x-2">
-            <Filter className="h-4 w-4 text-cricket-gold" />
-            <span className="text-sm font-medium text-white/80">Category:</span>
+        {/* Modern Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mb-6"
+          style={{ display: 'flex', justifyContent: 'flex-end', gap: '1.5rem', marginLeft: '1rem' }}
+        >
+          <div className="flex items-center space-x-3 mb-4 ">
+            <Filter className="h-5 w-5 text-cricket-gold" />
+            <span className="text-white font-semibold text-lg">Filter by Category</span>
           </div>
-          <select
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-            className="bg-white/5 border border-white/20 rounded-lg px-3 py-1.5 text-sm text-white focus:border-cricket-lightgreen focus:ring-1 focus:ring-cricket-lightgreen/50 focus:outline-none transition-all duration-200 cursor-pointer"
-          >
-            <option value="All">All Players</option>
-            <option value="AP">A+</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-          </select>
-        </div>
+          {/* <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cricket-gold/50">
+            <img
+              src={`/assets/${data[0].photo}`}
+              alt={data[0].name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <div
+              className="w-full h-full bg-gradient-to-br from-cricket-green to-cricket-lightgreen flex items-center justify-center"
+              style={{ display: 'none' }}
+            >
+              <Users className="h-8 w-8 text-white" />
+            </div>
+          </div> */}
+          <div className="relative w-full max-w-xs">
+            <select
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+              className="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white backdrop-blur-sm focus:border-cricket-lightgreen focus:ring-2 focus:ring-cricket-lightgreen/50 focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
+            >
+              <option value="All" className="bg-cricket-stadium text-white">
+                All Categories
+              </option>
+              <option value="AP" className="bg-cricket-stadium text-white">
+                Category A+
+              </option>
+              <option value="A" className="bg-cricket-stadium text-white">
+                Category A
+              </option>
+              <option value="B" className="bg-cricket-stadium text-white">
+                Category B
+              </option>
+              <option value="C" className="bg-cricket-stadium text-white">
+                Category C
+              </option>
+              <option value="D" className="bg-cricket-stadium text-white">
+                Category D
+              </option>
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <Filter className="h-4 w-4 text-white/70" />
+            </div>
+          </div>
+        </motion.div>
 
-        <div className="mt 4">
-          <PlayerDetails
-            selectedPlayer={data?.find((player) => player.id === selectedPlayerId)}
-            handleNextPlayer={handleNextPlayer}
-          />
-        </div>
+        <PlayerDetails
+          selectedPlayer={data?.find((player) => player.id === selectedPlayerId)}
+          handleNextPlayer={handleNextPlayer}
+        />
       </div>
     </div>
   );

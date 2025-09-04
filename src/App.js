@@ -26,24 +26,27 @@ function Root() {
     <div className="min-h-screen bg-stadium-gradient">
       {/* Stadium Lights Effect */}
       <div className="stadium-lights" />
-      
+
       {/* Modern Cricket-Themed Header */}
-      <motion.header 
+      <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative bg-gradient-to-r from-cricket-stadium via-cricket-pitch to-cricket-stadium border-b border-cricket-gold/30 shadow-2xl"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Left Logo */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-4"
+              onClick={() => {
+                navigate('/');
+              }}
             >
-              <img 
-                src={`${process.env.PUBLIC_URL}/assets/logo.png`} 
-                alt="Logo" 
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/logo.png`}
+                alt="Logo"
                 className="h-12 w-auto filter brightness-150"
               />
             </motion.div>
@@ -60,7 +63,12 @@ function Root() {
                 >
                   <Target className="h-5 w-5" />
                   <span>Players</span>
-                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", dropdownOpen && "rotate-180")} />
+                  <ChevronDown
+                    className={cn(
+                      'h-4 w-4 transition-transform duration-300',
+                      dropdownOpen && 'rotate-180',
+                    )}
+                  />
                 </motion.button>
 
                 <AnimatePresence>
@@ -93,7 +101,7 @@ function Root() {
 
               {/* Teams Link */}
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link 
+                <Link
                   to="/team"
                   className="flex items-center space-x-2 text-white font-semibold text-lg hover:text-cricket-gold transition-colors duration-300"
                 >
@@ -103,15 +111,11 @@ function Root() {
               </motion.div>
             </nav>
 
-
             {/* Right Logo */}
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center"
-            >
-              <img 
-                src={`${process.env.PUBLIC_URL}/assets/HICL_logo.png`} 
-                alt="HICL Logo" 
+            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center">
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/HICL_logo.png`}
+                alt="HICL Logo"
                 className="h-16 w-auto"
               />
             </motion.div>
