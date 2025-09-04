@@ -190,6 +190,14 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
       previousPrice: existingSoldPrice,
     });
 
+    // Notify other tabs about the update
+    localStorage.setItem('playerSoldUpdate', JSON.stringify({
+      playerId: selectedPlayer.id,
+      teamId: soldTo,
+      timestamp: Date.now()
+    }));
+    window.dispatchEvent(new Event('storage'));
+
     // Close the dialog
     setIsSellDialogOpen(false);
     setSelectedPlayer(null);

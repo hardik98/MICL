@@ -22,22 +22,34 @@ function Team() {
 
   const [teams, setTeams] = useState([]);
 
+  // Handle initial data load and updates from the server
   useEffect(() => {
     if (data) {
       setTeams(data);
     }
   }, [data, isFetching]);
 
-  window.addEventListener('storage', (event) => {
-    if (event.key === 'sharedData') {
-      trigger();
-    }
-  });
+  // Listen for storage events from other tabs
+  useEffect(() => {
+    const handleStorageChange = (event) => {
+      if (event.key === 'playerSoldUpdate') {
+        // When a player is sold in another tab, refresh the teams data
+        trigger();
+      }
+    };
 
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [trigger]);
+
+  // Handle the team list update after triggering a refetch
   useEffect(() => {
     if (teamList?.length) {
       setTeams(teamList);
-      localStorage.removeItem('sharedData');
     }
   }, [teamList]);
 

@@ -198,6 +198,14 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
       updatedTeam,
     });
 
+    // Notify other tabs about the player sale
+    localStorage.setItem('playerSoldUpdate', JSON.stringify({
+      playerId: selectedPlayer.id,
+      teamId: soldTo,
+      timestamp: Date.now()
+    }));
+    window.dispatchEvent(new Event('storage'));
+
     localStorage.setItem('sharedData', JSON.stringify({ message: 'Updated Data' }));
   };
 
