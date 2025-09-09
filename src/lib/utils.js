@@ -1,31 +1,25 @@
 export const reservedKitty = [
   {
-    totalPlayer: 1,
-    baseKitty: 5000,
-    category: 'AP',
-  },
-  {
-    totalPlayer: 2,
+    totalPlayer: 3,
     baseKitty: 4000,
-    category: 'A',
+    category: 'Elite',
   },
   {
     totalPlayer: 4,
     baseKitty: 3000,
-    category: 'B',
-  },
-  {
-    totalPlayer: 4,
-    baseKitty: 2000,
-    category: 'C',
+    category: 'Plate',
   },
   {
     totalPlayer: 3,
+    baseKitty: 2000,
+    category: 'Silver',
+  },
+  {
+    totalPlayer: 5,
     baseKitty: 1000,
-    category: 'D',
+    category: 'Bronze',
   },
 ];
-
 const pickedIds = new Set();
 
 function resetPickedIds() {
@@ -51,24 +45,21 @@ function getRandomUniquePlayerId(players) {
 function getReservedKitty(selectedTeam) {
   const categoryPlayers = (category) =>
     selectedTeam?.players.filter((player) => player.Category === category).length;
-
-  const categoryAPlusplayers = categoryPlayers('AP');
-  const categoryAplayers = categoryPlayers('A');
-  const categoryBplayers = categoryPlayers('B');
-  const categoryCplayers = categoryPlayers('C');
-  const categoryDplayers = categoryPlayers('D');
+  const categoryElitePlayers = categoryPlayers('Elite');
+  const categoryPlatePlayers = categoryPlayers('Plate');
+  const categorySilverPlayers = categoryPlayers('Silver');
+  const categoryBronzePlayers = categoryPlayers('Bronze');
 
   let totalReservedKitty = 0;
   reservedKitty.forEach((item) => {
     totalReservedKitty += item.baseKitty * item.totalPlayer;
   });
 
-  //  Note: Need to refactor this
-  totalReservedKitty -= categoryAPlusplayers * reservedKitty[0].baseKitty;
-  totalReservedKitty -= categoryAplayers * reservedKitty[1].baseKitty;
-  totalReservedKitty -= categoryBplayers * reservedKitty[2].baseKitty;
-  totalReservedKitty -= categoryCplayers * reservedKitty[3].baseKitty;
-  totalReservedKitty -= categoryDplayers * reservedKitty[4].baseKitty;
+  // Subtract the kitty for players already acquired
+  totalReservedKitty -= categoryElitePlayers * reservedKitty[0].baseKitty;
+  totalReservedKitty -= categoryPlatePlayers * reservedKitty[1].baseKitty;
+  totalReservedKitty -= categorySilverPlayers * reservedKitty[2].baseKitty;
+  totalReservedKitty -= categoryBronzePlayers * reservedKitty[3].baseKitty;
 
   return totalReservedKitty;
 }

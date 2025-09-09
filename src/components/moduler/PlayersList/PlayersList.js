@@ -160,20 +160,17 @@ function PlayersList({ path }) {
               <option value="All" className="bg-cricket-stadium text-white">
                 All Categories
               </option>
-              <option value="AP" className="bg-cricket-stadium text-white">
-                Category A+
+              <option value="Elite" className="bg-cricket-stadium text-white">
+                Elite Category
               </option>
-              <option value="A" className="bg-cricket-stadium text-white">
-                Category A
+              <option value="Plate" className="bg-cricket-stadium text-white">
+                Plate Category
               </option>
-              <option value="B" className="bg-cricket-stadium text-white">
-                Category B
+              <option value="Silver" className="bg-cricket-stadium text-white">
+                Silver Category
               </option>
-              <option value="C" className="bg-cricket-stadium text-white">
-                Category C
-              </option>
-              <option value="D" className="bg-cricket-stadium text-white">
-                Category D
+              <option value="Bronze" className="bg-cricket-stadium text-white">
+                Bronze Category
               </option>
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">

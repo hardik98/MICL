@@ -15,7 +15,7 @@ server.use(middlewares);
 server.use(router);
 
 // Start the JSON Server
-const port = 5000;
+const port = 5001;
 server.listen(port, () => {
   console.log(`JSON Server is running on port ${port}`);
 });

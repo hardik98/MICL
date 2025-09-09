@@ -284,7 +284,7 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
 
     // console.log('one ', categoryPlayers(selectedPlayer?.Category));
     // console.log('two ', getTotalPlayerForCategory(selectedPlayer?.Category));
-    console.log('maxPlayersExceeded', maxPlayersExceeded);
+    // console.log('maxPlayersExceeded', maxPlayersExceeded);
     return (
       <Dialog open={open} onClose={handleClose}>
         {/* <div className="bg-gray-500 p-6 rounded-lg"> */}
@@ -606,17 +606,17 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                         src={`${process.env.PUBLIC_URL}/assets/${selectedPlayer.photo}`}
                         alt={selectedPlayer.name}
                         className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'flex';
-                        }}
+                        // onError={(e) => {
+                        //   e.target.style.display = 'none';
+                        //   e.target.nextSibling.style.display = 'flex';
+                        // }}
                       />
-                      <div
+                      {/* <div
                         className="w-full h-full bg-gradient-to-br from-cricket-green to-cricket-lightgreen flex items-center justify-center"
                         style={{ display: 'none' }}
                       >
                         <Users className="h-16 w-16 text-white" />
-                      </div>
+                      </div> */}
                     </div>
                     {selectedPlayer.isSold && (
                       <div className="absolute -top-2 -right-2 bg-cricket-gold rounded-full p-2">
@@ -655,18 +655,18 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                       <p className="text-white/70 text-xs font-medium">Runs</p>
                       <p className="text-white font-semibold text-sm">{selectedPlayer.runs}</p>
                     </div>
-                    <div className="bg-white/8 border border-white/25 rounded-lg p-3 hover:bg-white/12 transition-colors">
+                    {/* <div className="bg-white/8 border border-white/25 rounded-lg p-3 hover:bg-white/12 transition-colors">
                       <p className="text-white/70 text-xs font-medium">Average</p>
                       <p className="text-white font-semibold text-sm">{selectedPlayer.average}</p>
-                    </div>
+                    </div> */}
                     <div className="bg-white/8 border border-white/25 rounded-lg p-3 hover:bg-white/12 transition-colors">
                       <p className="text-white/70 text-xs font-medium">Wickets</p>
                       <p className="text-white font-semibold text-sm">{selectedPlayer.wickets}</p>
                     </div>
-                    <div className="bg-white/8 border border-white/25 rounded-lg p-3 hover:bg-white/12 transition-colors">
+                    {/* <div className="bg-white/8 border border-white/25 rounded-lg p-3 hover:bg-white/12 transition-colors">
                       <p className="text-white/70 text-xs font-medium">Economy</p>
                       <p className="text-white font-semibold text-sm">{selectedPlayer.economy}</p>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Price Info */}
