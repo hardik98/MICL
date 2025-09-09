@@ -191,11 +191,14 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
     });
 
     // Notify other tabs about the update
-    localStorage.setItem('playerSoldUpdate', JSON.stringify({
-      playerId: selectedPlayer.id,
-      teamId: soldTo,
-      timestamp: Date.now()
-    }));
+    localStorage.setItem(
+      'playerSoldUpdate',
+      JSON.stringify({
+        playerId: selectedPlayer.id,
+        teamId: soldTo,
+        timestamp: Date.now(),
+      }),
+    );
     window.dispatchEvent(new Event('storage'));
 
     // Close the dialog
@@ -294,7 +297,7 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
               <Crown className="h-5 w-5 text-cricket-gold" />
               <span className="text-white font-bold">{teamInfo.name}</span>
             </div>
-            <Button
+            {/* <Button
               variant="outline"
               size="sm"
               onClick={() => navigate(`/team/${teamInfo.id}`)}
@@ -302,7 +305,7 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
             >
               <Eye className="h-3 w-3" />
               <span>View</span>
-            </Button>
+            </Button> */}
           </CardTitle>
         </CardHeader>
 
@@ -392,11 +395,7 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
                                 <Users className="h-4 w-4 text-white" />
                               </div>
                             </div>
-                            <span className="text-white text-sm font-medium">
-                              {player.name}
-                              {player.soldTo &&
-                                ` (${teams.find((t) => t.id === player.soldTo)?.name || 'Team'})`}
-                            </span>
+                            <span className="text-white text-sm font-medium">{player.name}</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <DollarSign className="h-3 w-3 text-cricket-gold" />

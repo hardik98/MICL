@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, DollarSign, Users, Trophy, AlertTriangle, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -28,6 +28,32 @@ const style = {
 };
 
 function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
+  const [showCountdown, setShowCountdown] = useState(false);
+  const [countdown, setCountdown] = useState(3);
+  const [hasShownCountdown, setHasShownCountdown] = useState(false);
+
+  useEffect(() => {
+    if (showCountdown && countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (showCountdown && countdown === 0) {
+      const timer = setTimeout(() => {
+        setShowCountdown(false);
+        setCountdown(3);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [showCountdown, countdown]);
+
+  const handleStartAuction = () => {
+    if (!hasShownCountdown) {
+      setShowCountdown(true);
+      setHasShownCountdown(true);
+      setTimeout(handleNextPlayer, 4000); // Wait for countdown + 1 second
+    } else {
+      handleNextPlayer();
+    }
+  };
   const existingSelectedTeam = selectedPlayer?.soldTo;
   const existingSoldPrice = Number(selectedPlayer?.soldPrice);
   const [open, setOpen] = React.useState(false);
@@ -199,11 +225,14 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
     });
 
     // Notify other tabs about the player sale
-    localStorage.setItem('playerSoldUpdate', JSON.stringify({
-      playerId: selectedPlayer.id,
-      teamId: soldTo,
-      timestamp: Date.now()
-    }));
+    localStorage.setItem(
+      'playerSoldUpdate',
+      JSON.stringify({
+        playerId: selectedPlayer.id,
+        teamId: soldTo,
+        timestamp: Date.now(),
+      }),
+    );
     window.dispatchEvent(new Event('storage'));
 
     localStorage.setItem('sharedData', JSON.stringify({ message: 'Updated Data' }));
@@ -430,7 +459,8 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-20 left-20 w-16 h-16 bg-cricket-gold/15 rounded-full blur-xl"
+          style={{ marginLeft: 20 }}
+          className="absolute top-20 left-20 w-16 h-16 bg-cricket-gold/30 rounded-full"
         />
         <motion.div
           animate={{
@@ -443,7 +473,8 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
             ease: 'easeInOut',
             delay: 1.5,
           }}
-          className="absolute top-32 right-32 w-12 h-12 bg-cricket-lightgreen/15 rounded-full blur-xl"
+          style={{ marginLeft: 20 }}
+          className="absolute top-32 right-32 w-12 h-12 bg-cricket-lightgreen/30 rounded-full"
         />
 
         {/* Floating Cricket Elements */}
@@ -457,7 +488,8 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-1/3 right-1/5 text-cricket-gold/8 text-4xl"
+          style={{ marginLeft: 20 }}
+          className="absolute top-1/3 right-1/5 text-cricket-gold/30 text-5xl"
         >
           🏏
         </motion.div>
@@ -472,7 +504,25 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
             ease: 'easeInOut',
             delay: 2,
           }}
-          className="absolute bottom-1/4 left-1/6 text-cricket-lightgreen/8 text-3xl"
+          style={{ marginLeft: 20 }}
+          className="absolute bottom-1/4 left-1/6 text-cricket-lightgreen/30 text-4xl"
+        >
+          🏆
+        </motion.div>
+
+        <motion.div
+          animate={{
+            y: [8, -8, 8],
+            rotate: [0, -2, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 2,
+          }}
+          style={{ marginLeft: 20 }}
+          className="absolute bottom-1/4 right-1 text-cricket-lightgreen/30 text-4xl"
         >
           🏆
         </motion.div>
@@ -488,9 +538,30 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
             <h3 className="text-white text-xl font-semibold mb-4">
               Select a player to view their profile
             </h3>
-            <Button onClick={handleNextPlayer} className="flex items-center space-x-2">
-              <span>Start Auction</span>
+            <Button
+              onClick={handleStartAuction}
+              className="flex items-center space-x-2 relative overflow-hidden"
+              disabled={showCountdown}
+            >
+              {showCountdown ? (
+                <span className="animate-pulse">{countdown > 0 ? `${countdown}...` : 'Go!'}</span>
+              ) : (
+                <span>Start Auction</span>
+              )}
             </Button>
+            {showCountdown && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 text-cricket-gold text-center font-medium"
+              >
+                <div className="text-xl">🎉 Let the bidding begin! 🎉</div>
+                <div className="text-sm mt-1">Waiting for increment...</div>
+                <div className="text-xs mt-2 text-cricket-lightgreen">
+                  First bid gets a free virtual high-five! ✋
+                </div>
+              </motion.div>
+            )}
           </div>
         </motion.div>
       ) : (
@@ -530,9 +601,9 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                 {/* Player Photo Section */}
                 <div className="relative bg-gradient-to-br from-cricket-lightgreen/15 to-cricket-darkgreen/15 p-6 flex flex-col items-center justify-center">
                   <motion.div whileHover={{ scale: 1.05 }} className="relative">
-                    <div className="w-28 h-28 rounded-full overflow-hidden border-3 border-cricket-gold/60 mx-auto shadow-lg">
+                    <div className="rounded-full overflow-hidden border-3 border-cricket-gold/60 mx-auto shadow-lg">
                       <img
-                        src={`${process.env.PUBLIC_URL}/assets/player_photos/${selectedPlayer.photo}`}
+                        src={`${process.env.PUBLIC_URL}/assets/${selectedPlayer.photo}`}
                         alt={selectedPlayer.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
