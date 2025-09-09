@@ -11,7 +11,7 @@
       "economy": 8.26,
       "photo": "IMG_20230511_235819_Kamlesh%20Tailor.jpg",
       "basePrice": 5,
-      "Category": "AP",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -26,9 +26,11 @@
       "economy": 6.78,
       "photo": "20221001_170528%20(1)_Pasha%20Shaik.jpg",
       "basePrice": 5,
-      "Category": "AP",
-      "isSold": false,
-      "isUnsold": false
+      "Category": "Elite",
+      "isSold": true,
+      "isUnsold": false,
+      "soldPrice": 10,
+      "soldTo": 4
     },
     {
       "id": 3,
@@ -41,9 +43,11 @@
       "economy": 6.87,
       "photo": "IMG_8493.jpg",
       "basePrice": 5,
-      "Category": "AP",
-      "isSold": false,
-      "isUnsold": false
+      "Category": "Elite",
+      "isSold": true,
+      "isUnsold": false,
+      "soldPrice": 6,
+      "soldTo": 1
     },
     {
       "id": 4,
@@ -56,9 +60,11 @@
       "economy": 7.48,
       "photo": "chirag_vindhani_Chirag%20Vindhani.jpg",
       "basePrice": 5,
-      "Category": "AP",
-      "isSold": false,
-      "isUnsold": false
+      "Category": "Elite",
+      "isSold": true,
+      "isUnsold": false,
+      "soldPrice": 5,
+      "soldTo": 5
     },
     {
       "id": 5,
@@ -71,7 +77,7 @@
       "economy": 8.3,
       "photo": "IMG_4183_Aman%20Prajapati.jpg",
       "basePrice": 5,
-      "Category": "AP",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -86,7 +92,7 @@
       "economy": 11,
       "photo": "Profilepic%20(1)_Meet%20Shah.jpg",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -101,7 +107,7 @@
       "economy": 8.05,
       "photo": "-nc9t7m_Jitarth%20Prakashchand.jpg",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -116,7 +122,7 @@
       "economy": 7.33,
       "photo": "Kashyap_Pancholi_Kashyap%20Pancholi.jpg",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -131,7 +137,7 @@
       "economy": 8.02,
       "photo": "IMG_4436_Niketan%20Patel.jpeg",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -146,7 +152,7 @@
       "economy": 8.43,
       "photo": "Viral Cricket%20Profile%20Picture_Viral Patel.png",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -161,7 +167,7 @@
       "economy": 8.79,
       "photo": "cricheros_Dharmesh%20Pithava.jpg",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -176,7 +182,7 @@
       "economy": 6.64,
       "photo": "Screenshot%202024-08-23%20at%203.38.47%E2%80%AFPM_Janak%20Shah.png",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -191,7 +197,7 @@
       "economy": 7.4,
       "photo": "CricHeroes_Chiragkumar%20Thakar.jpg",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -206,7 +212,7 @@
       "economy": 10.17,
       "photo": "cic_Sunny%20Tomar.jpg",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -221,7 +227,7 @@
       "economy": 9.16,
       "photo": "gaurav_Gaurav%20Shekhadiya.png",
       "basePrice": 4,
-      "Category": "A",
+      "Category": "Elite",
       "isSold": false,
       "isUnsold": false
     },
@@ -236,7 +242,7 @@
       "economy": 6.92,
       "photo": "IMG_1329_Sarthak%20Shah.jpg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -251,7 +257,7 @@
       "economy": 11.5,
       "photo": "ProfilePhoto_Darshan%20Kunjadiya.png",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -266,7 +272,7 @@
       "economy": 0,
       "photo": "Pranav_Pranav%20Shah.jpg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -281,7 +287,7 @@
       "economy": 5.87,
       "photo": "PXL_20230626_070345361_Sarthak%20Patel.jpg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -296,7 +302,7 @@
       "economy": 8.18,
       "photo": "WhatsApp%20Image%202024-08-23%20at%203.54.33%20PM_Bhushan%20Mande.jpeg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -311,7 +317,7 @@
       "economy": 9.86,
       "photo": "Bhargav_Shah_Bhargav%20Shah.jpg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -326,7 +332,7 @@
       "economy": 10.28,
       "photo": "1542798446023_onAf9HcgAoCc_Nisarg%20Gohil.jpg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -341,7 +347,7 @@
       "economy": 7.62,
       "photo": "IMG_1252_Saurabh%20Kiri.jpeg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -356,7 +362,7 @@
       "economy": 9.4,
       "photo": "image-1%20copy_Piyushkumar%20Dholariy.png",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -371,7 +377,7 @@
       "economy": 9.07,
       "photo": "Screenshot%202024-08-12%20at%204.10.21%E2%80%AFPM_Shahin%20Chudesara.png",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -386,7 +392,7 @@
       "economy": 6.93,
       "photo": "Rahul Shah Photo_Rahul k Shah.PNG",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -401,7 +407,7 @@
       "economy": 6.94,
       "photo": "Screenshot%202024-08-28%20at%2010.49.56%E2%80%AFAM_Pratik%20Kukadia.png",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -416,7 +422,7 @@
       "economy": 8.58,
       "photo": "IMG_6353-modified-NBG_Darshan%20Patel.png",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -431,7 +437,7 @@
       "economy": 5.96,
       "photo": "1543397668708_zWGszNkfULqj_Harshil%20Patel.jpg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -446,9 +452,9 @@
       "economy": 0,
       "photo": "IMG-20231014-WA0092_Jignesh%20Jain.jpg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
-      "isUnsold": false
+      "isUnsold": true
     },
     {
       "id": 31,
@@ -461,9 +467,11 @@
       "economy": 0,
       "photo": "IMG_7372_Harsh%20Jani.jpg",
       "basePrice": 3,
-      "Category": "B",
-      "isSold": false,
-      "isUnsold": false
+      "Category": "Plate",
+      "isSold": true,
+      "isUnsold": false,
+      "soldPrice": 2,
+      "soldTo": 3
     },
     {
       "id": 32,
@@ -476,7 +484,7 @@
       "economy": 7.2,
       "photo": "image%20(1)_Pratikkumar%20Patel.png",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -491,7 +499,7 @@
       "economy": 10.26,
       "photo": "WhatsApp%20Image%202024-08-27%20at%2011.28.45%20AM_Jatin%20Kansagara.jpeg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -506,7 +514,7 @@
       "economy": 7.3,
       "photo": "Divyang%20Pathak_Divyang%20Pathak.jpeg",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -521,7 +529,7 @@
       "economy": 0,
       "photo": "media_Ravi%20Harshadbhai%20Val.png",
       "basePrice": 3,
-      "Category": "B",
+      "Category": "Plate",
       "isSold": false,
       "isUnsold": false
     },
@@ -536,7 +544,7 @@
       "economy": 8,
       "photo": "my-passport-photo_Krunal%20Shah.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -551,7 +559,7 @@
       "economy": 9.8,
       "photo": "IMG_2481_Mohit%20Bajpai.jpeg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -566,7 +574,7 @@
       "economy": 4,
       "photo": "11_Mahesh%20Kavathiya.jpeg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -581,7 +589,7 @@
       "economy": 7.5,
       "photo": "Passport%20Image_Devesh%20Doshi.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -596,7 +604,7 @@
       "economy": 0,
       "photo": "WhatsApp%20Image%202024-03-07%20at%2012.30.31%20PM_Mohit%20Trivedi.jpeg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -611,7 +619,7 @@
       "economy": 0,
       "photo": "akshar_pic_Akshar%20Darji.JPG",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -626,7 +634,7 @@
       "economy": 7.26,
       "photo": "IMG_20231115_124027_Vivekkumar%20Vara.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -641,7 +649,7 @@
       "economy": 9.38,
       "photo": "1698508590696_1zLUz3tLtxeb_Mitul%20Verma.jpeg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -656,7 +664,7 @@
       "economy": 13,
       "photo": "IMG_5203_Hiren%20Gajra.jpeg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -671,7 +679,7 @@
       "economy": 6.9,
       "photo": "1666449029569_V30clwd6LzVu_Rohit%20Joshi.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -686,7 +694,7 @@
       "economy": 10.25,
       "photo": "IMG_9870_Bilalahmad%20Ghanchi.JPG",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -701,7 +709,7 @@
       "economy": 7.1,
       "photo": "IMG-20230223-WA0005_Karankumar%20Patel.PNG",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -716,9 +724,9 @@
       "economy": 11.29,
       "photo": "20211117_182231_Rudra%20Pathak.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
-      "isUnsold": false
+      "isUnsold": true
     },
     {
       "id": 49,
@@ -731,7 +739,7 @@
       "economy": 0,
       "photo": "IMG_4152_Milan%20Raval.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -746,7 +754,7 @@
       "economy": 0,
       "photo": "Image%20(2)_Chudasama%20Bhargav%20Hi.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -761,7 +769,7 @@
       "economy": 0,
       "photo": "WhatsApp%20Image%202024-08-30%20at%202.48.50%20PM%20(1)_Mayur%20Patel.jpeg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -776,7 +784,7 @@
       "economy": 7.3,
       "photo": "??",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -791,7 +799,7 @@
       "economy": 0,
       "photo": "vishal_photo_Vishalsinh%20Rathod.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -806,7 +814,7 @@
       "economy": 0,
       "photo": "Screenshot%202024-08-27%20at%2011.25.26%E2%80%AFAM_Dinesh%20Rajpurohit.png",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -821,7 +829,7 @@
       "economy": 6.5,
       "photo": "IMG20231123190845~2_Dhaval%20Joshi.jpg",
       "basePrice": 2,
-      "Category": "C",
+      "Category": "Silver",
       "isSold": false,
       "isUnsold": false
     },
@@ -836,7 +844,7 @@
       "economy": 0,
       "photo": "07202AC4-533E-406A-827F-B3DAED15BED0_Rohankumar%20Moradiya.JPG",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -851,7 +859,7 @@
       "economy": 10,
       "photo": "IMG_4232_Suresh%20Varma.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -866,7 +874,7 @@
       "economy": 0,
       "photo": "1587025054883_Ravi%20Agrawal.jpeg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -881,7 +889,7 @@
       "economy": 4,
       "photo": "Media_Joshi%20Sagar%20Vasantku.jpeg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -896,7 +904,7 @@
       "economy": 0,
       "photo": "IMG_6948_Nisarg%20Dewang.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -911,7 +919,7 @@
       "economy": 7.75,
       "photo": "Screenshot%202024-08-27%20at%204.08.51%20PM_Harsh%20Patel.png",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -926,7 +934,7 @@
       "economy": 0,
       "photo": "2323D6A3-1C54-42D6-9D39-0CA7B88107FC_Kanhaiya%20Lal%20Swarnka.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -941,7 +949,7 @@
       "economy": 14.75,
       "photo": "ShubhamGupta_Shubham%20Gupta.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -956,22 +964,22 @@
       "economy": 0,
       "photo": "IMG_1327_Mohammedsohel%20Tai.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
     {
       "id": 65,
-      "name": "Robin Kapil",
+      "name": "Robin Katil",
       "battingStyle": "Right Handed Batsman",
       "bowlingStyle": "Right-arm medium",
       "runs": 14,
       "average": 14,
       "wickets": 1,
       "economy": 4,
-      "photo": "robin_Robin%20Kapil.jpg",
+      "photo": "robin_Robin%20Katil.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -986,7 +994,7 @@
       "economy": 0,
       "photo": "1%20photo%20added_Kariya%20Yash%20Nitinbha.jpeg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1001,7 +1009,7 @@
       "economy": 8,
       "photo": "20230303_144305_Keyur%20Brahmbhatt.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1016,7 +1024,7 @@
       "economy": 8.15,
       "photo": "Image%20(1)_Bambhaniya%20Parth%20Mah.png",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1031,7 +1039,7 @@
       "economy": 0,
       "photo": "??",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1046,7 +1054,7 @@
       "economy": 0,
       "photo": "naresh_Sarvaiya%20Nareshbhai.png",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1061,7 +1069,7 @@
       "economy": 3.91,
       "photo": "Udayraj-Photo_Uday%20Khuman.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1076,7 +1084,7 @@
       "economy": 0,
       "photo": "??",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1091,7 +1099,7 @@
       "economy": 0,
       "photo": "1607116_593646837373196_1924564357_n_Pintu%20Bhensdadia.jpg",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     },
@@ -1106,7 +1114,7 @@
       "economy": 0,
       "photo": "DikenShah.PNG",
       "basePrice": 1,
-      "Category": "D",
+      "Category": "Bronze",
       "isSold": false,
       "isUnsold": false
     }
@@ -1116,7 +1124,7 @@
       "id": 1,
       "name": "Masters (Milan)",
       "totalKitty": 120000,
-      "availableKitty": 120000,
+      "availableKitty": 114000,
       "totalPlayer": 15,
       "players": []
     },
@@ -1132,7 +1140,7 @@
       "id": 3,
       "name": "Indians (Sharvil)",
       "totalKitty": 120000,
-      "availableKitty": 120000,
+      "availableKitty": 118000,
       "totalPlayer": 15,
       "players": []
     },
@@ -1140,7 +1148,7 @@
       "id": 4,
       "name": "Giant Killers (Ankit)",
       "totalKitty": 120000,
-      "availableKitty": 120000,
+      "availableKitty": 110000,
       "totalPlayer": 15,
       "players": []
     },
@@ -1148,7 +1156,7 @@
       "id": 5,
       "name": "Terminators (Chetan)",
       "totalKitty": 120000,
-      "availableKitty": 120000,
+      "availableKitty": 115000,
       "totalPlayer": 15,
       "players": []
     }

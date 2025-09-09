@@ -1,8 +1,10 @@
 /* eslint-disable  */
-import { MenuItem, Select } from '@mui/material';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
+import { Filter, Search, Trophy, DollarSign, Target, Users, Flame } from 'lucide-react';
 import { useFetchPlayersQuery, useLazyFetchPlayersQuery } from '../../../redux/api/playersApi';
-import { getRandomUniquePlayerId, resetPickedIds } from '../../../utils';
+import { getRandomUniquePlayerId, resetPickedIds } from '../../../lib/utils';
+import { cn } from '../../../lib/utils';
 import DrawerMenu from '../drawer/DrawerMenu';
 import PlayerDetails from '../playerDetails/PlayerDetails';
 
@@ -105,7 +107,7 @@ function PlayersList({ path }) {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '450px' }}>
+    <div className="flex min-h-screen">
       <DrawerMenu
         players={players}
         selectedPlayerId={selectedPlayerId}
@@ -115,171 +117,70 @@ function PlayersList({ path }) {
         path={path}
       />
       <div
-        style={{
-          flexGrow: 1,
-          transition: 'margin-left 0.3s',
-          marginLeft: drawerOpen ? `${drawerWidthOpen}px` : `${drawerWidthClosed}px`,
-        }}
+        className={cn(
+          'flex-1 transition-all duration-300 ease-in-out',
+          drawerOpen ? 'ml-64' : 'ml-8',
+        )}
       >
-        <Select
-          label="Select Category"
-          variant="outlined"
-          fullWidth
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-          MenuProps={{
-            PaperProps: {
-              sx: {
-                bgcolor: '#333', // Background color for the entire dropdown menu
-                '& .MuiList-root': {
-                  padding: 0,
-                },
-              },
-            },
-          }}
-          sx={{
-            width: '45%',
-            backgroundColor: '#333', // Background color
-            color: '#fff', // Text color
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: '#fff',
-              },
-              '&:hover fieldset': {
-                borderColor: '#fff',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: '#fff',
-              },
-              '&.Mui-focused:hover fieldset': {
-                borderColor: '#fff',
-              },
-            },
-            '& .MuiSelect-root': {
-              color: '#fff',
-            },
-            '& .MuiSelect-icon': {
-              color: '#fff',
-            },
-          }}
+        {/* Modern Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mb-6"
+          style={{ display: 'flex', justifyContent: 'flex-end', gap: '1.5rem', marginLeft: '1rem' }}
         >
-          <MenuItem
-            value="All"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            All
-          </MenuItem>
-          <MenuItem
-            value="AP"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category A+
-          </MenuItem>
-          <MenuItem
-            value="A"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category A
-          </MenuItem>
-          <MenuItem
-            value="B"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category B
-          </MenuItem>
-          <MenuItem
-            value="C"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category C
-          </MenuItem>
-          <MenuItem
-            value="D"
-            sx={{
-              backgroundColor: '#333',
-              color: '#fff',
-              '&.Mui-selected': {
-                backgroundColor: '#4d4d4d',
-                color: '#fff',
-                '&:hover': {
-                  backgroundColor: '#4d4d4d',
-                },
-              },
-              '&:hover': {
-                backgroundColor: '#4d4d4d',
-              },
-            }}
-          >
-            Category D
-          </MenuItem>
-        </Select>
+          <div className="flex items-center space-x-3 mb-4 ">
+            <Filter className="h-5 w-5 text-cricket-gold" />
+            <span className="text-white font-semibold text-lg">Filter by Category</span>
+          </div>
+          {/* <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cricket-gold/50">
+            <img
+              src={`/assets/${data[0].photo}`}
+              alt={data[0].name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <div
+              className="w-full h-full bg-gradient-to-br from-cricket-green to-cricket-lightgreen flex items-center justify-center"
+              style={{ display: 'none' }}
+            >
+              <Users className="h-8 w-8 text-white" />
+            </div>
+          </div> */}
+          <div className="relative w-full max-w-xs">
+            <select
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+              className="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white backdrop-blur-sm focus:border-cricket-lightgreen focus:ring-2 focus:ring-cricket-lightgreen/50 focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
+            >
+              <option value="All" className="bg-cricket-stadium text-white">
+                All Categories
+              </option>
+              <option value="Elite" className="bg-cricket-stadium text-white">
+                Elite Category
+              </option>
+              <option value="Plate" className="bg-cricket-stadium text-white">
+                Plate Category
+              </option>
+              <option value="Silver" className="bg-cricket-stadium text-white">
+                Silver Category
+              </option>
+              <option value="Bronze" className="bg-cricket-stadium text-white">
+                Bronze Category
+              </option>
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <Filter className="h-4 w-4 text-white/70" />
+            </div>
+          </div>
+        </motion.div>
+
         <PlayerDetails
-          selectedPlayer={data.find((player) => player.id === selectedPlayerId)}
+          selectedPlayer={data?.find((player) => player.id === selectedPlayerId)}
           handleNextPlayer={handleNextPlayer}
         />
       </div>
