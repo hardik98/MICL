@@ -39,7 +39,7 @@ function Team() {
     };
 
     window.addEventListener('storage', handleStorageChange);
-    
+
     // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('storage', handleStorageChange);
@@ -122,7 +122,6 @@ function Team() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
                 className="transform transition-all duration-300"
               >
                 <TeamDetails teamInfo={team} />

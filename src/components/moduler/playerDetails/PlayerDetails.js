@@ -301,7 +301,6 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
               {/* Sold Price Input */}
               <div className="space-y-3">
                 <label className="flex items-center space-x-2 text-white font-medium text-lg">
-                  <DollarSign className="h-5 w-5 text-cricket-gold" />
                   <span>Sold Price (in thousands)</span>
                 </label>
                 <Input
@@ -316,7 +315,6 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
               {/* Team Selection */}
               <div className="space-y-3">
                 <label className="flex items-center space-x-2 text-white font-medium text-lg">
-                  <Users className="h-5 w-5 text-cricket-gold" />
                   <span>Sold To Team</span>
                 </label>
                 <select
@@ -370,16 +368,16 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                 <Button
                   disabled={isDisabled}
                   onClick={handlePlayerSold}
-                  className="flex items-center space-x-2 px-8 py-3 text-lg"
+                  className="flex bg-blue-700 items-center space-x-2 px-8 py-3 text-lg"
                 >
                   <CheckCircle className="h-5 w-5" />
-                  <span>Confirm Sale</span>
+                  <span style={{ fontWeight: 'bold' }}>Confirm Sale</span>
                 </Button>
                 <Button
                   onClick={handleClose}
                   className="flex items-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300"
                 >
-                  Cancel
+                  <span style={{ fontWeight: 'bold' }}> Cancel </span>
                 </Button>
               </div>
             </div>
@@ -693,7 +691,7 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                         className="flex-1 bg-cricket-lightgreen hover:bg-cricket-lightgreen/80 flex items-center justify-center space-x-2"
                       >
                         <Trophy className="h-4 w-4" />
-                        <span>Mark as Sold</span>
+                        <span style={{ fontWeight: 'bolder' }}>Mark as Sold</span>
                       </Button>
                     ) : (
                       <Button
@@ -701,23 +699,23 @@ function PlayerDetails({ selectedPlayer, handleNextPlayer }) {
                         className="flex-1 bg-cricket-lightgreen hover:bg-cricket-lightgreen/80 flex items-center justify-center space-x-2"
                       >
                         <Trophy className="h-4 w-4" />
-                        <span>Edit Sale</span>
+                        <span style={{ fontWeight: 'bolder' }}>Edit Sale</span>
                       </Button>
                     )}
 
                     <Button
                       variant="outline"
                       onClick={selectedPlayer.isSold ? handleNextPlayer : handleSkip}
-                      className="flex-1 flex items-center justify-center space-x-2"
+                      className="flex-1 bg-gray-500 flex items-center justify-center space-x-2"
                     >
                       {selectedPlayer.isSold ? (
                         <>
-                          <span>Next Player</span>
+                          <span style={{ fontWeight: 'bolder' }}>Next Player</span>
                         </>
                       ) : (
                         <>
                           <X className="h-4 w-4" />
-                          <span>Mark Unsold</span>
+                          <span style={{ fontWeight: 'bolder' }}>Mark Unsold</span>
                         </>
                       )}
                     </Button>
