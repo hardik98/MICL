@@ -122,7 +122,14 @@ const categoryStyles = {
   },
 };
 
-const categoryPriorityOrder = ['AP', 'A', 'B', 'C', 'D', 'E'];
+const categoryPriorityOrder = ['Elite', 'Plate', 'Silver', 'Bronze'];
+
+const categoryColors = {
+  Elite: 'bg-yellow-500 border-yellow-600 text-black',
+  Plate: 'bg-sky-500 border-sky-600 text-white',
+  Silver: 'bg-gray-400 border-gray-500 text-black',
+  Bronze: 'bg-amber-700 border-amber-800 text-white',
+};
 
 export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
   const [isSellDialogOpen, setIsSellDialogOpen] = useState(false);
@@ -284,13 +291,8 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
   );
   console.log('Get total', getTotalPlayerForCategory(selectedPlayer?.Category));
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-    >
-      <Card className="bg-white/10 backdrop-blur-sm border-white/30 hover:border-cricket-gold/50 transition-all duration-300 w-full h-[450px] flex flex-col">
+    <div>
+      <Card className="bg-white/10 backdrop-blur-sm border-white/30 hover:border-cricket-gold/50 w-full h-[450px] flex flex-col">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -353,70 +355,65 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
           {/* Players by Category */}
           {teamInfo.players.length > 0 && (
             <div className="flex-1 flex flex-col min-h-0">
-              <h4 className="text-white font-medium flex items-center space-x-2 mb-3">
-                <Users className="h-4 w-4 text-cricket-gold" />
-                <span>Squad</span>
-              </h4>
-
               <div
                 className="flex-1 overflow-y-auto space-y-2 pr-2 max-h-[280px]"
                 style={{ minHeight: 1200 }}
               >
-                {Object.entries(groupedPlayers).map(([category, players]) => (
-                  <div key={category} className="space-y-2">
-                    <div className="bg-cricket-gold/20 border border-cricket-gold/40 rounded-lg px-3 py-2 sticky top-0 z-10">
-                      <span className="text-cricket-gold font-semibold text-sm">
-                        Category {category} ({players.length})
-                      </span>
-                    </div>
-                    <div className="space-y-1">
-                      {players.map((player) => (
-                        <motion.div
-                          key={player.id}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          className="flex items-center justify-between bg-white/5 border border-white/20 rounded-lg p-2 hover:bg-white/10 transition-colors"
-                        >
-                          <div className="flex items-center space-x-2">
-                            <div className="w-8 h-8 rounded-full overflow-hidden border border-cricket-gold/50">
-                              <img
-                                src={`/assets/${player.photo}`}
-                                alt={player.name}
-                                className="w-full h-full object-cover"
-                                onError={(e) => {
-                                  e.target.style.display = 'none';
-                                  e.target.nextSibling.style.display = 'flex';
-                                }}
-                              />
-                              <div
-                                className="w-full h-full bg-gradient-to-br from-cricket-green to-cricket-lightgreen flex items-center justify-center"
-                                style={{ display: 'none' }}
-                              >
-                                <Users className="h-4 w-4 text-white" />
+                {categoryPriorityOrder
+                  .filter((category) => groupedPlayers[category])
+                  .map((category) => (
+                    <div key={category} className="space-y-2">
+                      <div
+                        className={`rounded-lg px-3 py-1 sticky top-0 z-10 ${
+                          categoryColors[category] || 'bg-gray-700 border-gray-500 text-white'
+                        }`}
+                      >
+                        {' '}
+                        Category {category} ({groupedPlayers[category].length})
+                      </div>
+                      <div className="space-y-1">
+                        {groupedPlayers[category].map((player) => (
+                          <div
+                            key={player.id}
+                            className="flex items-center justify-between bg-white/5 border border-white/20 rounded-lg p-2 hover:bg-white/10"
+                          >
+                            <div className="flex items-center space-x-2">
+                              <div className="w-8 h-8 rounded-full overflow-hidden border border-cricket-gold/50">
+                                <img
+                                  src={`/assets/${player.photo}`}
+                                  alt={player.name}
+                                  className="w-full h-full object-cover"
+                                  onError={(e) => {
+                                    e.target.style.display = 'none';
+                                    e.target.nextSibling.style.display = 'flex';
+                                  }}
+                                />
+                                <div
+                                  className="w-full h-full bg-gradient-to-br from-cricket-green to-cricket-lightgreen flex items-center justify-center"
+                                  style={{ display: 'none' }}
+                                >
+                                  <Users className="h-4 w-4 text-white" />
+                                </div>
                               </div>
+                              <span className="text-white text-sm font-medium">{player.name}</span>
                             </div>
-                            <span className="text-white text-sm font-medium">{player.name}</span>
+                            <div className="flex items-center space-x-2">
+                              <span className="text-cricket-gold text-sm font-semibold">
+                                {player.soldPrice}K
+                              </span>
+                              {!player.soldTo && (
+                                <Button
+                                  disabled={isSellDisabled}
+                                  onClick={() => handleSellClick(player)}
+                                  className="ml-2 p-1 h-6 w-6"
+                                ></Button>
+                              )}
+                            </div>
                           </div>
-                          <div className="flex items-center space-x-2">
-                            <DollarSign className="h-3 w-3 text-cricket-gold" />
-                            <span className="text-cricket-gold text-sm font-semibold">
-                              {player.soldPrice}K
-                            </span>
-                            {!player.soldTo && (
-                              <Button
-                                disabled={isSellDisabled}
-                                onClick={() => handleSellClick(player)}
-                                className="ml-2 p-1 h-6 w-6"
-                              >
-                                <DollarSign className="h-3 w-3" />
-                              </Button>
-                            )}
-                          </div>
-                        </motion.div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           )}
@@ -571,6 +568,6 @@ export default function TeamDetails({ teamInfo, teams = [], onPlayerSold }) {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </motion.div>
+    </div>
   );
 }
